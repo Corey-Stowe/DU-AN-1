@@ -98,7 +98,7 @@ extract($data);
                             </table>
                             <br>
                             <div class="inline-flex flex-wrap xl:flex gap-1">
-                            <a href="admin.php?act=adddm"><button class="btn btn-two-tune">Thêm danh mục mới</button></a>
+                            <a href="admin.php?act=adddm"><button class="btn btn-two-tune">Hồi phục lại</button></a>
                             <button class="btn btn-default">Chọn tất cả</button>
                             <button class="btn btn-default">Bỏ chọn tất cả</button>
                             <button class="btn btn-default">Xóa các mục đã chọn</button>

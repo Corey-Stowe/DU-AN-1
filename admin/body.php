@@ -6,7 +6,7 @@
                                             <div class="text-center">
                                                 <img src="img/others/welcome.png" alt="Welcome" class="mx-auto mb-8">
                                                 <h3 class="mb-2">Chào mừng bạn đến với trang quản trị</h3>
-                                                <p class="text-base">Đế bắt đầu sử dụng vui lòng chọn các chức năng ở bên trái</p>
+                                                <p class="text-base">Đế bắt đầu sử dụng vui lòng chọn các chức năng ở bên phải</p>
                                                 <div class="mt-8 max-w-[350px] mx-auto">
                                                     <button class="btn btn-solid block w-full mb-2 next-button">Hướng dẫn sử dụng</button>
                                                     <button class="btn btn-plain block w-full skip-button">Quản lý thông tin cá nhân</button>

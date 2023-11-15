@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="shortcut icon" href="img/favicon.ico">
-		<title>Elstar - HTML Tailwind Admin Template</title>
+		<title>Admin</title>
 
 		<!-- Core CSS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -66,8 +66,111 @@
 											</div>
 											<ul>
 												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsp">
+														<span>Danh sách sản Phẩm</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
 													<a class="h-full w-full flex items-center" href="admin.php?act=addsp">
 														<span>Thêm Sản Phẩm</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsoftdellsp">
+														<span>Sản phẩm đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"></path>
+                                        </svg>
+												<span class="menu-item-text">Đơn hàng</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdonhang">
+														<span>Danh sách đơn hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>Đơn hàng đã hủy</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path>
+                                            </svg>
+												<span class="menu-item-text">Khách Hàng</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listkh">
+														<span>Danh sách khách hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+														<span>Thêm khách hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>khách hàng đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path>
+                                            </svg>
+												<span class="menu-item-text">Quản lý Bình Luận</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
+														<span>1</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+														<span>2</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>3</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+												</svg>
+												<span class="menu-item-text">Quản Lý Tài Khoản</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
+														<span>1</span>
 													</a>
 												</li>
 												<li data-menu-item="modern-project-list" class="menu-item">
@@ -90,9 +193,65 @@
 										<li class="menu-collapse">
 											<div class="menu-collapse-item">
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
-                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"></path>
+                                            	<path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"></path>
                                             </svg>
-												<span class="menu-item-text">Sản Phẩm</span>
+												<span class="menu-item-text">Quản lý Nhân Viên</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
+														<span>1</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+														<span>2</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>3</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+                                            </svg>
+												<span class="menu-item-text">Quản lý Banner ảnh</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
+														<span>1</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+														<span>2</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>3</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"></path>
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"></path>
+                                                                        </svg>
+												<span class="menu-item-text">Thống Kê</span>
 											</div>
 											<ul>
 												<li data-menu-item="modern-project-dashboard" class="menu-item">
