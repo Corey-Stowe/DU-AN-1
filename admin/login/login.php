@@ -1,3 +1,43 @@
+<?php
+session_start();
+include "../../module/PDO.php";
+include "../../module/account.php";
+if(isset($_POST['submit'])){
+    $email = $_POST['email'];
+    $mat_khau = $_POST['password'];
+    $data = admin_login($email,$mat_khau);
+    $error = [];
+    if(empty($data)){
+        $error['login'] = "Tài khoản hoặc mật khẩu không đúng";
+    }
+    if(empty($error)){
+        extract($data);
+       if($ten_quyen == "Admin"){
+            $_SESSION['admin'] = $ten_quyen;
+            $_SESSION['tennv'] = $ten_khach_hang;
+            $_SESSION['manv'] = $ma_nhan_vien;
+            $_SESSION['anhdaidien'] = $avt;
+            $_SESSION['quyen'] = $quyen;
+            $_SESSION['email'] = $email;
+           header("location:../admin.php");
+        }
+        if($ten_quyen == "nhan vien"){
+            $_SESSION['admin'] = "Nhân Viên";
+            $_SESSION['tennv'] = $ten_khach_hang;
+            $_SESSION['manv'] = $ma_nhan_vien;
+            $_SESSION['anhdaidien'] = $avt;
+            $_SESSION['quyen'] = $quyen;
+            $_SESSION['email'] = $email;
+            header("location:../admin.php");
+            
+        } else {
+            $error['login'] = "Bạn không có quyền truy cập vào trang này";
+        }            
+    }
+   
+}
+
+?>
 <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,23 +85,23 @@
                                             <p>Please enter your credentials to sign in!</p>
                                         </div>
                                         <div>
-                                            <form action="#">
+                                            <form action=" " method="POST">
                                                 <div class="form-container vertical">
                                                     <div class="form-item vertical">
-                                                        <label class="form-label mb-2">User Name</label>
+                                                        <label class="form-label mb-2">Email</label>
                                                         <div>
                                                             <input
                                                                 class="input"
                                                                 type="text"
-                                                                name="userName"
+                                                                name="email"
                                                                 autocomplete="off"
-                                                                placeholder="User Name"
+                                                                placeholder="Email"
                                                                 value=""
                                                             >
                                                         </div>
                                                     </div>
                                                     <div class="form-item vertical">
-                                                        <label class="form-label mb-2">Password</label>
+                                                        <label class="form-label mb-2">Mật Khẩu</label>
                                                         <div>
                                                             <span class="input-wrapper">
                                                                 <input
@@ -96,15 +136,16 @@
                                                             <input class="checkbox" type="checkbox" value="true" checked>
                                                             <span class="ltr:ml-2 rtl:mr-2">Remember Me</span>
                                                         </label>
-                                                        <a class="text-primary-600 hover:underline" href="forgot-password-side.html">Forgot Password?</a>
                                                     </div>
-                                                    <button class="btn btn-solid w-full" type="submit">Sign In</button>
-                                                    <div class="mt-4 text-center">
-                                                        <span>Don't have an account yet?</span>
-                                                        <a class="text-primary-600 hover:underline" href="signup-side.html">Sign up</a>
-                                                    </div>
+                                                    <button class="btn btn-solid w-full" type="submit" name="submit">Đăng Nhập</button>
+                                                   
                                                 </div>
                                             </form>
+                                            <?php
+                                            if(isset($error['login'])){
+                                                echo '<div class="alert alert-danger">'.$error['login'].'</div>';
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

@@ -345,26 +345,17 @@ $ngay_them_convert = date("m/d/Y", strtotime($ngay_them));
                                                     </div>
                                                 </div>
                                                 <div id="stickyFooter" class="sticky -bottom-1 -mx-8 px-8 flex items-center justify-between py-4">
+                                                   
                                                     <button class="btn btn-plain btn-sm" type="button">
                                                         <span class="flex items-center justify-center text-red-600">
                                                             <span class="text-lg">
-                                                                <svg
-                                                                    stroke="currentColor"
-                                                                    fill="none"
-                                                                    stroke-width="2"
-                                                                    viewBox="0 0 24 24"
-                                                                    aria-hidden="true"
-                                                                    height="1em"
-                                                                    width="1em"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                                                                </svg>
+                                                               
                                                             </span>
-                                                            <span class="ltr:ml-1 rtl:mr-1">Xóa</span>
-                                                        </span>
+                                                            <span class="ltr:ml-1 rtl:mr-1"></span>
+                                                         </span>
                                                     </button>                                                    
                                                     <div class="md:flex items-center">
+                                                        <a href="admin.php?act=listsp"></a>
                                                         <button class="btn btn-default btn-sm ltr:mr-2 rtl:ml-2" type="button">Hủy chỉnh sửa</button>
                                                         <button class="btn btn-solid btn-sm" type="submit" name="submit">
                                                             <span class="flex items-center justify-center">
@@ -511,3 +502,8 @@ document.getElementById('hiddenDescriptionInput').value = descriptionValue;
 </script>
 <script src="https://cdn.tiny.cloud/1/wi4t8493gpd7t7lckegg8r2amktox0nngnlhlutio03hdlhq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 							</main>
+<script>
+    function confirmDelete() {
+        return confirm('Bạn có chắc chắn muốn xóa không?');
+    }
+</script>

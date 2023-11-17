@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+$ten_nhan_vien= $_SESSION['tennv'];
+$ma_nhan_vien = $_SESSION['manv'];
+$avt = $_SESSION['anhdaidien'];
+$quyen = $_SESSION['admin'];
+$email = $_SESSION['email'];
+$ma_quyen = $_SESSION['quyen'];
+													?>
 <html lang="en" dir="ltr" class="light">
 	
 <!-- Mirrored from www.themenate.net/elstar-html/modern-project-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Nov 2023 10:45:01 GMT -->
@@ -7,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="shortcut icon" href="img/favicon.ico">
-		<title>Admin</title>
+		<title>Quản trị Admin</title>
 
 		<!-- Core CSS -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -120,12 +128,12 @@
 													</a>
 												</li>
 												<li data-menu-item="modern-project-list" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+													<a class="h-full w-full flex items-center" href="admin.php?act=addkh">
 														<span>Thêm khách hàng</span>
 													</a>
 												</li>
 												<li data-menu-item="modern-scrum-board" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsoftdellkh">
 														<span>khách hàng đã xóa</span>
 													</a>
 												</li>
@@ -142,20 +150,16 @@
 											</div>
 											<ul>
 												<li data-menu-item="modern-project-dashboard" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
-														<span>1</span>
+													<a class="h-full w-full flex items-center" href="admin.php?act=listbl">
+														<span>Danh sách bình luận</span>
 													</a>
 												</li>
-												<li data-menu-item="modern-project-list" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
-														<span>2</span>
+												<!-- <li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=blsoftdellklist">
+														<span>Bình luận đã xóa</span>
 													</a>
-												</li>
-												<li data-menu-item="modern-scrum-board" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
-														<span>3</span>
-													</a>
-												</li>
+												</li> -->
+												
 											</ul>
 										</li>
 									</ul>
@@ -187,6 +191,10 @@
 										</li>
 									</ul>
 								</div>
+								<?php
+								if($ma_quyen == 1){
+								
+								?>
 								<div class="menu-group">
 									<div class="menu-title">Mục dành cho Admin</div>
 									<ul>
@@ -273,6 +281,12 @@
 										</li>
 									</ul>
 								</div>
+								<?php
+								} else{
+									echo "";
+								}
+								?>
+								
 							</nav>
 						</div>
 					</div>	
@@ -460,10 +474,11 @@
 										<div class="dropdown-toggle" id="user-dropdown" data-bs-toggle="dropdown">
 											<div class="header-action-item flex items-center gap-2">
 												<span class="avatar avatar-circle" data-avatar-size="32" style="width: 32px">
-												<img class="avatar-img avatar-circle" src="img/avatars/thumb-1.jpg" loading="lazy" alt=""></span>
+												<img class="avatar-img avatar-circle" src="../image/<?php echo $avt?>" loading="lazy" alt=""></span>
 												<div class="hidden md:block">
-													<div class="text-xs capitalize">admin</div>
-													<div class="font-bold">Carolyn Perkins</div>
+												
+													<div class="text-xs capitalize"><?php echo $quyen?></div>
+													<div class="font-bold"><?php echo $ten_nhan_vien?></div>
 												</div>
 											</div>
 										</div>
@@ -471,11 +486,11 @@
 											<li class="menu-item-header">
 												<div class="py-2 px-3 flex items-center gap-2">
 													<span class="avatar avatar-circle avatar-md">
-														<img class="avatar-img avatar-circle" src="img/avatars/thumb-1.jpg" loading="lazy" alt="">
+														<img class="avatar-img avatar-circle" src="../image/<?php echo $avt?>" loading="lazy" alt="">
 													</span>
 													<div>
-														<div class="font-bold text-gray-900 dark:text-gray-100">Carolyn Perkins</div>
-														<div class="text-xs">carolyn.p@elstar.com</div>
+														<div class="font-bold text-gray-900 dark:text-gray-100"><?php echo $ten_nhan_vien?></div>
+														<div class="text-xs"><?php echo $email?></div>
 													</div>
 												</div>
 											</li>

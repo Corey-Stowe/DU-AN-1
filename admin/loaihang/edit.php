@@ -46,7 +46,9 @@ if(is_array($data)){
                                                 </div>
                                                 <div id="stickyFooter" class="sticky -bottom-1 -mx-8 px-8 flex items-center justify-end py-4">
                                                     <div class="md:flex items-center">
-                                                        <a href="admin.php?act=listdm"><button class="btn btn-default btn-sm ltr:mr-2 rtl:ml-2" type="button"  name="back">Quay lại</button></a>
+                                                        <a href="admin.php?act=listdm"><button class="btn btn-default btn-sm ltr:mr-2 rtl:ml-2"
+                                                         type="button"  
+                                                         name="back">Quay lại</button></a>
                                                         <button class="btn btn-solid btn-sm" type="submit" name="submit">
                                                             <span class="flex items-center justify-center">
                                                                 <span class="text-lg">

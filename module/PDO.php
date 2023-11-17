@@ -62,5 +62,20 @@ function pdo_query($sql){
         unset($stmt);
     }
 }
+function pdo_query_value($sql){
+    $sql_args = array_slice(func_get_args(),1);
+    try{
+        $stmt = $GLOBALS['PDO']->prepare($sql);
+        $stmt->execute($sql_args);
+        return $stmt->fetchColumn();
+    }
+    catch(PDOException $e){
+        echo $e->getMessage();
+        return false;
+    }
+    finally{
+        unset($stmt);
+    }
+}
 
 ?>

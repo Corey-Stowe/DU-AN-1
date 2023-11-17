@@ -4,8 +4,21 @@ ob_start();
 include "../module/PDO.php";
 include "../module/loai.php";
 include "../module/sanpham.php";
-include "head.php";
+include "../module/account.php";
+include "../module/comment.php";
 
+if(!isset($_SESSION['admin'])){
+   header("Location:login/login.php");
+
+} else {
+include "head.php";
+$ten_nhan_vien= $_SESSION['tennv'];
+$ma_nhan_vien = $_SESSION['manv'];
+$avt = $_SESSION['anhdaidien'];
+$quyen = $_SESSION['admin'];
+$email = $_SESSION['email'];
+$ma_quyen = $_SESSION['quyen'];
+									
 
     if(isset($_GET['act'])){
         $act=$_GET['act'];
@@ -244,6 +257,16 @@ include "head.php";
                 include "sanpham/listdell.php";
                 break;
             }   
+            case 'chitietsp':{
+                if(isset($_GET['ma_san_pham'])){
+                    $ma_san_pham=$_GET['ma_san_pham'];
+                    $data=sanpham_loadct($ma_san_pham);
+                } else {
+                    header("Location: admin.php?act=404");
+                }
+                include "sanpham/chitet.php";
+                break;
+            }
             case 'recoversp':{
                 $ma_san_pham=$_GET['ma_san_pham'];
                 sanpham_recover($ma_san_pham);
@@ -251,15 +274,115 @@ include "head.php";
                 break;
             }
             case 'listkh':{
+                $count_customer = account_count_customer();
+                $count_active_customer = account_count_active_customer();
+                $data=customer_list_all();
                 include "khachhang/list.php";
                 break;
-            }      
-           case 'login':{
-            include "login/login.php";
-            break;
+            }     
+            case 'editkh':{
+                if(isset($_GET['ma_khach_hang'])){
+                    $ma_khach_hang=$_GET['ma_khach_hang'];
+                    $data=get_customer_by_id($ma_khach_hang);          
 
-           }
+                } else {
+                  
+                }
+                if(isset($_POST['submit'])){
+                    $ten_khach_hang=$_POST['name'];
+                    $dia_chi=$_POST['diachi'];
+                    $sdt=$_POST['sdt'];
+                    $email=$_POST['email'];
+                    $trang_thai=$_POST['trangthai'];
+                    $ma_khach_hang=$_POST['makh'];
+                    admin_customer_update($ten_khach_hang,$dia_chi,$sdt,$email,$trang_thai,$ma_khach_hang);
+                    header("Location: admin.php?act=listkh");
+
+                }
+                include "khachhang/edit.php";
+                break;
+            }    
+        case 'addkh':{
+            if(isset($_POST['submit'])){
+                //do validate
+                $error = [];
+                if(empty($_POST['name'])){
+                    $error['ten_khach_hang']="Tên khách hàng không được để trống";
+                }
+                if(empty($_POST['email'])){
+                    $error['email']="Email không được để trống";
+                }
+                if(empty($_POST['matkhau'])){
+                    $error['mat_khau']="Mật khẩu không được để trống";
+                }
+                if(empty($error)){
+                    $ten_khach_hang=$_POST['name'];
+                    $dia_chi=$_POST['diachi'];
+                    $sdt=$_POST['sdt'];
+                    $email=$_POST['email'];
+                    $mat_khau=$_POST['matkhau'];
+                    $trang_thai=$_POST['trangthai'];
+                    $avt = $_FILES['avt']['name'];
+                    $target_dir = "../image/";  
+                    $target_file = $target_dir . basename($_FILES["avt"]["name"]);
+                    if (move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file)) {
+                        // echo "File " . htmlspecialchars(basename($_FILES["avt"]["name"])) . " đã được tải lên.";
+                    } else {
+                        // echo "deafut = noimage.jpg";
+                    }
+
+                    admin_customer_insert($ten_khach_hang,$dia_chi,$sdt,$email,$mat_khau,$avt,$trang_thai);
+                    header("Location: admin.php?act=listkh");
+                    
+                
+                }
+
+
+            }
+            include "khachhang/add.php";
+            break;
+        }
+        case 'softdelkh':{
+            $ma_khach_hang=$_GET['ma_khach_hang'];
+            admin_customer_softdelete($ma_khach_hang);
+            header("Location: admin.php?act=listsoftdellkh");   
+            break;
         
+        }
+        case 'listsoftdellkh':{
+            $data=admin_customer_list_softdelete();
+            include "khachhang/delete.php";
+            break;
+        }
+        case 'recoverkh':{
+            $ma_khach_hang=$_GET['ma_khach_hang'];
+            admin_customer_restore($ma_khach_hang);
+            header("Location: admin.php?act=listsoftdellkh");
+            break;
+        }
+        case 'dellkh':{
+            $ma_khach_hang=$_GET['ma_khach_hang'];
+            admin_customer_delete($ma_khach_hang);
+            header("Location: admin.php?act=listkh");
+            break;
+        }
+        case 'listbl':{
+            $data=comment_list();
+            include "binhluan/list.php";
+            break;
+        
+        }
+        case 'softdellbl':{
+            $ma_binh_luan=$_GET['ma_binh_luan'];
+            comment_softdel($ma_binh_luan);
+            break;
+        }
+        case 'listsoftdellbl':{
+            $ma_binh_luan=$_GET['ma_binh_luan'];
+            comment_softdel($ma_binh_luan);
+            header("Location: admin.php?act=listsoftdellbl");
+            break;
+        }
         default:{
                 include "404.php";
                 break;
@@ -268,6 +391,6 @@ include "head.php";
     } else {
         include "body.php";
     }
-  
+}
 ob_end_flush();
 ?>
