@@ -1,6 +1,6 @@
 <?php
 function admin_login($email,$mat_khau){
-    $sql = "SELECT * FROM khach_hang JOIN quyen ON khach_hang.quyen  = quyen.quyen WHERE email = '$email' AND mat_khau = '$mat_khau'";
+    $sql = "SELECT * FROM khach_hang JOIN quyen ON khach_hang.quyen  = quyen.quyen WHERE email = '$email' AND mat_khau = '$mat_khau' AND xoa = '0'";
     return pdo_execute_single($sql);
 }
 function account_count_customer(){
@@ -45,7 +45,47 @@ function admin_customer_delete($ma_khach_hang){
     $sql = "DELETE FROM khach_hang WHERE ma_khach_hang = '$ma_khach_hang'";
     return pdo_query($sql);
 }   
+function admin_get_nhan_vien_info($ma_nhan_vien){
+    $sql = "SELECT * FROM khach_hang WHERE ma_nhan_vien = '$ma_nhan_vien'";
+    return pdo_execute_single($sql);
 
+}
+function admin_update_info($ten_khach_hang,$email,$avt,$ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET ten_khach_hang = '$ten_khach_hang', email = '$email', avt = '$avt' WHERE ma_nhan_vien = '$ma_nhan_vien'";
+    return pdo_execute($sql);
+}
+function admin_update_password($mat_khau,$ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET mat_khau = '$mat_khau' WHERE ma_nhan_vien = '$ma_nhan_vien'";
+    return pdo_execute($sql);
+}
+function admin_update_info_noimg($ten_khach_hang,$email,$ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET ten_khach_hang = '$ten_khach_hang', email = '$email' WHERE ma_nhan_vien = '$ma_nhan_vien'";
+    return pdo_execute($sql);
+}
+function admin_list_employee(){
+    $sql = "SELECT * FROM khach_hang JOIN quyen ON  khach_hang.quyen = quyen.quyen WHERE khach_hang.quyen IN (1, 2) AND xoa = '0'";
+    return pdo_query($sql);
+}
+function admin_update_employee_info($ten_khach_hang, $email, $dia_chi, $sdt, $quyen, $ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET ten_khach_hang = '$ten_khach_hang', email = '$email', dia_chi = '$dia_chi', sdt = '$sdt', quyen = '$quyen' WHERE ma_nhan_vien = '$ma_nhan_vien'";
+    return pdo_execute($sql);
+}
+function admin_addnew_employee($ten_khach_hang,$dia_chi,$sdt,$email,$mat_khau,$ma_nhan_vien,$chuc_vu, $avt){
+    $sql = "INSERT INTO khach_hang(ten_khach_hang,dia_chi,sdt,email,mat_khau,ma_nhan_vien,quyen,avt) VALUES ('$ten_khach_hang','$dia_chi','$sdt','$email','$mat_khau','$ma_nhan_vien','$chuc_vu','$avt')";
+    return pdo_execute($sql);
+}
+function admin_softdelete_employee($ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET xoa=1 WHERE ma_nhan_vien = '$ma_nhan_vien'"; 
+    return pdo_query($sql);
+}
+function admin_restore_employee($ma_nhan_vien){
+    $sql = "UPDATE khach_hang SET xoa=0 WHERE ma_nhan_vien = '$ma_nhan_vien'"; 
+    return pdo_query($sql);
+}
+function admin_list_employee_softdelete(){
+    $sql = "SELECT * FROM khach_hang WHERE quyen IN (1, 2) AND xoa = '1'";
+    return pdo_query($sql);
+}
 // function account_admin_delete_byid($ma_khach_hang_list){
 //     // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_khach_hang_list = explode(",", $_GET["ma_khach_hang"]);

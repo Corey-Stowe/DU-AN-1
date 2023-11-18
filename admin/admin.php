@@ -6,7 +6,8 @@ include "../module/loai.php";
 include "../module/sanpham.php";
 include "../module/account.php";
 include "../module/comment.php";
-
+include "../module/order.php";
+include "../module/banner.php";
 if(!isset($_SESSION['admin'])){
    header("Location:login/login.php");
 
@@ -260,7 +261,8 @@ $ma_quyen = $_SESSION['quyen'];
             case 'chitietsp':{
                 if(isset($_GET['ma_san_pham'])){
                     $ma_san_pham=$_GET['ma_san_pham'];
-                    $data=sanpham_loadct($ma_san_pham);
+                    $data=sanphamct_get_byid($ma_san_pham);
+                    $listbl = sanpham_load_ctbl($ma_san_pham);
                 } else {
                     header("Location: admin.php?act=404");
                 }
@@ -283,9 +285,11 @@ $ma_quyen = $_SESSION['quyen'];
             case 'editkh':{
                 if(isset($_GET['ma_khach_hang'])){
                     $ma_khach_hang=$_GET['ma_khach_hang'];
-                    $data=get_customer_by_id($ma_khach_hang);          
+                    $data=get_customer_by_id($ma_khach_hang);  
+                    $data1=donhang_list_by_customer($ma_khach_hang);        
 
                 } else {
+                    header("Location: admin.php?act=404");
                   
                 }
                 if(isset($_POST['submit'])){
@@ -381,6 +385,279 @@ $ma_quyen = $_SESSION['quyen'];
             $ma_binh_luan=$_GET['ma_binh_luan'];
             comment_softdel($ma_binh_luan);
             header("Location: admin.php?act=listsoftdellbl");
+            break;
+        }
+        case 'account':{
+            $data = admin_get_nhan_vien_info($ma_nhan_vien);
+
+            if(isset($_POST['submit'])){
+                $ten_khach_hang=$_POST['name'];
+                $email=$_POST['email'];
+                $avt = $_FILES['avt']['name'];
+        //check image
+                if(empty($_FILES['avt']['name'])){
+                    $avt = $data['avt'];
+                } else {
+                    $target_dir = "../image/";  
+                    $target_file = $target_dir . basename($_FILES["avt"]["name"]);
+                    if (move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file)) {
+                        // echo "File " . htmlspecialchars(basename($_FILES["avt"]["name"])) . " đã được tải lên.";
+                    } else {
+                        // echo "deafut = noimage.jpg";
+                    }
+                }
+
+                admin_update_info($ten_khach_hang,$email,$avt,$ma_nhan_vien);
+                header("Location: admin.php?act=account");
+            }
+            if(isset($_POST['updatepass'])){
+                //do validate
+                $error = [];
+                if(empty($_POST['password'])){
+                    $error['password']="Mật khẩu cũ không được để trống";
+                }
+                if(empty($_POST['newpassword'])){
+                    $error['newpassword']="Mật khẩu mới không được để trống";
+                }
+                if(empty($_POST['confirmNewPassword'])){
+                    $error['confirmNewPassword']="Nhập lại mật khẩu không được để trống";
+                }
+                if($_POST['newpassword'] != $_POST['confirmNewPassword']){
+                    $error['renewpass']="Nhập lại mật khẩu không khớp";
+                }
+                //check old pass
+                $oldpass = $_POST['password'];
+                $data = admin_get_nhan_vien_info($ma_nhan_vien);
+                extract($data);
+                if($oldpass != $mat_khau){
+                    $error['oldpass']="Mật khẩu cũ không đúng";
+                }
+                if(empty($error)){
+                    $newpass = $_POST['newpass'];
+                    admin_update_password($newpass,$ma_nhan_vien);
+                    header("Location: admin.php?act=account");
+                }
+            }
+            include "account/edit.php";
+            break;
+        }
+        case 'listdonhang':{
+            $data = donhang_list();
+            include "donhang/list.php";
+            break;
+        
+        }
+        case 'ctdonhang':{
+            if(isset($_GET['ma_don_hang'])){
+                $ma_don_hang=$_GET['ma_don_hang'];
+                $data = donhang_get_chi_tiet($ma_don_hang);
+            } else {
+                header("Location: admin.php?act=404");
+            }   
+            include "donhang/chitiet.php";
+            break;
+        
+        }
+        case 'setthanhtoan':{
+            if(isset($_GET['ma_don_hang'])){
+                $ma_don_hang=$_GET['ma_don_hang'];
+                donhang_set_paid($ma_don_hang);
+                header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        
+        }
+        case 'setchuathanhtoan':{
+            if(isset($_GET['ma_don_hang'])){
+                $ma_don_hang=$_GET['ma_don_hang'];
+                donhang_set_unpaid($ma_don_hang);
+                header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        
+        }
+        case 'setxacthuc':{
+            if(isset($_GET['ma_don_hang'])){
+                $ma_don_hang=$_GET['ma_don_hang'];
+                donhang_set_verify($ma_don_hang);
+                header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        
+        }
+        case 'sethuydon':{
+            if(isset($_GET['ma_don_hang'])){
+                $ma_don_hang=$_GET['ma_don_hang'];
+                $data = donhang_get_chi_tiet($ma_don_hang);
+            } else {
+               header("Location: admin.php?act=listdonhang");
+            }
+            if(isset($_POST['submit'])){
+                $ma_don_hang=$_POST['ma_don_hang'];
+                $ghi_chu=$_POST['ghichu'];
+                donhang_set_ghichu($ma_don_hang,$ghi_chu);
+                donhang_set_cancel($ma_don_hang);
+                header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+            } 
+
+            include "donhang/conrfimhuy.php";
+            break;
+        
+        }
+        case 'addghichu':{
+            if(isset($_POST['submit'])){
+                $ma_don_hang=$_POST['ma_don_hang'];
+                $ghi_chu=$_POST['ghichu'];
+                donhang_set_ghichu($ma_don_hang,$ghi_chu);
+
+                header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        
+        
+        }
+        case 'listhuydon':{
+            $data = donhang_list_deleted();
+            include "donhang/delete.php";
+            break;
+    
+        
+        
+        }
+        case 'listnv':{
+            $data = admin_list_employee();
+            include "nhanvien/list.php";
+            break;
+        }
+        case 'editnv':{
+            if(isset($_GET['ma_nhan_vien'])){
+                $ma_nhan_vien=$_GET['ma_nhan_vien'];
+                $data=admin_get_nhan_vien_info($ma_nhan_vien);        
+
+            } else {
+                header("Location: admin.php?act=404");
+              
+            }
+            if(isset($_POST['submit'])){
+                $ten_khach_hang = $_POST['name'];
+                $dia_chi = $_POST['diachi'];
+                $sdt = $_POST['sdt'];
+                $email = $_POST['email'];
+                $quyen = $_POST['quyen'];
+                $ma_nhan_vien = $_POST['manv'];
+                echo "$ten_khach_hang, $dia_chi, $sdt, $email, $quyen, $ma_nhan_vien";
+                admin_update_employee_info($ten_khach_hang, $email, $dia_chi, $sdt, $quyen, $ma_nhan_vien);
+               header("Location: admin.php?act=listnv");
+            }
+            include "nhanvien/edit.php";
+            break;
+        }
+        case 'logout':{
+            session_destroy();
+            header("Location: admin.php");
+            break;
+        }
+        case 'addnv':{
+            if(isset($_POST['submit'])){
+                //do validate
+                $error = [];
+                if(empty($_POST['name'])){
+                    $error['ten_khach_hang']="Tên nhân viên không được để trống";
+                }
+                if(empty($_POST['email'])){
+                    $error['email']="Email không được để trống";
+                }
+                if(empty($_POST['matkhau'])){
+                    $error['mat_khau']="Mật khẩu không được để trống";
+                }
+                if(empty($_POST['manv'])){
+                    $error['manv']="Mã nhân viên không được để trống";
+                }
+                if($_POST['chuc_vu'] == 'concac'){
+                    $error['ma_loai']="Chức vụ không được để trống";
+                }
+                if(empty($error)){
+                    $ten_khach_hang=$_POST['name'];
+                    $dia_chi=$_POST['diachi'];
+                    $sdt=$_POST['sdt'];
+                    $email=$_POST['email'];
+                    $mat_khau=$_POST['matkhau'];
+                    $ma_nhan_vien=$_POST['manv'];
+                    $chuc_vu=$_POST['chuc_vu'];
+                    $avt = $_FILES['avt']['name'];
+                    $target_dir = "../image/";  
+                    $target_file = $target_dir . basename($_FILES["avt"]["name"]);
+                    if (move_uploaded_file($_FILES["avt"]["tmp_name"], $target_file)) {
+                        // echo "File " . htmlspecialchars(basename($_FILES["avt"]["name"])) . " đã được tải lên.";
+                    } else {
+                        // echo "deafut = noimage.jpg";
+                    }
+
+                   admin_addnew_employee($ten_khach_hang,$dia_chi,$sdt,$email,$mat_khau,$ma_nhan_vien,$chuc_vu, $avt);
+                    header("Location: admin.php?act=listnv");
+                    
+                
+                }
+
+
+            }
+            include "nhanvien/add.php";
+            break;
+        }
+        case 'softdellnv':{
+           if(isset($_GET['ma_nhan_vien'])){
+                $ma_nhan_vien=$_GET['ma_nhan_vien'];
+                admin_softdelete_employee($ma_nhan_vien);
+                header("Location: admin.php?act=listnv");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        }
+        case 'recovernv':{
+            if(isset($_GET['ma_nhan_vien'])){
+                $ma_nhan_vien=$_GET['ma_nhan_vien'];
+                admin_restore_employee($ma_nhan_vien);
+                header("Location: admin.php?act=listsoftdellnv");
+            } else {
+                header("Location: admin.php?act=404");
+            }
+            break;
+        }
+        case'listsoftdellnv':{
+            $data = admin_list_employee_softdelete();
+            include "nhanvien/delete.php";
+            break;
+        }
+        case'banner':{
+            $data = banner_list();
+            if(isset($_POST['submit'])){
+
+                    $ten_banner = $_POST['tieudebanner'];
+                    $link_banner = $_POST['lienketbanner'];
+                    $anh_banner = $_FILES['anh']['name'];
+                    $id_banner = $_POST['idbanner'];
+                    $target_dir = "../image/";  
+                    $target_file = $target_dir . basename($_FILES["anh"]["name"]);
+                    if (move_uploaded_file($_FILES["anh"]["tmp_name"], $target_file)) {
+                        // echo "File " . htmlspecialchars(basename($_FILES["avt"]["name"])) . " đã được tải lên.";
+                    } else {
+                        echo "deafut = noimage.jpg";
+                        // echo "$ten_banner, $link_banner, $anh_banner, $id_banner";
+                    }
+                    // echo "$ten_banner, $link_banner, $anh_banner, $id_banner";
+                    banner_insert($ten_banner,$anh_banner,$link_banner,$id_banner);
+          
+            }
+            include "banner/list.php";
             break;
         }
         default:{

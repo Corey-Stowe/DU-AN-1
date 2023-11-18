@@ -9,7 +9,7 @@ if(is_array($data)){
 <main class="h-full">
 								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
                                     <div class="card adaptable-card">
-                                        <h3 class="mb-4">Đơn hàng</h3>
+                                        <h3 class="mb-4">Đơn hàng đã hủy</h3>
                                         <div class="overflow-x-auto">
                                             <table id="order-list-table" class="table-default table-hover">
                                                 <thead>

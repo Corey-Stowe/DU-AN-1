@@ -4,7 +4,6 @@ foreach ($data as $list){
     extract($list); 
  }  
 
-
 ?>
 <main class="h-full">
 <style>
@@ -117,8 +116,8 @@ foreach ($data as $list){
                                                         </thead>
                                                         <tbody>
                                                         <?php
-                                                                extract($data);
-                                                                foreach ($data as $list){
+                                                                extract($listbl);
+                                                                foreach ($listbl as $list){
                                                                     extract($list); 
                                                                 
                                                                ?>

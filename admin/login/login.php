@@ -3,8 +3,8 @@ session_start();
 include "../../module/PDO.php";
 include "../../module/account.php";
 if(isset($_POST['submit'])){
-    $email = $_POST['email'];
-    $mat_khau = $_POST['password'];
+    $email = htmlspecialchars($_POST['email']);
+    $mat_khau = htmlspecialchars($_POST['password']);
     $data = admin_login($email,$mat_khau);
     $error = [];
     if(empty($data)){
@@ -67,22 +67,12 @@ if(isset($_POST['submit'])){
                                             <span class="avatar avatar-circle avatar-md border-2 border-white">
                                                 <img class="avatar-img avatar-circle" src="../img/avatars/thumb-10.jpg" loading="lazy">
                                             </span>
-                                            <div class="text-white">
-                                                <div class="font-semibold text-base">Brittany Hale</div>
-                                                <span class="opacity-80">CTO, Onward</span>
-                                            </div>
-                                        </div>
-                                        <p class="text-lg text-white opacity-80">Elstar comes with a complete set of UI components crafted with Tailwind CSS, it fulfilled most of the use case to create modern and beautiful UI and application</p>
-                                    </div>
-                                    <span class="text-white">Copyright © 2023
-                                        <span class="font-semibold">Elstar</span>
-                                    </span>
+                                            
                                 </div>
                                 <div class="col-span-2 flex flex-col justify-center items-center bg-white dark:bg-gray-800">
                                     <div class="xl:min-w-[450px] px-8">
-                                        <div class="mb-8">
-                                            <h3 class="mb-1">Welcome back!</h3>
-                                            <p>Please enter your credentials to sign in!</p>
+                                        <div class="mb-8">Chào mừng bạn!</h3>
+                                            <p>Vui lòng đăng nhập để truy cập trang quản trị!</p>
                                         </div>
                                         <div>
                                             <form action=" " method="POST">
@@ -134,7 +124,7 @@ if(isset($_POST['submit'])){
                                                     <div class="flex justify-between mb-6">
                                                         <label class="checkbox-label mb-0">
                                                             <input class="checkbox" type="checkbox" value="true" checked>
-                                                            <span class="ltr:ml-2 rtl:mr-2">Remember Me</span>
+                                                            <span class="ltr:ml-2 rtl:mr-2">Ghi nhớ đăng nhập</span>
                                                         </label>
                                                     </div>
                                                     <button class="btn btn-solid w-full" type="submit" name="submit">Đăng Nhập</button>
