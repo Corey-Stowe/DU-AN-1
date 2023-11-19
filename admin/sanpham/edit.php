@@ -129,13 +129,12 @@ $ngay_them_convert = date("m/d/Y", strtotime($ngay_them));
                                                                                 <?php
                                                                                 $loaiList = loai_list();
                                                                                 foreach ($loaiList as $item) {
-                                                                                    $ma_loai = $item['ma_loai'];
                                                                                     $ten_loai = $item['ten_loai'];
 
-                                                                                    if (isset($_GET['ma_loai']) && $_GET['ma_loai'] == $ma_loai) {
-                                                                                        echo '<option value="' . $ma_loai . '" selected>' . $ten_loai . '</option>';
+                                                                                    if ($ma_loai == $item['ma_loai']) {
+                                                                                        echo '<option value="' . $item['ma_loai'] . '" selected>' . $ten_loai . '</option>';
                                                                                     } else {
-                                                                                        echo '<option value="' . $ma_loai . '">' . $ten_loai . '</option>';
+                                                                                        echo '<option value="' . $item['ma_loai'] . '">' . $ten_loai . '</option>';
                                                                                     }
                                                                                 }
                                                                                 ?>

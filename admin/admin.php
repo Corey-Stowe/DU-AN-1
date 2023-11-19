@@ -8,6 +8,7 @@ include "../module/account.php";
 include "../module/comment.php";
 include "../module/order.php";
 include "../module/banner.php";
+include "../module/static.php";
 if(!isset($_SESSION['admin'])){
    header("Location:login/login.php");
 
@@ -379,6 +380,7 @@ $ma_quyen = $_SESSION['quyen'];
         case 'softdellbl':{
             $ma_binh_luan=$_GET['ma_binh_luan'];
             comment_softdel($ma_binh_luan);
+            header("Location: admin.php?act=listbl");
             break;
         }
         case 'listsoftdellbl':{
@@ -658,6 +660,29 @@ $ma_quyen = $_SESSION['quyen'];
           
             }
             include "banner/list.php";
+            break;
+        }
+        case 'dashboard':{
+            $today_order = count_today_orders();
+            $list_new_order = list_all_new_orders();
+            $list_comment = list_all_comment();
+            $toal_customer = toal_today_revenue();
+            $toal_order = count_week_orders();
+            $toal_comment = admin_count_binhluan();
+            $ord_stat = count_order_status();
+            include "thongke/dash.php";
+            break;
+        }
+        case 'salestat':{
+            $toal_oder_revenue = toal_week_revenue();
+            $purchases = toal_month_revenue();
+            $toal_order = count_week_orders();
+            $list_new_order = list_all_new_orders();
+            $count_loai_hang_selled = loai_hang_count_selling();
+            $top_selling = top_selling();
+            $days = list7_day();
+        
+            include "thongke/order.php";
             break;
         }
         default:{

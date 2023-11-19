@@ -245,20 +245,16 @@ $ma_quyen = $_SESSION['quyen'];
 											</div>
 											<ul>
 												<li data-menu-item="modern-project-dashboard" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
-														<span>1</span>
+													<a class="h-full w-full flex items-center" href="admin.php?act=dashboard">
+														<span>Thống kê</span>
 													</a>
 												</li>
 												<li data-menu-item="modern-project-list" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
-														<span>2</span>
+													<a class="h-full w-full flex items-center" href="admin.php?act=salestat">
+														<span>Thống kê đơn hàng</span>
 													</a>
 												</li>
-												<li data-menu-item="modern-scrum-board" class="menu-item">
-													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
-														<span>3</span>
-													</a>
-												</li>
+												
 											</ul>
 										</li>
 									</ul>
@@ -307,142 +303,19 @@ $ma_quyen = $_SESSION['quyen'];
 
 									<!-- Notification-->
 									<div class="dropdown">
-										<div class="dropdown-toggle" id="nav-notification-dropdown" data-bs-toggle="dropdown">
+										<div class="dropdown-toggle">
 											<div class="text-2xl header-action-item header-action-item-hoverable">
+												<a href="admin.php?act=dashboard"> 
 												<span class="badge-wrapper">
-													<span class="badge-dot badge-inner" style="top: 3px; right: 6px;"></span>
-													<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-													</svg>
+												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+                                                                        </svg>
+												
 												</span>
+												</a>
 											</div>
 										</div>
-										<ul class="dropdown-menu p-0 min-w-[280px] md:min-w-[340px]">
-											<li class="menu-item-header">
-												<div class="border-b border-gray-200 dark:border-gray-600 px-4 py-2 flex items-center justify-between">
-													<h6>Notifications</h6>
-													<span class="tooltip-wrapper">
-														<button class="button bg-transparent border border-transparent hover:bg-gray-50 dark:hover:bg-gray-600 active:bg-gray-100 dark:active:bg-gray-500 dark:active:border-gray-500 text-gray-600 dark:text-gray-100 radius-circle h-9 w-9 inline-flex items-center justify-center text-lg">
-															<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" class="text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path>
-															</svg>
-														</button>
-													</span>
-												</div>
-											</li>
-											<li class="relative">
-												<div class="max-h-[288px] overflow-y-auto relative notification-scroll">
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
-														<div>
-															<span class="avatar avatar-circle avatar-md">
-																<img class="avatar-img avatar-circle" src="img/avatars/thumb-8.jpg" loading="lazy" alt="">
-															</span>
-														</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span class="font-semibold heading-text">Jean Bowman </span>
-																<span>invited you to new project.</span>
-															</div>
-															<span class="text-xs">4 minutes ago</span>
-														</div>
-														<span class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
-														<div>
-															<span class="avatar avatar-circle avatar-md bg-primary-600 dark:bg-primary-600">
-																<span class="avatar-string avatar-inner-md">VK</span>
-															</span>
-														</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span class="font-semibold heading-text">Vickie Kim </span>
-																<span>comment in your ticket.</span>
-															</div>
-															<span class="text-xs">20 minutes ago</span>
-														</div>
-														<span class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
-														<div>
-															<span class="avatar avatar-circle avatar-md bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-100">
-																<span class="avatar-icon avatar-icon-md">
-																	<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-																			d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-																		</path>
-																	</svg>
-																</span>
-															</span>
-														</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span>Please submit your daily report.</span>
-															</div>
-															<span class="text-xs">1 hour ago</span>
-														</div>
-														<span class="badge-dot bg-primary-600  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
-														<div>
-															<span class="avatar avatar-circle avatar-md bg-red-100 text-red-600 dark:bg-red-500/20 dark:text-red-100">
-																<span class="avatar-icon avatar-icon-md">
-																	<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-																	</svg>
-																</span>
-															</span>
-														</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span>Your request was rejected</span>
-															</div>
-															<span class="text-xs">2 days ago</span>
-														</div>
-														<span class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20  border-b border-gray-200 dark:border-gray-600">
-														<div>
-															<span class="avatar avatar-circle avatar-md">
-																<img class="avatar-img avatar-circle" src="img/avatars/thumb-4.jpg" loading="lazy" alt="">
-															</span>
-														</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span class="font-semibold heading-text">Jennifer Ruiz </span>
-																<span>mentioned your in comment.</span>
-															</div>
-															<span class="text-xs">2 days ago</span>
-														</div>
-														<span class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-													<div class="relative flex px-4 py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-black dark:hover:bg-opacity-20">
-														<div>
-															<span class="avatar avatar-circle avatar-md bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100">
-																<span class="avatar-icon avatar-icon-md">
-																	<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-																	</svg>
-																</span>
-															</span>
-															</div>
-														<div class="ltr:ml-3 rtl:mr-3">
-															<div>
-																<span>Your request has been approved.</span>
-															</div>
-															<span class="text-xs">4 minutes ago</span>
-														</div>
-														<span class="badge-dot bg-gray-300  absolute top-4 ltr:right-4 rtl:left-4 mt-1.5"></span>
-													</div>
-												</div>
-											</li>
-											<li class="menu-item-header">
-												<div class="flex justify-center border-t border-gray-200 dark:border-gray-600 px-4 py-2">
-													<a class="font-semibold cursor-pointer p-2 px-3 text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white" href="modern-activity-log.html">
-														View All Activity
-													</a>
-												</div>
-											</li>
-										</ul>
+										
 									</div>
 									<!-- Config-->
 									<div class="text-2xl header-action-item header-action-item-hoverable" data-bs-toggle="modal" data-bs-target="#nav-config">
@@ -738,7 +611,7 @@ $ma_quyen = $_SESSION['quyen'];
 							<div class="modal-dialog drawer drawer-start !w-[330px]">
 								<div class="drawer-content">
 									<div class="drawer-header">
-										<h4>Navigation</h4>
+										
 										<span class="close-btn" role="button" data-bs-dismiss="modal">
 											<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -749,589 +622,236 @@ $ma_quyen = $_SESSION['quyen'];
 										<div class="side-nav-mobile">
 											<div class="side-nav-content relative side-nav-scroll">
 												<nav class="menu menu-transparent px-4 pb-4">
-													<div class="menu-group">
-														<div class="menu-title">Apps</div>
-														<ul>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-																	</svg>
-																	<span class="menu-item-text">Project</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-project-dashboard" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-project-dashboard.html">
-																			<span>Dashboard</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-project-list" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-project-list.html">
-																			<span>Project List</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-scrum-board" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-scrum-board.html">
-																			<span>Scrum Board</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-issue" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-issue.html">
-																			<span>Issue</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-																	</svg>
-																	<span class="menu-item-text">CRM</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-crm-dashboard" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-crm-dashboard.html">
-																			<span>Dashboard</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-calendar" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-calendar.html">
-																			<span>Calendar</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-customers" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-customers.html">
-																			<span>Customers</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-customer-details" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-customer-details.html">
-																			<span>Customer Details</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-mail" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-mail.html">
-																			<span>Mail</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-																	</svg>
-																	<span class="menu-item-text">Sales</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-sales-dashboard" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-sales-dashboard.html">
-																			<span>Dashboard</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-product-list" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-product-list.html">
-																			<span>Product List</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-product-edit" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-product-edit.html">
-																			<span>Product Edit</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-new-product" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-new-product.html">
-																			<span>New Product</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-order-list" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-order-list.html">
-																			<span>Order List</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-order-details" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-order-details.html">
-																			<span>Order Details</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-																	</svg>
-																	<span class="menu-item-text">Crypto</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-crypto-dashboard" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-crypto-dashboard.html">
-																			<span>Dashboard</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-portfolio" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-portfolio.html">
-																			<span>Portfolio</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-market" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-market.html">
-																			<span>Market</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-wallets" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-wallets.html">
-																			<span>Wallets</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-																	</svg>
-																	<span class="menu-item-text">Knowledge Base</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-help-center" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-help-center.html">
-																			<span>Help Center</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="stacked-side-article" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-article.html">
-																			<span>Article</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-manage-articles" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-manage-articles.html">
-																			<span>Manage Articles</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-edit-article" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-edit-article.html">
-																			<span>Edit Article</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-																	</svg>
-																	<span class="menu-item-text">Account</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-settings" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-settings.html">
-																			<span>Settings</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-invoice" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-invoice.html">
-																			<span>Invoice</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-activity-log" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-activity-log.html">
-																			<span>Activity Log</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-kyc-form" class="menu-item">
-																		<a class="h-full w-full flex items-center"  href="stacked-side-kyc-form.html">
-																			<span>KYC Form</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-													<div class="menu-group">
-														<div class="menu-title">UI Components</div>
-														<ul>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-																	</svg>
-																	<span class="menu-item-text">Common</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-button" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-button.html">
-																			<span>Button</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-grid" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-grid.html">
-																			<span>Grid</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-typography" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-typography.html">
-																			<span>Typography</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-icons" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-icons.html">
-																			<span>Icons</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
-																	</svg>
-																	<span class="menu-item-text">Feedback</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-alert" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-alert.html">
-																			<span>Alert</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-dialog" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-dialog.html">
-																			<span>Dialog</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-drawer" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-drawer.html">
-																			<span>Drawer</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-progress" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-progress.html">
-																			<span>Progress</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-skeleton" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-skeleton.html">
-																			<span>Skeleton</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-spinner" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-spinner.html">
-																			<span>Spinner</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-toast" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-toast.html">
-																			<span>Toast</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-																	</svg>
-																	<span class="menu-item-text">Data Display</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-avatar" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-avatar.html">
-																			<span>Avatar</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-badge" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-badge.html">
-																			<span>Badge</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-card" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-card.html">
-																			<span>Card</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-table" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-table.html">
-																			<span>Table</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-tag" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-tag.html">
-																			<span>Tag</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-timeline" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-timeline.html">
-																			<span>Timeline</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-tooltip" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-tooltip.html">
-																			<span>Tooltip</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-																	</svg>
-																	<span class="menu-item-text">Forms</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-checkbox" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-checkbox.html">
-																			<span>Checkbox</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-date-picker" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-date-picker.html">
-																			<span>Date Picker</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-form" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-form.html">
-																			<span>Form</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-input" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-input.html">
-																			<span>Input</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-input-group" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-input-group.html">
-																			<span>Input Group</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-radio" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-radio.html">
-																			<span>Radio</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-segment" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-segment.html">
-																			<span>Segment</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-select" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-select.html">
-																			<span>Select</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-switcher" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-switcher.html">
-																			<span>Switcher</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-																	</svg>
-																	<span class="menu-item-text">Navigation</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-dropdown" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-dropdown.html">
-																			<span>Dropdown</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-menu" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-menu.html">
-																			<span>Menu</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-pagination" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-pagination.html">
-																			<span>Pagination</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-steps" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-steps.html">
-																			<span>Steps</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-tabs" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-tabs.html">
-																			<span>Tabs</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-																	</svg>
-																	<span class="menu-item-text">Graph</span>
-																</div>
-																<ul>
-																	<li data-menu-item="modern-chart" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-chart.html">
-																			<span>Charts</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="modern-maps" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="stacked-side-maps.html">
-																			<span>Maps</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-													<div class="menu-group">
-														<div class="menu-title">Authentication</div>
-														<ul>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-																	</svg>
-																	<span class="menu-item-text">Sign In</span>
-																</div>
-																<ul>
-																	<li data-menu-item="signin-simple" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signin-simple.html">
-																			<span>Simple</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="signin-side" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signin-side.html">
-																			<span>Side</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="signin-cover" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signin-cover.html">
-																			<span>Cover</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-																	</svg>
-																	<span class="menu-item-text">Sign Up</span>
-																</div>
-																<ul>
-																	<li data-menu-item="signup-simple" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signup-simple.html">
-																			<span>Simple</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="signup-side" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signup-side.html">
-																			<span>Side</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="signup-cover" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="signup-cover.html">
-																			<span>Cover</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-																	</svg>
-																	<span class="menu-item-text">Forgot Password</span>
-																</div>
-																<ul>
-																	<li data-menu-item="forget-password-simple" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="forget-password-simple.html">
-																			<span>Simple</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="forget-password-side" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="forget-password-side.html">
-																			<span>Side</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="forget-password-cover" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="forget-password-cover.html">
-																			<span>Cover</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-															<li class="menu-collapse">
-																<div class="menu-collapse-item">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
-																	</svg>
-																	<span class="menu-item-text">Reset Password</span>
-																</div>
-																<ul>
-																	<li data-menu-item="reset-password-simple" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="reset-password-simple.html">
-																			<span>Simple</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="reset-password-side" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="reset-password-side.html">
-																			<span>Side</span>
-																		</a>
-																	</li>
-																	<li data-menu-item="reset-password-cover" class="menu-item">
-																		<a class="h-full w-full flex items-center" href="reset-password-cover.html">
-																			<span>Cover</span>
-																		</a>
-																	</li>
-																</ul>
-															</li>
-														</ul>
-													</div>
-													<div class="menu-group">
-														<div class="menu-title menu-title-transparent">
-															Pages
-														</div>
-														<ul>
-															<li data-menu-item="modern-welcome" class="menu-item menu-item-single mb-2">
-																<a class="menu-item-link" href="stacked-side-welcome.html">
-																	<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"></path>
-																	</svg>
-																	<span class="menu-item-text">Welcome</span>
-																</a>
-															</li>
-															<li data-menu-item="modern-access-denied" class="menu-item menu-item-single mb-2">
-																<a class="menu-item-link" href="stacked-side-access-denied.html">
-																	<span class="menu-item-icon">
-																		<svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>
-																		</svg>
-																	</span>
-																	<span class="menu-item-text">Access Denied</span>
-																</a>
-															</li>
-														</ul>
-													</div>
-													<div class="menu-group">
-														<div class="menu-title menu-title-transparent">
-															Guide
-														</div>
-														<ul>
-															<li data-menu-item="modern-documentation" class="menu-item menu-item-single mb-2">
-																<a class="menu-item-link" href="http://www.themenate.net/elstar-html-doc" target="_blank">
-																	<span class="menu-item-icon">
-																		<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-																			<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-																		</svg>
-																	</span>
-																	<span class="menu-item-text">Documentation</span>
-																</a>
-															</li>
-														</ul>
-													</div>
+												<div class="menu-group">
+									<div class="menu-title">Chức năng chính</div>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="w-6 h-6">
+                                             <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z"></path>
+                                            </svg>
+												<span class="menu-item-text">Loại Hàng</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdm">
+														<span>Danh sách hàng hóa</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=adddm">
+														<span>Thêm hàng hóa</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=softdell">
+														<span>Hàng hóa đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122"></path>
+                                            </svg>
+												<span class="menu-item-text">Sản Phẩm</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsp">
+														<span>Danh sách sản Phẩm</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=addsp">
+														<span>Thêm Sản Phẩm</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsoftdellsp">
+														<span>Sản phẩm đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"></path>
+                                        </svg>
+												<span class="menu-item-text">Đơn hàng</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listdonhang">
+														<span>Danh sách đơn hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listhuydon">
+														<span>Đơn hàng đã hủy</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"></path>
+                                            </svg>
+												<span class="menu-item-text">Khách Hàng</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listkh">
+														<span>Danh sách khách hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=addkh">
+														<span>Thêm khách hàng</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsoftdellkh">
+														<span>khách hàng đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"></path>
+                                            </svg>
+												<span class="menu-item-text">Quản lý Bình Luận</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listbl">
+														<span>Danh sách bình luận</span>
+													</a>
+												</li>
+												<!-- <li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=blsoftdellklist">
+														<span>Bình luận đã xóa</span>
+													</a>
+												</li> -->
+												
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+												</svg>
+												<span class="menu-item-text">Quản Lý Tài Khoản</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=account">
+														<span>Quản lý tài khoản</span>
+													</a>
+												</li>
+											
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<?php
+								if($ma_quyen == 1){
+								
+								?>
+								<div class="menu-group">
+									<div class="menu-title">Mục dành cho Admin</div>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            	<path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z"></path>
+                                            </svg>
+												<span class="menu-item-text">Quản lý Nhân Viên</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listnv">
+														<span>Danh sách nhân viên</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=addnv">
+														<span>Thêm nhân viên mới</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-scrum-board" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=listsoftdellnv">
+														<span>Danh sách nhân viên đã xóa</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+                                            </svg>
+												<span class="menu-item-text">Quản lý Banner ảnh</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=banner">
+														<span>Quản lý banner</span>
+													</a>
+												</li>
+												
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"></path>
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"></path>
+                                                                        </svg>
+												<span class="menu-item-text">Thống Kê</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=dashboard">
+														<span>Thống kê</span>
+													</a>
+												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=salestat">
+														<span>Thống kê đơn hàng</span>
+													</a>
+												</li>
+												
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<?php
+								} else{
+									echo "";
+								}
+								?>
+								
 												</nav>	
 											</div>
 										</div>

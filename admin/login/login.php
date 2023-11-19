@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
             $_SESSION['anhdaidien'] = $avt;
             $_SESSION['quyen'] = $quyen;
             $_SESSION['email'] = $email;
-           header("location:../admin.php");
+           header("location:../admin.php?act=dashboard");
         }
         if($ten_quyen == "nhan vien"){
             $_SESSION['admin'] = "Nhân Viên";
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
             $_SESSION['anhdaidien'] = $avt;
             $_SESSION['quyen'] = $quyen;
             $_SESSION['email'] = $email;
-            header("location:../admin.php");
+            header("location:../admin.php?act=dashboard");
             
         } else {
             $error['login'] = "Bạn không có quyền truy cập vào trang này";
@@ -67,11 +67,14 @@ if(isset($_POST['submit'])){
                                             <span class="avatar avatar-circle avatar-md border-2 border-white">
                                                 <img class="avatar-img avatar-circle" src="../img/avatars/thumb-10.jpg" loading="lazy">
                                             </span>
-                                            
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-span-2 flex flex-col justify-center items-center bg-white dark:bg-gray-800">
                                     <div class="xl:min-w-[450px] px-8">
-                                        <div class="mb-8">Chào mừng bạn!</h3>
+                                        <div>
+                                            <h3
+                                         class="mb-8">Chào mừng bạn!</h3>
                                             <p>Vui lòng đăng nhập để truy cập trang quản trị!</p>
                                         </div>
                                         <div>

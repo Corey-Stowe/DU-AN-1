@@ -19,7 +19,6 @@ if(is_array($data)){
                                                                 <th>Loại Hàng</th>
                                                                 <th>Số Lượng</th>
                                                                 <th>Lượt Xem</th>
-                                                                <th>Trạng Thái</th>
                                                                 <th>Giá Gốc</th>
                                                                 <th>Giá Khuyến Mại</th>
                                                                 <th></th>
@@ -42,22 +41,15 @@ if(is_array($data)){
                                                                 <td>
                                                                     <span class="capitalize"><?php echo $ten_loai?></span>
                                                                 </td>
-                                                                <td><?php  echo $so_luong ?></td>
-                                                                <td><?php  echo $luot_xem ?></td>
-                                                                <td>
-                                                                    <div class="flex items-center gap-2">
-                                                                        
-                                                                        <?php 
-                                                                        if($so_luong >= 1){
-                                                                            echo '<span class="badge-dot bg-emerald-500"></span>';
-                                                                            echo '<span class="capitalize font-semibold text-emerald-500">Còn Hàng</span>';
+                                                                <td><?php  if($so_luong >= 1){
+                                                                            echo "<span>$so_luong</span>";
+                                                                           
                                                                         }else{
                                                                             echo '<span class="badge-dot bg-red-500"></span>';
                                                                             echo '<span class="capitalize font-semibold text-red-500">Hết Hàng</span>';
-                                                                        }   
-                                                                        ?>
-                                                                    </div>
-                                                                </td>
+                                                                        }    ?></td>
+                                                                <td><?php  echo $luot_xem ?></td>
+                                                               
                                                                 <td>
                                                                     <span><?php echo number_format($don_gia, 0, ',', '.').'đ' ?></span>
                                                                 </td>
