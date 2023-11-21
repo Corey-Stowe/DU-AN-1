@@ -86,6 +86,15 @@ function admin_list_employee_softdelete(){
     $sql = "SELECT * FROM khach_hang WHERE quyen IN (1, 2) AND xoa = '1'";
     return pdo_query($sql);
 }
+function checkuserclien($emailnhap,$passnhap){
+    $sql="select * from khach_hang where `email` ='".$emailnhap."' AND `mat_khau` = '".$passnhap."'";
+    $tk=pdo_query($sql);
+    return $tk;
+}
+function insert_taikhoan($email,$hoten,$pass,$phone,$dia_chi){
+    $sql = "INSERT INTO `khach_hang` (`email`, `ten_khach_hang`,`mat_khau`, `sdt`,`dia_chi`) VALUES ('$email', '$hoten', ',$pass', '$phone', '$dia_chi')";
+    pdo_execute($sql);
+}
 // function account_admin_delete_byid($ma_khach_hang_list){
 //     // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_khach_hang_list = explode(",", $_GET["ma_khach_hang"]);

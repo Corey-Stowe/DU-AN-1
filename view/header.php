@@ -379,7 +379,7 @@ Store
 </div></li>
 </ul>
 </div>
-<a href="index-2.html" class="navbar-brand px-8 py-4 mx-auto">
+<a href="index.php" class="navbar-brand px-8 py-4 mx-auto">
 <img class="light-mode-img" src="view/assets/images/others/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
 <img class="dark-mode-img" src="view/assets/images/others/logo-white.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates"></a>
 <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
@@ -391,7 +391,7 @@ Store
 </a>
 </div>
 <div class="px-5 d-none d-xl-inline-block">
-<a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
+<a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login">
 <svg class="icon icon-user-light">
 <use xlink:href="#icon-user-light"></use>
 </svg>
@@ -1106,17 +1106,12 @@ Auto
 </div>
 <a href="#" class="text-secondary">Forgot your password?</a>
 </div>
-<button type="submit" value="Login" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary w-100">Log In</button>
+<input type="submit" value="Login" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary w-100" value="Login">
 </form>
 </div>
 <div class="modal-footer px-13 pt-0 pb-12 border-0">
 <div class="border-bottom w-100"></div>
 <div class="text-center lh-1 mb-8 w-100 mt-n5">
-<span class="fs-14 bg-body lh-1 px-4">or Log-in with</span>
-</div>
-<div class="d-flex w-100">
-<a href="#" class="btn btn-outline-secondary w-100 border-2x me-5 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-facebook-f me-4" style="color: #2E58B2"></i>Facebook</a>
-<a href="#" class="btn btn-outline-secondary w-100 border-2x mt-0 btn-hover-bg-primary btn-hover-border-primary"><i class="fab fa-google me-4" style="color: #DD4B39"></i>Google</a>
 </div>
 </div>
 </div>
