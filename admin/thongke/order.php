@@ -398,7 +398,7 @@ new ApexCharts(document.querySelector("#simple-donut"), simpleDonutOption).rende
     chart: {
         ...ApexChartDefault,
         type: "area",
-        height: 400,
+        height: 380,
         zoom: {
             enabled: true
         }
@@ -446,7 +446,7 @@ new ApexCharts(document.querySelector("#basic-area-chart"), basicAreaOption).ren
     } ?>],
     chart: {
         ...ApexChartDefault,
-        width: 480,
+        width: 380,
         type: "donut",
     },
     labels: [<?php foreach( $count_loai_hang_selled as $value){

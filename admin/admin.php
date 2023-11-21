@@ -685,6 +685,34 @@ $ma_quyen = $_SESSION['quyen'];
             include "thongke/order.php";
             break;
         }
+        case 'contract':{
+            $data = admin_get_contract();
+            if(isset($_POST['submit'])){
+                $ten_doanh_nghiep = $_POST['ten_doanh_nghiep'];
+                $dia_chi = $_POST['dia_chi'];
+                $sdt = $_POST['sdt'];
+                $email = $_POST['email'];
+                $logo = $_FILES['logo']['name'];
+                $target_dir = "../image/";
+                $target_file = $target_dir . basename($_FILES["logo"]["name"]);
+                if(empty($_FILES['logo']['name'])){
+                    $logo = $data['logo'];
+                } else {
+                    if (move_uploaded_file($_FILES["logo"]["tmp_name"], $target_file)) {
+                        // echo "File " . htmlspecialchars(basename($_FILES["avt"]["name"])) . " đã được tải lên.";
+                    } else {
+                        // echo "deafut = noimage.jpg";
+                    }
+                }
+                admin_update_contract($ten_doanh_nghiep,$dia_chi,$sdt,$logo,$email);
+                header("Location: admin.php?act=contract");
+                
+
+            }
+            include "lienhe/edit.php";
+            break;
+        
+        }
         default:{
                 include "404.php";
                 break;

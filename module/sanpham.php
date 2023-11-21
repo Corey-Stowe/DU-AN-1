@@ -59,6 +59,22 @@ function sanpham_softdel_list(){
     $data = pdo_query($sql);
     return $data;
 }
+function sanpham_count_ctbl($ma_san_pham){
+    $sql = "SELECT COUNT(*) FROM binh_luan WHERE ma_san_pham=? AND trang_thai = 0";
+    $data = pdo_query_value($sql, $ma_san_pham);
+    return $data;
+}
+function sanpham_load_by_dm($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 LIMIT 10";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+
+}
+function sanpham_add_luotxem($ma_san_pham){
+    $sql = "UPDATE san_pham SET luot_xem = luot_xem + 1 WHERE ma_san_pham = ?";
+    pdo_execute($sql, $ma_san_pham);
+
+}
 // function hanghoa_delete_byid($ma_hanghoa_list){
 //  // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_hanghoa_list = explode(',', $ma_hanghoa_list);

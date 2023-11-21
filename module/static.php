@@ -217,4 +217,14 @@ FROM don_hang;";
     $result = pdo_execute_single ($sql);
     return $result;
 }
+function admin_get_contract(){
+    $sql = "SELECT * FROM lien_he";
+    $result = pdo_query($sql);
+    return $result;
+}
+function admin_update_contract($ten_doanh_nghiep,$dia_chi,$sdt,$logo,$email){
+    $sql = "UPDATE lien_he SET ten_doanh_nghiep = '$ten_doanh_nghiep', dia_chi = '$dia_chi', sdt = '$sdt', logo = '$logo', email = '$email' WHERE id_lien_he = 1";
+    pdo_execute($sql);
+
+}
 ?>
