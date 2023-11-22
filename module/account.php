@@ -86,6 +86,31 @@ function admin_list_employee_softdelete(){
     $sql = "SELECT * FROM khach_hang WHERE quyen IN (1, 2) AND xoa = '1'";
     return pdo_query($sql);
 }
+function account_user_login($email,$password){
+    $sql = "SELECT * FROM khach_hang JOIN quyen ON khach_hang.quyen  = quyen.quyen WHERE email = '$email' AND mat_khau = '$password' AND xoa = '0'";
+    return pdo_execute_single($sql);
+
+}
+function account_user_register($email,$password,$hoten,$phonenumber){
+    $sql = "INSERT INTO khach_hang(email,mat_khau,ten_khach_hang,sdt,quyen) VALUES ('$email','$password','$hoten','$phonenumber','3')";
+    return pdo_execute($sql);
+}   
+function account_check_email($email){
+    $sql = "SELECT * FROM khach_hang WHERE email = '$email'";
+    return pdo_query_value($sql);
+}
+function account_update($ten_khach_hang,$dia_chi,$sdt,$email,$avt,$ma_khach_hang){
+    $sql = "UPDATE khach_hang SET ten_khach_hang = '$ten_khach_hang', dia_chi = '$dia_chi', sdt = '$sdt', email = '$email', avt = '$avt' WHERE ma_khach_hang = '$ma_khach_hang'";
+    return pdo_execute($sql);
+}
+function account_update_password($mat_khau,$ma_khach_hang){
+    $sql = "UPDATE khach_hang SET mat_khau = '$mat_khau' WHERE ma_khach_hang = '$ma_khach_hang'";
+    return pdo_execute($sql);
+}
+function account_get_password($ma_khach_hang){
+    $sql = "SELECT mat_khau FROM khach_hang WHERE ma_khach_hang = '$ma_khach_hang'";
+    return pdo_execute_single($sql);
+}
 // function account_admin_delete_byid($ma_khach_hang_list){
 //     // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_khach_hang_list = explode(",", $_GET["ma_khach_hang"]);

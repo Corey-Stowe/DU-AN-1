@@ -51,6 +51,11 @@ function loai_list(){
     $list=pdo_query($sql);
     return $list;
 }
+function loai_list_five(){
+    $sql="SELECT * FROM loai_hang WHERE trang_thai=0 LIMIT 0,5";
+    $list=pdo_query($sql);
+    return $list;
+}
 function loai_soft_delete_list(){
     $sql="SELECT * FROM loai_hang WHERE trang_thai=1";
     $list=pdo_query($sql);

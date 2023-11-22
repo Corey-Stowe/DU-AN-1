@@ -103,6 +103,28 @@ function top_selling(){
     chi_tiet_don_hang.ma_san_pham,
     san_pham.ten_san_pham,
     san_pham.anh,
+    san_pham.giam_gia,
+    san_pham.don_gia,
+    SUM(chi_tiet_don_hang.so_luong) AS so_luong_ban
+FROM
+    chi_tiet_don_hang
+JOIN
+    san_pham ON chi_tiet_don_hang.ma_san_pham = san_pham.ma_san_pham
+GROUP BY
+    chi_tiet_don_hang.ma_san_pham, san_pham.ten_san_pham, san_pham.anh
+ORDER BY
+    so_luong_ban DESC
+LIMIT 5;";
+    $result = pdo_query($sql);
+    return $result;
+}
+function top_selling_ten(){
+    $sql ="SELECT
+    chi_tiet_don_hang.ma_san_pham,
+    san_pham.ten_san_pham,
+    san_pham.anh,
+    san_pham.giam_gia,
+    san_pham.don_gia,
     SUM(chi_tiet_don_hang.so_luong) AS so_luong_ban
 FROM
     chi_tiet_don_hang
@@ -226,5 +248,13 @@ function admin_update_contract($ten_doanh_nghiep,$dia_chi,$sdt,$logo,$email){
     $sql = "UPDATE lien_he SET ten_doanh_nghiep = '$ten_doanh_nghiep', dia_chi = '$dia_chi', sdt = '$sdt', logo = '$logo', email = '$email' WHERE id_lien_he = 1";
     pdo_execute($sql);
 
+}
+function count_sanpham_by_loai_hang(){
+    $sql = "SELECT loai_hang.ma_loai, COUNT(*) AS so_luong_hang, loai_hang.ten_loai, loai_hang.ma_loai
+    FROM san_pham
+    JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai
+    GROUP BY loai_hang.ma_loai LIMIT 5;";
+    $result = pdo_query($sql);
+    return $result;
 }
 ?>
