@@ -110,6 +110,9 @@ function account_get_password($ma_khach_hang){
     $sql = "SELECT mat_khau FROM khach_hang WHERE ma_khach_hang = '$ma_khach_hang'";
     return pdo_execute_single($sql);
 }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 // function account_admin_delete_byid($ma_khach_hang_list){
 //     // Lấy danh sách mã loại từ tham số truyền vào qua URL

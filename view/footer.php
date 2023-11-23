@@ -1,5 +1,6 @@
 <footer class="pt-15 pt-lg-20 pb-16 footer bg-section-4">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <div class="container container-xxl pt-4">
 <div class="row">
 <div class="col-lg col-md-4 col-12 mb-11 mb-lg-0 fs-14px">
@@ -15,6 +16,8 @@ hello@domain.com
 <div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
 <h3 class="fs-5 mb-6 ">Useful links</h3>
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
     <div class="container container-xxl pt-4">
         <div class="row">
@@ -129,6 +132,9 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 </div>
 <div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
 <h3 class="fs-5 mb-6 ">Trang</h3>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 <ul class="list-unstyled mb-0 fw-medium ">
 <li class="pt-3 mb-4">
@@ -147,7 +153,11 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 </div>
 <div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <h3 class="fs-5 mb-6 ">Information</h3>
+=======
+<h3 class="fs-5 mb-6 ">Thông Tin</h3>
+>>>>>>> Stashed changes
 =======
 <h3 class="fs-5 mb-6 ">Thông Tin</h3>
 >>>>>>> Stashed changes
@@ -172,7 +182,11 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 <div class="col-lg-5 col-12 mb-11 mb-lg-0">
 <h3 class="mb-4 ">Good emails.</h3>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <p class="lh-2 ">Enter your email below to be the first to know about new collections and product launches.</p>
+=======
+<p class="lh-2 ">Nhập Email Để Nhận Thông Tin Của Chúng Tôi.</p>
+>>>>>>> Stashed changes
 =======
 <p class="lh-2 ">Nhập Email Để Nhận Thông Tin Của Chúng Tôi.</p>
 >>>>>>> Stashed changes
@@ -181,7 +195,11 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 <input type="email" class="form-control bg-body rounded-left" placeholder="Enter your email address">
 <button type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Subscribe
+=======
+Đăng Ký
+>>>>>>> Stashed changes
 =======
 Đăng Ký
 >>>>>>> Stashed changes
@@ -209,6 +227,7 @@ Subscribe
 </ul>
 </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <div class="col-sm-12 col-lg-4 text-md-center order-1 order-lg-2 ">
 <a class="d-inline-block" href="index-2.html">
 <img class="lazy-image img-fluid light-mode-img" src="#" data-src="./assets/images/others/logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
@@ -220,6 +239,11 @@ Subscribe
 </div>
 </div>
 </div>
+=======
+</div>
+</div>
+>>>>>>> 4d16460795bdee49bf20f71543959c82f053032d
+>>>>>>> Stashed changes
 =======
 </div>
 </div>

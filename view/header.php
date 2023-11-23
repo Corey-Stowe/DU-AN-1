@@ -1,10 +1,16 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <?php
 $list = banner_list();
 $data = loai_list_five();
 $best_sell = top_selling();
 ?>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 <!doctype html>
@@ -1755,12 +1761,55 @@ All rights reserved.
 
 <body>
     <header id="header" class="header header-sticky header-sticky-smart disable-transition-all z-index-5">
+<<<<<<< Updated upstream
 <<<<<<< HEAD
         <div class="topbar bg-primary">
             <div class="container-wide container">
                 <p class="mb-0 text-white text-center p-4 fs-6 fw-semibold">Miễn phí vận chuyển cho tất cả các đơn hàng
                     tại Việt Nam từ 1.000.000 VND trở lên</p>
             </div>
+=======
+      <div class="bg-primary bg-opacity-15">
+        <div class="container-xxl container d-flex py-4">
+          <div class="w-50 d-none d-lg-block">
+            <ul class="social-icons list-inline mb-0 fs-14">
+              <li class="list-inline-item ">
+                <a href="#" title="Twitter">
+                  <svg class="icon">
+                    <use xlink:href="#twitter"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item  ms-6">
+                <a href="#" title="Facebook">
+                  <svg class="icon">
+                    <use xlink:href="#facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item  ms-6">
+                <a href="#" title="Instagram">
+                  <svg class="icon">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="list-inline-item  ms-6">
+                <a href="#" title="Youtube">
+                  <svg class="icon">
+                    <use xlink:href="#youtube"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="w-100 text-center">
+            <p class="mb-0 fs-14px fw-bold text-primary text-uppercase">Miễn phí ship cho những thành viên mới</p>
+          </div>
+          <div class="w-50 d-none d-lg-block">
+            <div class="d-flex align-items-center justify-content-end"></div>
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div class="sticky-area">
             <div class="main-header nav navbar bg-body navbar-light navbar-expand-xl py-6 py-xl-0">
@@ -2447,6 +2496,8 @@ All rights reserved.
             <div class="d-flex align-items-center justify-content-end"></div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
       </div>
       </div>
@@ -4379,8 +4430,13 @@ All rights reserved.
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     </div>
+=======
+      </div>
+    </div> -->
+>>>>>>> Stashed changes
     <div class="navbar">
         <div id="offCanvasNavBar" class="offcanvas offcanvas-start" style="--bs-offcanvas-width: 310px">
             <div class="offcanvas-header bg-body-tertiary">
@@ -5328,6 +5384,10 @@ All rights reserved.
 =======
   </body>
   <!-- Mirrored from templates.g5plus.net/glowing-bootstrap-5/home-02.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Nov 2023 10:39:44 GMT -->
+<<<<<<< Updated upstream
 >>>>>>> 4d16460795bdee49bf20f71543959c82f053032d
+</html>
+>>>>>>> Stashed changes
+=======
 </html>
 >>>>>>> Stashed changes

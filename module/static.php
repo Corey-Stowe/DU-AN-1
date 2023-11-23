@@ -260,4 +260,12 @@ function count_sanpham_by_loai_hang(){
     $result = pdo_query($sql);
     return $result;
 }
+function count_sanpham_by_loai_hang(){
+    $sql = "SELECT loai_hang.ma_loai, COUNT(*) AS so_luong_hang, loai_hang.ten_loai, loai_hang.ma_loai
+    FROM san_pham
+    JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai
+    GROUP BY loai_hang.ma_loai LIMIT 5;";
+    $result = pdo_query($sql);
+    return $result;
+}
 ?>

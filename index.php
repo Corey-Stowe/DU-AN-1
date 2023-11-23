@@ -13,6 +13,9 @@ include "module/banner.php";
 include "module/static.php";
 include "view/header.php";
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 if(isset($_GET['act'])){
     $act=$_GET['act'];
