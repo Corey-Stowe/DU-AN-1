@@ -75,6 +75,57 @@ function sanpham_add_luotxem($ma_san_pham){
     pdo_execute($sql, $ma_san_pham);
 
 }
+function list_sanpham_by_danhmuc($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+
+}
+function san_pham_search($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0";
+    $data = pdo_query($sql);
+    return $data;
+}
+function sanpham_search_orderby($key,$odercode){
+    //1 bởi luot_xem
+    //2 bởi ngày mới thêm
+    //3 bởi giá giảm dần  
+    //4 bởi giá lớn dần
+    //0 mặc định
+    if(empty($key)){
+        return sanpham_list();
+    }
+    if($odercode == 1){
+        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.luot_xem DESC";
+    }       
+    if($odercode == 2){
+        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.ngay_them DESC";
+    }   
+    if($odercode == 3){
+        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia DESC";
+    }
+    if($odercode == 4){
+        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.don_gia ASC";
+    }
+    if($odercode == 0){
+        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0";
+    }
+    $data = pdo_query($sql);
+    return $data;       
+}
+function list_sanpham_by_danhmuchot($ma_loai){
+   if(is_numeric($ma_loai)){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 LIMIT 10";
+   } else{
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.trang_thai = 0";
+   }
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+
+}
 // function hanghoa_delete_byid($ma_hanghoa_list){
 //  // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_hanghoa_list = explode(',', $ma_hanghoa_list);

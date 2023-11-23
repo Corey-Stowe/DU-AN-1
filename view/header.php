@@ -164,7 +164,7 @@ $best_sell = top_selling();
                               
                               ?>
                                <li>
-                                <a href="shop/shop-layout-v1.html" class="border-hover text-decoration-none py-3 d-block">
+                                <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai?>" class="border-hover text-decoration-none py-3 d-block">
                                   <span class="border-hover-target"><?php  echo $ten_loai?>
                                   </span>
                                 </a>
@@ -240,7 +240,7 @@ $best_sell = top_selling();
                   
               </div>
               <div class="px-10 d-none d-xl-flex align-items-center ">
-                <a href="index-2.html" class="navbar-brand px-8 py-4 mx-auto">
+                <a href="index.php" class="navbar-brand px-8 py-4 mx-auto">
                   <img class="light-mode-img" src="image\logo.png" width="179" height="100" alt="Glowing - Bootstrap 5 HTML Templates">
                   <img class="dark-mode-img" src="image\logo.png" width="179" height="100" alt="Glowing - Bootstrap 5 HTML Templates">
                 </a>
@@ -930,7 +930,7 @@ $best_sell = top_selling();
           <div class="col-xl-6 d-flex justify-content-center">
             <form class="w-xl-100 w-sm-75 w-100 mt-6 mt-xl-0 px-6 px-xl-0" method="POST" action="index.php?act=search">
               <div class="input-group mx-auto">
-                <input type="text" class="form-control form-control bg-transparent border-primary" placeholder="Tìm kiếm sản phẩm">
+                <input type="text" class="form-control form-control bg-transparent border-primary" placeholder="Tìm kiếm sản phẩm" name="key">
                 <div class="form-control-append position-absolute end-0 top-0 bottom-0 d-flex align-items-center">
                   <button class="input-group-text bg-transparent border-0 px-0 me-6" type="submit" name="submit">
                     <i class="far fa-search fs-5"></i>

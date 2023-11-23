@@ -23,6 +23,21 @@ if(isset($_GET['act'])){
                 sanpham_add_luotxem($ma_san_pham);
              
             }
+            if(isset($_POST['binhluan'])){
+                $ma_san_pham=$_POST['masp'];
+                $ma_khach_hang=$_SESSION['ma_khach_hang'];
+                $noi_dung=$_POST['message'];
+                $ngay_binh_luan= date('Y-m-d');
+                $anhbl=$_FILES['img']['name'];
+                $target_dir = "image/";
+                  $target_file = $target_dir . basename($_FILES['img']['name']);
+                  if(move_uploaded_file($_FILES['img']['tmp_name'], $target_file)){
+  
+                 }else{
+                    $anhbl=" ";
+                 }
+                          comment_insert($ma_san_pham,$ma_khach_hang,$noi_dung,$ngay_binh_luan,$anhbl);
+            }
             include "view/chitietsp/chitetsp.php";
             break;
         }
@@ -210,10 +225,47 @@ if(isset($_GET['act'])){
             include "view/khachhang/ctdonhang.php";
             break;  
         }
+        case 'search': {
+            $key = ''; // Set a default value for $key
+        
+            if (isset($_POST['submit'])) {
+                $key1 = $_POST['key'];
+                $_SESSION['kwords'] = $key1;
+                $key = $key1; // Update $key with the new value
+                $data = san_pham_search($key);
+            }
+        
+            if (isset($_GET['odercode'])) {
+                $key = ''; // Set a default value for $key
+                $odercode = $_GET['odercode'];
+                $key = $_SESSION['kwords'];
+                $data = sanpham_search_orderby($key, $odercode);
+            } 
+        
+            include "view/search/list.php";
+            break;
+        }
+        case 'listspdm':{
+            if(isset($_GET['ma_loai'])){
+                if(is_numeric($_GET['ma_loai'])){
+                    $ma_loai = $_GET['ma_loai'];
+                    $data = list_sanpham_by_danhmuchot($ma_loai);
+                } else {
+                   $data = sanpham_list();
+                }
+            }
+            include "view/listsanpham/list.php";
+            break;
+        }
         case 'logout':{
             session_destroy();
             header("location:index.php");
             break;
+        }
+        case '404':{
+            include "view/404.php";
+            break;
+        
         }
         default:{
             include "view/body.php";

@@ -58,8 +58,9 @@
                 </a>
                 <div class="position-absolute product-flash z-index-2 ">
                   <span class="badge badge-product-flash on-sale bg-primary"><?php
-$phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100; 
-echo $phan_tram_giam_gia ?>%</span>
+$phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
+echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
+?></span>
                 </div>
                 <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
                   <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm Vào giỏ hàng">
@@ -186,13 +187,13 @@ echo $phan_tram_giam_gia ?>%</span>
       ?>
       <div class="col-lg-3 col-md-6 col-12" data-animate="fadeInUp">
         <div class="card border-0">
-          <a href="#" class="hover-shine img-scale overflow-hidden">
+          <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai?>" class="hover-shine img-scale overflow-hidden">
             <img class="lazy-image card-img-top img-scale-change img-fluid light-mode-img" src="#" data-src="./assets/images/shop/product-cate.jpg" width="545" height="611" alt="Bodycare">
             <img class="lazy-image dark-mode-img card-img-top img-scale-change img-fluid" src="#" data-src="./assets/images/shop/product-cate-white.jpg" width="545" height="611" alt="Bodycare">
           </a>
           <div class="card-body text-center px-0 py-7">
             <h4 class="card-title fw-semibold mb-5">
-              <a href="#"><?php echo $ten_loai?></a>
+              <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai?>"><?php echo $ten_loai?></a>
             </h4>
             <p class="card-text"><?php echo $so_luong_hang?> sản phẩm</p>
           </div>
@@ -204,7 +205,7 @@ echo $phan_tram_giam_gia ?>%</span>
       
     </div>
     <div class="text-center mt-10">
-      <a href="https://templates.g5plus.net/shop/shop-layout-v1.html" target="_blank" class="btn btn-outline-dark"> Danh sách tất cả loại hàng </a>
+      <a href="index.php?act=listspdm&ma_loai=all" target="_blank" class="btn btn-outline-dark"> Danh sách tất cả loại hàng </a>
     </div>
   </section>
   <section class="bg-section-3">

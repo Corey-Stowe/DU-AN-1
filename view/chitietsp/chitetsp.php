@@ -1,4 +1,21 @@
 <?php
+
+if(isset( $_SESSION['ten_khach_hang'] )){
+  $ten_khach_hang = $_SESSION['ten_khach_hang'] ;
+}
+if(isset( $_SESSION['email'] )){
+  $email = $_SESSION['email'] ;
+}
+if(isset( $_SESSION['sdt'] )){
+  $sdt = $_SESSION['sdt'] ;
+} 
+if(isset( $_SESSION['ma_khach_hang'] )){
+  $dia_chi = $_SESSION['ma_khach_hang'] ;
+}  
+if(isset( $_SESSION['dia_chi'] )){
+  $dia_chi = $_SESSION['dia_chi'] ;
+}
+
 // ShowArray($data);
 foreach($data as $value){
     extract($value);
@@ -78,8 +95,9 @@ foreach($data as $value){
           <span class="text-decoration-line-through"> <?php echo number_format($don_gia, 0, ',', '.').'đ' ?> </span>
           <span class="fs-18px text-body-emphasis ps-6 fw-bold"> <?php echo number_format($giam_gia, 0, ',', '.').'đ' ?> </span>
           <span class="badge text-bg-primary fs-6 fw-semibold ms-7 px-6 py-3"> <?php
-$phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100; 
-echo $phan_tram_giam_gia ?>% </span>
+$phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
+echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
+?>%</span>
         </p>
         <h1 class="mb-4 pb-2 fs-4"> <?php  echo $ten_san_pham?> </h1>
         <div class="d-flex align-items-center fs-15px mb-6">
@@ -323,6 +341,10 @@ echo $phan_tram_giam_gia ?>% </span>
     <div class="text-center">
       <h2 class="mb-16 fs-3">Khách hàng đánh giá</h2>
     </div>
+    <?php
+    if(isset($_SESSION['ten_khach_hang'])){
+      ?>
+    
     <div class="row">
       
               <a href="#customer-review" class="btn btn-outline-dark" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="customer-review">
@@ -336,18 +358,26 @@ echo $phan_tram_giam_gia ?>% </span>
       </div>
       <div class="ps-lg-12 ps-auto col-xl-9 col-md-7">
         <div class="collapse mb-14" id="customer-review">
-          <form class="product-review-form" action="index.php?act=comment&ma_san_pham=<?php echo $ma_san_pham?>" method="post" enctype="multipart/form-data">
+          <form class="product-review-form" action="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-4">
                 <div class="form-group mb-7">
                   <label class="mb-4 fs-6 fw-semibold text-body-emphasis" for="reviewName">Name</label>
-                  <input id="reviewName" class="form-control" type="text" name="name">
+                  <input id="reviewName" class="form-control" type="show" name="name" value="<?php  
+                    if(isset($_SESSION['ten_khach_hang'])){
+                      echo $ten_khach_hang;
+                    }
+                  ?>" readonly>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="form-group mb-4">
                   <label class="mb-4 fs-6 fw-semibold text-body-emphasis" for="reviewEmail">Email</label>
-                  <input id="reviewEmail" type="email" name="email" class="form-control">
+                  <input id="reviewEmail" type="email" name="email" class="form-control" value="<?php
+                    if(isset($_SESSION['email'])){
+                      echo $email;
+                    }
+                  ?>" readonly>
                 </div>
               </div>
             </div>
@@ -362,15 +392,25 @@ echo $phan_tram_giam_gia ?>% </span>
                 </div>
               </div>
             </div>
+            <div class="d-flex">
+              <div class="me-4">
+                <div class="input-group align-items-center">
+                <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
+                <input type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0" value="Bình Luận" name="binhluan"><br>
+                </div>
+              </div>
+            </div>
+      <?php    }
+    ?>
           </form>
+          
         </div>
         <div class=" mt-12">
           <h3 class="fs-5"><?php echo $data2 ?> Lượt Bình luận</h3>
           <?php
             foreach($data1 as $value){
                 extract($value);
-            
-          
+               
           ?>
           <div class="border-bottom pb-7 pt-10">
             <div class="d-flex align-items-center mb-6">
@@ -437,14 +477,23 @@ echo $phan_tram_giam_gia ?>% </span>
               </span>
               <span class="fs-14"><?php echo $ngay_binh_luan?></span>
             </div>
+            <?php 
+            $sql="SELECT * FROM `khach_hang` WHERE ma_khach_hang=".$ma_khach_hang;
+            $layavt=pdo_query($sql);
+            foreach ($layavt as $value) {
+              extract($value);
+              ?>
+            
             <div class="d-flex justify-content-start align-items-center mb-5">
-              <img src="#" data-src="image/<?php echo $avt ?>" class="me-6 lazy-image rounded-circle" width="60" height="60" alt="Avatar">
+              <img src="image/<?=$avt?> " data-src="" class="me-6 lazy-image rounded-circle" width="60" height="60" alt="Avatar"><?php }
+            ?>
               <div class>
                 <h5 class="mt-0 mb-4 fs-14px text-uppercase ls-1"><?php echo $ten_khach_hang?></h5>
               </div>
-            </div>
-          
-            <p class="mb-10 fs-6"><?php echo $noi_dung?></p>
+            </div>  
+            <p class="mb-10 fs-6"><?php echo $noi_dung?></p><br>
+            <h6>Ảnh từ khách hàng</h6>;
+            <img src="image/<?=$anhbl?> " data-src="" width="60" height="60"> 
             
           </div>
           
