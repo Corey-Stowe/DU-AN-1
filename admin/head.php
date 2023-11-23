@@ -166,6 +166,29 @@ $ma_quyen = $_SESSION['quyen'];
 									<ul>
 										<li class="menu-collapse">
 											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.75v16.5M2.25 12h19.5M6.375 17.25a4.875 4.875 0 004.875-4.875V12m6.375 5.25a4.875 4.875 0 01-4.875-4.875V12m-9 8.25h16.5a1.5 1.5 0 001.5-1.5V5.25a1.5 1.5 0 00-1.5-1.5H3.75a1.5 1.5 0 00-1.5 1.5v13.5a1.5 1.5 0 001.5 1.5zm12.621-9.44c-1.409 1.41-4.242 1.061-4.242 1.061s-.349-2.833 1.06-4.242a2.25 2.25 0 013.182 3.182zM10.773 7.63c1.409 1.409 1.06 4.242 1.06 4.242S9 12.22 7.592 10.811a2.25 2.25 0 113.182-3.182z"></path>
+                                             </svg>
+												<span class="menu-item-text">Quản lý khuyến mãi</span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=cuppon">
+														<span>Danh sách khuyến mãi</span>
+													</a>
+												</li>
+												 <li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=cupponexpried">
+														<span>Khuyến mãi đã hết hạn</span>
+													</a>
+												</li> 
+												
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
 											<svg class="menu-item-icon" stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
 												</svg>
@@ -252,6 +275,24 @@ $ma_quyen = $_SESSION['quyen'];
 												<li data-menu-item="modern-project-list" class="menu-item">
 													<a class="h-full w-full flex items-center" href="admin.php?act=salestat">
 														<span>Thống kê đơn hàng</span>
+													</a>
+												</li>
+												
+											</ul>
+										</li>
+									</ul>
+									<ul>
+										<li class="menu-collapse">
+											<div class="menu-collapse-item">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+                                                                        </svg>
+												<span class="menu-item-text">Thông tin liên hệ </span>
+											</div>
+											<ul>
+												<li data-menu-item="modern-project-dashboard" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=contract">
+														<span>Thông tin</span>
 													</a>
 												</li>
 												
