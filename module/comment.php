@@ -8,4 +8,8 @@ function comment_softdel($ma_binh_luan){
     $sql = "UPDATE binh_luan SET trang_thai = '1' WHERE ma_binh_luan = '$ma_binh_luan'";
     return pdo_execute($sql);
 }
+function comment_insert($ma_san_pham,$ma_khach_hang,$noi_dung,$ngay_binh_luan){
+    $sql = "INSERT INTO binh_luan(ma_san_pham,ma_khach_hang,noi_dung,ngay_binh_luan) VALUES ('$ma_san_pham','$ma_khach_hang','$noi_dung','$ngay_binh_luan')";
+    return pdo_execute($sql);
+}
 ?>
