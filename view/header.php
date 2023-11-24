@@ -321,7 +321,7 @@ $best_sell = top_selling();
                     <a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase fw-semibold ls-1 fs-15px fs-xl-14px dropdown-toggle" href="#" data-bs-toggle="dropdown" id="menu-item-docs" aria-haspopup="true" aria-expanded="false">Thành Viên</a>
                     <div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-docs">
                       <div class="menumega-docs px-8" style="min-width: 250px">
-                        <a href="docs/usage/getting-started.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
+                        <a href="index.php?act=account" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#book"></use>
@@ -333,7 +333,7 @@ $best_sell = top_selling();
                           </div>
                         </a>
                         <hr class="dropdown-divider mx-n8" />
-                        <a href="docs/components/accordion.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
+                        <a href="index.php?act=logout" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#layer-group"></use>
@@ -344,7 +344,7 @@ $best_sell = top_selling();
                           </div>
                         </a>
                         <hr class="dropdown-divider mx-n8" />
-                        <a href="docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
+                        <a href="index.php?act=account" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#pen-to-square"></use>
@@ -999,7 +999,6 @@ $best_sell = top_selling();
       </div>
     </div>
     <?php
-     include "extension/cart.php";
      include "extension/login_register.php"
     ?>
     <!-- <div class="modal fade" id="quickViewModal" aria-labelledby="quickViewModal" aria-hidden="true">

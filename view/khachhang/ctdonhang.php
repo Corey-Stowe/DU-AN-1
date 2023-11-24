@@ -12,6 +12,15 @@ foreach($data as $value){
 
 </style>
 <main id="content" class="bg-body-tertiary-01 d-flex flex-column main-content">
+  <?php
+     if(isset ($_SESSION['sussecc'])){
+      echo "<div class='alert alert-success' role='alert'>";
+      echo $_SESSION['sussecc'];
+      echo "</div>";
+      unset($_SESSION['sussecc']);
+  }
+  
+  ?>
 <a href="index.php?act=account">
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6"height=30px>
 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"></path>
@@ -38,8 +47,11 @@ foreach($data as $value){
                                     if ($trang_thai_don == 0) {
                                         ?>
                                         <td>
-                                            <span class="badge rounded-lg rounded-pill alert py-3 px-4 mb-0 alert-warning border-0 text-capitalize fs-12">Cần Xác thực</span>
+                                            <span class="badge rounded-lg rounded-pill alert py-3 px-4 mb-0 alert-warning border-0 text-capitalize fs-12">
+                                            Đơn hàng này cần nhân viên xác thực, bạn sẽ nhận được cuộc gọi xác nhận đơn hàng từ nhân viên
+                                            </span>
                                         </td>
+                                            
                                         <?php
                                     } elseif ($trang_thai_don == 1) {
                                         ?>

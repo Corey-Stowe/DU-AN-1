@@ -67,7 +67,7 @@
       <div class="col-sm-6  col-lg-4 col-xl-3">
         <div class="card card-product grid-1 bg-transparent border-0" data-animate="fadeInUp">
           <figure class="card-img-top position-relative mb-7 overflow-hidden ">
-            <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>l" class="hover-zoom-in d-block" title="Shield Conditioner">
+            <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" class="hover-zoom-in d-block" title="Shield Conditioner">
               <img src="#" data-src="image/<?php echo $anh?>" class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="330" height="440">
             </a>
             <div class="position-absolute product-flash z-index-2 ">
@@ -77,11 +77,26 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
 ?>%</span>
             </div>
             <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-              <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart">
-                <svg class="icon icon-shopping-bag-open-light">
-                  <use xlink:href="#icon-shopping-bag-open-light"></use>
-                </svg>
-              </a>
+            <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="1">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                    <button type="submit" name="addcart" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm Vào giỏ hàng">
+                    <svg class="icon icon-shopping-bag-open-light">
+                      <use xlink:href="#icon-shopping-bag-open-light"></use>
+                    </svg>
+                  </button>
+                </form>
               <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Wishlist">
                 <svg class="icon icon-star-light">
                   <use xlink:href="#icon-star-light"></use>

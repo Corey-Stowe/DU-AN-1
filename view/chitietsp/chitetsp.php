@@ -165,19 +165,29 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
         </div>
         <form class="pb-8" action="index.php?act=cart" method="post">
           <div class="row align-items-end">
+          <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
             <div class="form-group col-sm-4">
               <div class="input-group position-relative w-100 input-group-lg">
                 <a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus">
                   <i class="far fa-minus"></i>
                 </a>
-                <input name="number" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required>
+                <input name="so_luong" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required>
                 <a href="#" class="shop-up position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus">
                   <i class="far fa-plus"></i>
                 </a>
               </div>
             </div>
             <div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
-              <button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm Vào Giỏ Hàng </button>
+              <button type="submit" name="addcart" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm Vào Giỏ Hàng </button>
             </div>
           </div>
         </form>
@@ -242,7 +252,7 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
             </a>
             <div class="position-absolute product-flash z-index-2 ">
               <span class="badge badge-product-flash on-sale bg-primary"><?php
-$phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100; 
+$phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
 echo $phan_tram_giam_gia ?>% </span>
             </div>
             <div class="position-absolute d-flex z-index-2 product-actions  vertical">
@@ -492,7 +502,7 @@ echo $phan_tram_giam_gia ?>% </span>
               </div>
             </div>  
             <p class="mb-10 fs-6"><?php echo $noi_dung?></p><br>
-            <h6>Ảnh từ khách hàng</h6>;
+            <h6>Ảnh từ khách hàng</h6>
             <img src="image/<?=$anhbl?> " data-src="" width="60" height="60"> 
             
           </div>

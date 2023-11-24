@@ -250,7 +250,7 @@ function admin_update_contract($ten_doanh_nghiep,$dia_chi,$sdt,$logo,$email){
 
 }
 function count_sanpham_by_loai_hang(){
-    $sql = "SELECT loai_hang.ma_loai, COUNT(*) AS so_luong_hang, loai_hang.ten_loai
+    $sql = "SELECT loai_hang.ma_loai, COUNT(*) AS so_luong_hang, loai_hang.ten_loai, loai_hang.anh_loai
     FROM san_pham
     JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai
     GROUP BY loai_hang.ma_loai, loai_hang.ten_loai

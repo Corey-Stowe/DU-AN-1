@@ -74,5 +74,16 @@ function donhang_list_deleted(){
     $data = pdo_query($sql);
     return $data;
 }
-
+function donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan){
+    $sql = "INSERT INTO don_hang(ma_khach_hang, ghi_chu_kh, phuong_thuc_thanh_toan) VALUES (?, ?, ?)";
+    pdo_execute($sql, $ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);
+}
+function donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $don_gia){
+    $sql = "INSERT INTO chi_tiet_don_hang(ma_don_hang, ma_san_pham, so_luong, don_gia) VALUES (?, ?, ?, ?)";
+    pdo_execute($sql, $ma_don_hang, $ma_san_pham, $so_luong, $don_gia);
+}
+function donhang_update_trangthai($ma_don_hang, $trang_thai_don){
+    $sql = "UPDATE don_hang SET trang_thai_don = ? WHERE ma_don_hang = ?";
+    pdo_execute($sql, $trang_thai_don, $ma_don_hang);
+}
 ?>
