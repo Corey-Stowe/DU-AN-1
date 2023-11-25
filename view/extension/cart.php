@@ -44,8 +44,8 @@
                     </div>
                     <div class>
                       <p class="card-text mb-1">
-                        <span class="fs-13px fw-500 text-decoration-line-through pe-3"><?=$_SESSION['giohang'][$i][2]?>đ</span>
-                        <span class="fs-15px fw-bold text-body-emphasis"><?=$_SESSION['giohang'][$i][3]?>đ</span>
+                      <del class=" text-body fw-500 me-4 fs-13px"><?php echo number_format($_SESSION['giohang'][$i][2], 0, ',', '.').'đ' ?></del>
+                        <ins class=" text-body fw-500 me-4 fs-13px"><?php echo number_format($_SESSION['giohang'][$i][3], 0, ',', '.').'đ' ?></ins>
                       </p>
                       <p class="fw-500 text-body-emphasis"><?=$_SESSION['giohang'][$i][1]?></p>
                     </div>
@@ -66,14 +66,6 @@
             <?php }
               }
             }
-            if($_SESSION['giohang']=[]){
-              echo'<tr><td class="align-middle text-center">
-              <h5>
-              Không có sản phẩm nào trong giỏ hàng! 
-              </5>
-            </td>
-            </tr>';
-            }
               ?>
             </tbody>
           </table>
@@ -90,7 +82,7 @@
             $tong+=$ttien;
             
           }?>
-          <span class="cart-total fw-bold text-body-emphasis"><?php echo($tong)?>  VNĐ</span>
+          <h5><span ><?php echo number_format($tong, 0, ',', '.').'đ' ?></span></h5>
           <?php 
         }
         ?>

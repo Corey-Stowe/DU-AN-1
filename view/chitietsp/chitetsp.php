@@ -163,21 +163,26 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $data2?> khách hàng bình Luận </a>
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $luot_xem?> khách hàng đã xem </a>
         </div>
-        <form class="pb-8" action="index.php?act=cart" method="post">
+        <form class="pb-8" action="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" method="post">
           <div class="row align-items-end">
             <div class="form-group col-sm-4">
               <div class="input-group position-relative w-100 input-group-lg">
                 <a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus">
                   <i class="far fa-minus"></i>
                 </a>
-                <input name="number" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required>
+                <input name="soluong" type="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" equired>
+                <input type="hidden" name="masp" value="<?php echo $ma_san_pham?>">
+                <input type="hidden" name="tensp" value="<?php echo $ten_san_pham?>">
+                <input type="hidden" name="gia" value="<?php echo $don_gia?>">
+                <input type="hidden" name="giam_gia" value="<?php echo $giam_gia?>">
+                <input type="hidden" name="img" value="<?php echo $anh?>">
                 <a href="#" class="shop-up position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus">
                   <i class="far fa-plus"></i>
                 </a>
               </div>
             </div>
             <div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
-              <button type="submit" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm Vào Giỏ Hàng </button>
+              <button type="submit" name="addcart" class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100">Thêm Vào Giỏ Hàng </button>
             </div>
           </div>
         </form>

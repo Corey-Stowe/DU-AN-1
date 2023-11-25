@@ -62,7 +62,6 @@
         foreach($data as $row){
             extract($row);
         
-        
         ?>
       <div class="col-sm-6  col-lg-4 col-xl-3">
         <div class="card card-product grid-1 bg-transparent border-0" data-animate="fadeInUp">
@@ -76,12 +75,20 @@ $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100);
 echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
 ?>%</span>
             </div>
+            <form action="index.php?act=listspdm&ma_loai=<?php echo $ma_loai ?>" method="post">
+              <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
+              <input type="hidden" name="soluong" value="1">
+              <input type="hidden" name="tensp" value="<?=$ten_san_pham?>">
+              <input type="hidden" name="gia" value="<?=$don_gia?>">
+              <input type="hidden" name="giam_gia" value="<?=$giam_gia?>">
+              <input type="hidden" name="img" value="<?php echo $anh?>">
             <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-              <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart">
+              <button name="addcart" type="submit" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart">
                 <svg class="icon icon-shopping-bag-open-light">
                   <use xlink:href="#icon-shopping-bag-open-light"></use>
                 </svg>
-              </a>
+        </button>
+              </form>
               <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Wishlist">
                 <svg class="icon icon-star-light">
                   <use xlink:href="#icon-star-light"></use>

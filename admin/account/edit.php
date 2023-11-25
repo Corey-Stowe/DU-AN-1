@@ -325,7 +325,6 @@ foreach ($data as $key => $value) {
                                                                     </div>
                                                                 </div>
                                                             </form>
-                                                                                    viewBox="0 0 24 24"
                                                                                                                 
                                                         </div>
                                                                                                                    

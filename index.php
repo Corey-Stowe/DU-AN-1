@@ -39,7 +39,6 @@ if(isset($_POST['addcart'])){
     $hinh=$_POST['img'];
     $soluong=$_POST['soluong'];
     $ttien=$soluong*$giam_gia;
-    header("Location: index.php");
     //kiểm tra sản phẩm có trong giỏ hàng hay chưa
     $fl=0;
     for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
@@ -309,7 +308,10 @@ if(isset($_GET['act'])){
             break;
         }
         case 'logout':{
-            session_destroy();
+            unset($_SESSION['ten_khach_hang']);
+            unset($_SESSION['email']);  
+            unset($_SESSION['ma_khach_hang']);      
+            unset($_SESSION['$avt']);
             header("location:index.php");
             break;
         }

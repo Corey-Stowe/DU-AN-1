@@ -48,7 +48,7 @@
                     ?>
                     <div data-animate="fadeInUp">
             <div class="card card-product grid-1 bg-transparent border-0">
-              <form action="" method="post">
+              <form action="index.php" method="post">
               <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
               <input type="hidden" name="soluong" value="1">
               <input type="hidden" name="tensp" value="<?=$ten_san_pham?>">

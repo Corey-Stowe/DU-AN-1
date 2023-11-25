@@ -33,9 +33,9 @@ if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
 <img src="#" data-src="image/<?=$_SESSION['giohang'][$i][4]?>" class="lazy-image" width="75" height="100" alt="Natural Coconut Cleansing Oil">
 </div>
 <div class>
-<p class="fw-500 mb-1 text-body-emphasis"><?=$_SESSION['giohang'][$i][3]?>đ</p>
+<p class="fw-500 mb-1 text-body-emphasis"><?php echo number_format($_SESSION['giohang'][$i][3], 0, ',', '.').'đ'?></p>
 <p class="card-text">
-<span class="fs-13px fw-500 text-decoration-line-through pe-3"><?=$_SESSION['giohang'][$i][2]?>đ</span>
+<span class="fs-13px fw-500 text-decoration-line-through pe-3"><?php echo number_format($_SESSION['giohang'][$i][2], 0, ',', '.').'đ'?></span>
 <span class="fs-15px fw-bold text-body-emphasis"><?=$_SESSION['giohang'][$i][1]?></span>
 </p>
 </div>
@@ -50,7 +50,7 @@ if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
 </div>
 </td>
 <td class="align-middle">
-<p class="mb-0 text-body-emphasis fw-bold mr-xl-11"><?=$ttien?></p>
+<p class="mb-0 text-body-emphasis fw-bold mr-xl-11"><?php echo number_format($ttien, 0, ',', '.').'đ'?></p>
 </td>
 <td class="align-middle text-end pe-8">
 <a href="index.php?delidct=<?=$i?>" onclick="xoagiohang()" class="d-block clear-product">
@@ -141,7 +141,7 @@ Update total
 <div class="card-body px-9 pt-6">
 <div class="d-flex align-items-center justify-content-between mb-5">
 <span>Tổng tiền hàng:</span>
-<span class="d-block ml-auto text-body-emphasis fw-bold"><?=$tong?>đ</span>
+<span class="d-block ml-auto text-body-emphasis fw-bold"><?php echo number_format($tong, 0, ',', '.').'đ'?></span>
 </div>
 <?php
 $tongtt=0;
@@ -151,13 +151,13 @@ $tongtt=$tong+$ship;
 ?>
 <div class="d-flex align-items-center justify-content-between">
 <span>Phí Giao hàng:</span>
-<span class="d-block ml-auto text-body-emphasis fw-bold"><?=$ship?>đ</span>  
+<span class="d-block ml-auto text-body-emphasis fw-bold"><?php echo number_format($ship, 0, ',', '.').'đ'?></span>  
 </div>
 </div>
 <div class="card-footer bg-transparent px-0 pt-5 pb-7 mx-9">
 <div class="d-flex align-items-center justify-content-between fw-bold mb-7">
 <span class="text-secondary text-body-emphasis">Tổng Thanh toán:</span>
-<span class="d-block ml-auto text-body-emphasis fs-4 fw-bold"><?=$tongtt?>đ</span>
+<span class="d-block ml-auto text-body-emphasis fs-4 fw-bold"><?php echo number_format($tongtt, 0, ',', '.').'đ'?></span>
 </div>
 <a href="checkout.html" class="btn w-100 btn-dark btn-hover-bg-primary btn-hover-border-primary" title="Check Out">Check Out</a>
 </div>
