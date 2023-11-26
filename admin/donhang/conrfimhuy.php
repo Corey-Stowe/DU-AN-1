@@ -175,7 +175,7 @@ foreach($data as $value){
                                                             </p>
                                                             <br>
                                                             <p>Lý do hủy đơn:</p>
-                                                            <form action="admin.php?act=sethuydon" method="POST">
+                                                            <form action="admin.php?act=sethuydon&ma_don_hang=<?php echo $ma_don_hang?>" method="POST">
                                                             <textarea class="input input-textarea" placeholder="Lý Do hủy đơn" name="ghichu"></textarea>
                                                             <input type="hidden" name="ma_don_hang" value="<?php echo $ma_don_hang?>">
                                                             <button type="button" data-bs-toggle="modal" data-bs-target="#dialogBasic" class="btn btn-two-tune">
@@ -208,7 +208,10 @@ foreach($data as $value){
                                                 </div>
                                             </div>
                                         </div>
-                                        <button data-bs-toggle="modal" data-bs-target="#drawerBasic" class="btn btn-two-tune">
+                                        <br>
+                                        <br>
+                                        
+                                        <button data-bs-toggle="modal" data-bs-target="#drawerBasic" class=" btn btn-solid">
                                     Chỉnh Sửa trạng thái đơn hàng
                                 </button>
                                 <div class="modal fade" id="drawerBasic" tabindex="-1" aria-hidden="true">
@@ -270,6 +273,7 @@ foreach($data as $value){
                                                     </a>
                                                 </div>
                                                 <br>
+                                                <p></p>
                                                    <form action="admin.php?act=addghichu" method="post">
                                                         <p>Ghi chú đơn hàng:</p>
                                                         <textarea class="input input-textarea" placeholder="thêm ghi chú cho đơn hàng" name="ghichu"><?php echo $ghi_chu ?></textarea>

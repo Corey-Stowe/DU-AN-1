@@ -2,10 +2,14 @@
     if(isset($_SESSION['ma_khach_hang'])){
         $ma_khach_hang = $_SESSION['ma_khach_hang'];
         $data = get_customer_by_id($ma_khach_hang);
-        ShowArray($data);
+        // ShowArray($data);
        extract($data);
     }
 ?> 
+<head>
+<title>Thanh toán đơn hàng | Crown store</title>
+</head>
+
 <main id="content" class="wrapper layout-page">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <section class="z-index-2 position-relative pb-2 mb-12">
@@ -232,7 +236,7 @@
                 <span class="ms-3 text-body-emphasis fw-semibold fs-6">Thẻ Tín dụng</span>
             </a>
             </option>
-            <option value="2"> 
+            <!-- <option value="2"> 
             <a class="btn btn-payment px-12 mx-2 py-6 me-7 my-3 nav-link" data-bs-toggle="tab" data-bs-target="#vnpay-tab">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6" height="2em">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"></path>
@@ -240,7 +244,7 @@
                 </svg>
                 <span class="ms-3 text-body-emphasis fw-semibold fs-6">VNPay QR</span>
             </a>
-            </option>
+            </option> -->
             </select>
         </div>
             </div>

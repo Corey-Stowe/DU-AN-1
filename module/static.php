@@ -103,6 +103,7 @@ function top_selling(){
     chi_tiet_don_hang.ma_san_pham,
     san_pham.ten_san_pham,
     san_pham.anh,
+    san_pham.so_luong,
     san_pham.giam_gia,
     san_pham.don_gia,
     SUM(chi_tiet_don_hang.so_luong) AS so_luong_ban
@@ -168,22 +169,27 @@ ORDER BY
 }
 function list7_day() {
    $sql = "SELECT 
-   DATE_FORMAT(date_series, '%d/%m/%Y') AS ngay_dat_hang,
+   DATE_FORMAT(don_hang.ngay_dat_hang, '%d/%m/%Y') AS ngay_dat_hang,
    IFNULL(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) AS tong_lgdh
-FROM (
-   SELECT CURDATE() - INTERVAL (7 - t.n) DAY AS date_series
-   FROM (
-       SELECT 0 AS n UNION ALL SELECT 1 UNION ALL SELECT 2 UNION ALL SELECT 3
-       UNION ALL SELECT 4 UNION ALL SELECT 5 UNION ALL SELECT 6
-   ) t
-) date_series
-LEFT JOIN don_hang ON DATE_FORMAT(date_series, '%Y-%m-%d') = don_hang.ngay_dat_hang
+FROM don_hang
 LEFT JOIN chi_tiet_don_hang ON don_hang.ma_don_hang = chi_tiet_don_hang.ma_don_hang
-WHERE don_hang.trang_thai_don <> 3
-GROUP BY date_series
-ORDER BY date_series DESC LIMIT 30;";
+WHERE don_hang.ngay_dat_hang BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE()
+GROUP BY ngay_dat_hang
+ORDER BY ngay_dat_hang DESC;";
    $result = pdo_query($sql);
    return $result;
+}
+function  list_order_by_month(){
+    $sql = "SELECT 
+    DATE_FORMAT(ngay_dat_hang, '%d/%m/%Y') AS ngay_dat_hang,
+    COUNT(*) AS so_luong_don_hang
+FROM don_hang
+WHERE ngay_dat_hang BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE()
+GROUP BY ngay_dat_hang
+ORDER BY ngay_dat_hang DESC;
+";
+    $result = pdo_query($sql);
+    return $result;
 }
 function toal_today_revenue(){
     

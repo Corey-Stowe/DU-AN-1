@@ -11,6 +11,9 @@ if (isset($_GET['ma_don_hang'])) {
     $trang_thai_don = donhang_get_trangthai($ma_don_hang);
 }
 ?>
+<head>
+<title>Thanh toán đơn hàng | Crown store</title>
+</head>
 
 <main class="h-full d-flex align-items-center justify-content-center">
     <div class="success-message-container">

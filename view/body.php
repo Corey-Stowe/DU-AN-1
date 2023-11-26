@@ -15,6 +15,9 @@
 
   }
 </style>
+<head>
+<title>Trang chủ | Crown store</title>
+</head>
 <main id="content" class="wrapper layout-page">
   <section>
     <div class="slick-slider hero hero-header-02 slick-slider-dots-inside" data-slick-options="{&#34;arrows&#34;:false,&#34;autoplay&#34;:true,&#34;autoplaySpeed&#34;:9000,&#34;cssEase&#34;:&#34;ease-in-out&#34;,&#34;dots&#34;:false,&#34;fade&#34;:true,&#34;infinite&#34;:true,&#34;slidesToShow&#34;:1,&#34;speed&#34;:600}">
@@ -72,7 +75,22 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
 ?>%</span>
                 </div>
                 <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-                <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+                <?php
+                if($so_luong == 0){
+                  ?>
+    
+
+
+                    <button class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Sản phẩm hết hàng">
+                    <svg class="icon icon-shopping-bag-open-light">
+                      <use xlink:href="#icon-shopping-bag-open-light"></use>
+                    </svg>
+                    </button>
+                    <?php
+                     }else {
+
+                    ?>
+                    <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
                     <!-- Hidden input to store product ID -->
                     <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
                     <!-- Hidden input to store product name -->
@@ -92,12 +110,30 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
                     </svg>
                   </button>
                 </form>
-  
-                  <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
+                <?php
+
+                }
+                ?>
+                <form class="add-to-cart-form" action="index.php?act=wishlist" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="<?php echo $so_luong ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                    <button type="submit" name="wishlistadd" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm danh sách ưa thích">
                     <svg class="icon icon-star-light">
                       <use xlink:href="#icon-star-light"></use>
                     </svg>
-                  </a>
+                    </button>
+                </form>
                 </div>
               </figure>
               <div class="card-body text-center p-0">

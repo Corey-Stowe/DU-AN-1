@@ -21,7 +21,11 @@ foreach($data as $value){
     extract($value);
 }
 
-?> <main id="content" class="wrapper layout-page">
+?> 
+<head>
+<title><?php echo $ten_san_pham?> | Crown store</title>
+</head>
+<main id="content" class="wrapper layout-page">
   <section class="z-index-2 position-relative pb-2 mb-12">
     <div class="bg-body-secondary mb-3">
       <div class="container">
@@ -163,9 +167,17 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $data2?> khách hàng bình Luận </a>
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $luot_xem?> khách hàng đã xem </a>
         </div>
-        <form class="pb-8" action="index.php?act=cart" method="post">
+       <?php
+       if($so_luong == 0){
+          ?>
+            <div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
+              <button  class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100" disabled >Hết Hàng </button>
+            </div>
+        <?php
+       } else {
+        ?>
+         <form class="pb-8" action="index.php?act=cart" method="post">
           <div class="row align-items-end">
-          <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
                     <!-- Hidden input to store product ID -->
                     <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
                     <!-- Hidden input to store product name -->
@@ -191,13 +203,31 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
             </div>
           </div>
         </form>
+        <?php
+       }
+       
+       
+       ?>
         <div class="d-flex align-items-center flex-wrap">
-          <a href="#" class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
-            <svg class="icon fs-5">
-              <use xlink:href="#icon-star-light"></use>
-            </svg>
-            <span class="ms-4 ps-2">Thêm vào danh sách mong muốn</span>
-          </a>
+        <form class="add-to-cart-form" action="index.php?act=wishlist" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="<?php echo $so_luong ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+                    <button  type="submit" name="wishlistadd"  class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
+                    <svg class="icon fs-5">
+                      <use xlink:href="#icon-star-light"></use>
+                    </svg>
+                    <span class="ms-4 ps-2">Thêm vào danh sách mong muốn</span>
+                  </button>
+                  </form> 
           <a href="#" class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
             <svg class="icon fs-5">
               <use xlink:href="#icon-ShareNetwork"></use>

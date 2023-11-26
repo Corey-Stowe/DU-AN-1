@@ -81,6 +81,28 @@ function list_sanpham_by_danhmuc($ma_loai){
     return $data;
 
 }
+function list_sanpham_by_danhmuc_by_luotxem($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 ORDER BY san_pham.luot_xem DESC";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+
+
+}
+function list_sanpham_by_danhmuc_by_gia_hightolow($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia DESC";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+}
+function list_sanpham_by_danhmuc_by_gia_lowtohigh($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia ASC";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+} 
+function list_sanpham_by_danhmuc_by_new($ma_loai){
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 ORDER BY san_pham.ngay_them DESC";
+    $data = pdo_query($sql, $ma_loai);
+    return $data;
+}
 function san_pham_search($key){
     if(empty($key)){
         return sanpham_list();
@@ -89,33 +111,55 @@ function san_pham_search($key){
     $data = pdo_query($sql);
     return $data;
 }
-function sanpham_search_orderby($key,$odercode){
-    //1 bởi luot_xem
-    //2 bởi ngày mới thêm
-    //3 bởi giá giảm dần  
-    //4 bởi giá lớn dần
-    //0 mặc định
+function san_pham_fliter_by_luotxem($key){
     if(empty($key)){
         return sanpham_list();
     }
-    if($odercode == 1){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.luot_xem DESC";
-    }       
-    if($odercode == 2){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.ngay_them DESC";
-    }   
-    if($odercode == 3){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia DESC";
-    }
-    if($odercode == 4){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.don_gia ASC";
-    }
-    if($odercode == 0){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0";
-    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.luot_xem DESC";
     $data = pdo_query($sql);
-    return $data;       
+    return $data;
 }
+function san_pham_fliter_by_gia_higtolow($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function san_pham_fliter_by_gia_lowtohigh($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.giam_gia ASC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function san_pham_fliter_by_view($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.luot_xem DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function san_pham_fliter_by_new($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 ORDER BY san_pham.ngay_them DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function san_pham_fliter_by_luot_mua($key){
+    if(empty($key)){
+        return sanpham_list();
+    }
+    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai JOIN chi_tiet_don_hang ON san_pham.ma_san_pham = chi_tiet_don_hang.ma_san_pham WHERE san_pham.ten_san_pham LIKE '%$key%' AND san_pham.trang_thai = 0 GROUP BY san_pham.ma_san_pham ORDER BY SUM(chi_tiet_don_hang.so_luong) DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+
 function list_sanpham_by_danhmuchot($ma_loai){
    if(is_numeric($ma_loai)){
     $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai WHERE san_pham.ma_loai = ? AND san_pham.trang_thai = 0 LIMIT 10";

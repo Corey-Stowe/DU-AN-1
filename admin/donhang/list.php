@@ -11,6 +11,29 @@ if(is_array($data)){
                                     <div class="card adaptable-card">
                                         <h3 class="mb-4">Đơn hàng</h3>
                                         <div class="overflow-x-auto">
+                                        <div class="grid grid-cols-4 gap-4">
+                                            <form action="admin.php?act=listdonhang" method="POST" class="flex items-left">
+                                                <label for="filter" class="form-label mr-2">Lọc theo trạng thái</label>
+                                                <div class="relative">
+                                                    <select name="filter" id="filter" class="input">
+                                                        <option value="0">Tất cả</option>
+                                                        <option value="1">Đã Thanh Toán</option>
+                                                        <option value="2">Chưa Thanh Toán</option>
+                                                        <option value="3">Đã Hủy</option>
+                                                        <option value="4">Cần Xác thực</option>
+                                                        <option value="5">Theo ngày mới nhất</option>          
+                                                    </select>
+                                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                                        <svg class="h-4 w-4 fill-current text-gray-500" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                                            <path fill-rule="evenodd" d="M0 10a1 1 0 011-1h18a1 1 0 010 2H1a1 1 0 01-1-1z"/>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" name="submit" class="btn btn-default">Lọc</button>
+                                            </form>
+                                            
+                                        </div>
                                             <table id="order-list-table" class="table-default table-hover">
                                                 <thead>
                                                     <th>

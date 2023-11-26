@@ -1,7 +1,13 @@
 <?php
 // ShowArray($data);
 
-?> <main id="content" class="wrapper layout-page">
+?> 
+<head>
+<title>Kết quả tìm kiếm | Crown store</title>
+</head>
+
+
+<main id="content" class="wrapper layout-page">
   <section class="page-title z-index-2 position-relative">
     <div class="bg-body-secondary">
       <div class="container">
@@ -24,7 +30,7 @@
   <section class="container container-xxl">
     <div class="tool-bar mb-11 align-items-center justify-content-between d-lg-flex">
       <div class="tool-bar-left mb-6 mb-lg-0 fs-18px">Chúng tôi đã tìm thấy sản phẩm dành cho bạn</div>
-      <!-- <div class="tool-bar-right align-items-center d-lg-flex">
+      <div class="tool-bar-right align-items-center d-lg-flex">
         <ul class="list-unstyled d-flex align-items-center list-inline me-lg-7 me-0 mb-6 mb-lg-0">
           <li class="list-inline-item me-7"></li>
           <li class="list-inline-item d-lg-none ms-auto">
@@ -34,9 +40,14 @@
               </svg> Bộ Lọc </a>
           </li>
         </ul>
-        <ul class="list-unstyled d-flex align-items-center list-inline mb-0">
+        <?php
+        if(!is_numeric($_GET["ma_loai"])){
+         echo '';
+        } else{
+          ?>
+          <ul class="list-unstyled d-flex align-items-center list-inline mb-0">
           <li class="list-inline-item me-0 w-100 w-lg-auto">
-            <form action="index.php?act=search" method="POST">
+            <form action="index.php?act=listspdm&ma_loai=<?php echo $ma_loai?>" method="POST">
               <select class="form-select w-100 w-lg-auto" name="orderby">
                 <option selected="0"> Xếp theo mặc định</option>
                 <option value="1">Xếp theo lượt xem</option>
@@ -46,14 +57,18 @@
               </select>
           </li>
           <li class="list-inline-item d-none d-lg-block ms-7">
-            <button data-bs-toggle="offcanvas" role="button" type="subit" name="submit" class="btn btn-hover-border-primary btn-hover-bg-primary btn-hover-text-light btn-dark">
+            <button data-bs-toggle="offcanvas" role="button" type="submit" name="odercode" class="btn btn-hover-border-primary btn-hover-bg-primary btn-hover-text-light btn-dark">
               <svg class="icon icon-SlidersHorizontal fs-4 me-4">
                 <use xlink:href="#icon-SlidersHorizontal"></use>
               </svg> Áp dụng </button>
             </form>
           </li>
         </ul>
-      </div> -->
+        <?php
+        }
+        
+        ?>
+      </div>
     </div>
   </section>
   <div class="container container-xxl pb-16 pb-lg-18 mb-lg-3">
@@ -77,7 +92,22 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
 ?>%</span>
             </div>
             <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-            <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+            <?php
+                if($so_luong == 0){
+                  ?>
+    
+
+
+                    <button class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Sản phẩm hết hàng">
+                    <svg class="icon icon-shopping-bag-open-light">
+                      <use xlink:href="#icon-shopping-bag-open-light"></use>
+                    </svg>
+                    </button>
+                    <?php
+                     }else {
+
+                    ?>
+                    <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
                     <!-- Hidden input to store product ID -->
                     <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
                     <!-- Hidden input to store product name -->
@@ -97,12 +127,31 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
                     </svg>
                   </button>
                 </form>
-              <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Wishlist">
-                <svg class="icon icon-star-light">
-                  <use xlink:href="#icon-star-light"></use>
-                </svg>
-              </a>
-            </div>
+                <?php
+
+                }
+                ?>
+                <form class="add-to-cart-form" action="index.php?act=wishlist" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="<?php echo $so_luong ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                    <button type="submit" name="wishlistadd" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm danh sách ưa thích">
+                    <svg class="icon icon-star-light">
+                      <use xlink:href="#icon-star-light"></use>
+                    </svg>
+                    </button>
+                </form>
+                </div>
           </figure>
           <div class="card-body text-center p-0">
             <span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">

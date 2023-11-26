@@ -11,6 +11,10 @@ foreach($data as $value){
 }
 
 </style>
+<head>
+<title>Chi tiết đơn hàng | Crown store</title>
+</head>
+
 <main id="content" class="bg-body-tertiary-01 d-flex flex-column main-content">
   <?php
      if(isset ($_SESSION['sussecc'])){

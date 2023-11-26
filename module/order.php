@@ -77,6 +77,37 @@ function donhang_list_deleted(){
     $data = pdo_query($sql);
     return $data;
 }
+function donhang_list_paid(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '1'  ORDER BY don_hang.ma_don_hang DESC  ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_unpaid(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '2'  ORDER BY don_hang.ma_don_hang DESC  ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_verify(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '0'  ORDER BY don_hang.ma_don_hang DESC ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_by_date(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang ORDER BY don_hang.ngay_dat_hang DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_by_month($month){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE MONTH(don_hang.ngay_dat_hang) = ?";
+    $data = pdo_query($sql, $month);
+    return $data;
+}
+function donhang_list_by_year($year){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE YEAR(don_hang.ngay_dat_hang) = ?";
+    $data = pdo_query($sql, $year);
+    return $data;
+}   
+
 function donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan){
     $sql = "INSERT INTO don_hang(ma_khach_hang, ghi_chu_kh, phuong_thuc_thanh_toan) VALUES (?, ?, ?)";
     pdo_execute($sql, $ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);

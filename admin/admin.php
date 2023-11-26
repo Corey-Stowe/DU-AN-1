@@ -1,6 +1,8 @@
 <?php
 session_start();
 ob_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 include "../module/PDO.php";
 include "../module/loai.php";
 include "../module/sanpham.php";
@@ -9,6 +11,10 @@ include "../module/comment.php";
 include "../module/order.php";
 include "../module/banner.php";
 include "../module/static.php";
+require '../module/PHPMailer/src/Exception.php';
+require '../module/PHPMailer/src/PHPMailer.php';
+require '../module/PHPMailer/src/SMTP.php';
+
 if(!isset($_SESSION['admin'])){
    header("Location:login/login.php");
 
@@ -445,6 +451,23 @@ $ma_quyen = $_SESSION['quyen'];
         }
         case 'listdonhang':{
             $data = donhang_list();
+            if(isset($_POST['submit'])){
+                $fliter = $_POST['filter'];
+                if($fliter == 0){
+                    $data = donhang_list();
+                } elseif($fliter == 1){
+                    $data = donhang_list_paid();
+                } elseif($fliter == 2){
+                    $data = donhang_list_unpaid();
+                } elseif($fliter == 3){
+                    $data = donhang_list_deleted();
+                } elseif($fliter == 4){
+                    $data = donhang_list_verify();
+                } elseif($fliter == 5){
+                    $data = donhang_list_by_date();
+                }
+
+            }
             include "donhang/list.php";
             break;
         
@@ -497,15 +520,40 @@ $ma_quyen = $_SESSION['quyen'];
             if(isset($_GET['ma_don_hang'])){
                 $ma_don_hang=$_GET['ma_don_hang'];
                 $data = donhang_get_chi_tiet($ma_don_hang);
-            } else {
-               header("Location: admin.php?act=listdonhang");
             }
             if(isset($_POST['submit'])){
                 $ma_don_hang=$_POST['ma_don_hang'];
                 $ghi_chu=$_POST['ghichu'];
+                extract($data);
+                // ShowArray($data);
+                $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+                            try {
+                                //Server settings
+                                $mail->SMTPDebug = 0;                               // Enable verbose debug output
+                                $mail->isSMTP();                                      // Set mailer to use SMTP
+                                $mail->Host = 'smtp.office365.com';  // Specify main and backup SMTP servers
+                                $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                                $mail->Username = 'akonda4543@outlook.com';           // Your Outlook email address
+                                $mail->Password = 'B@2004.com';              // Your Outlook email password
+                                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                                $mail->Port = 587;  
+                                $mail->CharSet = 'UTF-8';                                    // TCP port to connect to
+                                //Recipients
+                                $mail->setFrom("akonda4543@outlook.com", 'Crown Store');
+                                $mail->addAddress("$email");     // Add a recipient
+                                // Content
+                                $mail->isHTML(true);                                  // Set email format to HTML
+                                $mail->Subject = 'Đơn hàng của bạn đã bị hủy';
+                                $mail->Body    = "Đơn hàng của bạn đã bị hủy. Lý do: $ghi_chu <br> <a href='http://localhost/DU_AN_1/index.php?act=chitietdh&ma_don_hang=$ma_don_hang'>Bấm vào đây để xem chi tiết</a>";
+                                $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                                $mail->send();
+                            } catch (Exception $e) {
+                                echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+                            }
                 donhang_set_ghichu($ma_don_hang,$ghi_chu);
                 donhang_set_cancel($ma_don_hang);
                 header("Location: admin.php?act=ctdonhang&ma_don_hang=$ma_don_hang");
+                
             } 
 
             include "donhang/conrfimhuy.php";
@@ -670,6 +718,7 @@ $ma_quyen = $_SESSION['quyen'];
             $toal_order = count_week_orders();
             $toal_comment = admin_count_binhluan();
             $ord_stat = count_order_status();
+            $ord_list30 = list_order_by_month();    
             include "thongke/dash.php";
             break;
         }

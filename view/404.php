@@ -1,3 +1,7 @@
+<head>
+<title>404 | Crown store</title>
+</head>
+
 <main id="content" class="wrapper layout-page">
 <section class="pb-18">
 <div class="bg-body-secondary py-5">

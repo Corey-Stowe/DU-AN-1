@@ -140,170 +140,121 @@ if(isset($_POST['cancel'])){
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="img/favicon.ico">
     <title>Payment gate</title>
-    <!-- Core CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Core CSS
+    <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 </head>
-
 <body class="h-full">
-    <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
-        <div class="container mx-auto h-full">
+    <div class="container-fluid h-full">
+        <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+            <div class="container mx-auto h-full">
                 <h3>Payment gate</h3>
                 <br>
                 <div class="card card-border">
                     <div class="card-body">
-                    <?php
-if (isset($error)) {
-    foreach ($error as $err) {
-        ?>
-        <div class="alert alert-danger">
-            <div class="alert-content">
-                <span class="alert-icon">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-                    </svg>
-                </span>
-                <div><?php echo $err; ?></div>
-            </div>
-        </div>
-    <?php
-    }
-}
-?>
+                        <?php
+                        if (isset($error)) {
+                            foreach ($error as $err) {
+                                ?>
+                                <div class="alert alert-danger">
+                                    <div class="alert-content">
+                                        <span class="alert-icon">
+                                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                                            </svg>
+                                        </span>
+                                        <div><?php echo $err; ?></div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                        ?>
 
                         <h5>Đơn hàng sẽ tự động hủy sau: </h5> <h5 id="countdown" class="cut"></h5>
                         <p>Mã đơn hàng: <?php echo $ma_don_hang; ?></p>
                         <p>Giá trị đơn hàng phải thanh toán: <?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ'?> </p>
-                        <form action="#" method="post">
-                            <div class="grid md:grid-cols-3 gap-4 py-8 border-b border-gray-200 dark:border-gray-600 items-center">
-                                <div class="font-semibold">Tên chủ thẻ</div>
-                                <div class="col-span-2">
-                                    <div class="form-item vertical mb-0 max-w-[700px]">
-                                        <label class="form-label"></label>
-                                        <div>
-                                            <span class="input-wrapper">
-                                                <div class="input-suffix-start">
-                                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                    </svg>
-                                                </div>
-                                                <input class="input pl-8" type="text" name="card_holder_name" autocomplete="off" placeholder="NGUYEN VAN A" >
-                                            </span>
-                                        </div>
-                                    </div>
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="card_holder_name" class="font-weight-bold">Tên chủ thẻ</label>
+                                    <input type="text" class="form-control" id="card_holder_name" name="card_holder_name" placeholder="NGUYEN VAN A">
                                 </div>
                             </div>
-                            <div class="grid md:grid-cols-3 gap-4 py-8 border-b border-gray-200 dark:border-gray-600 items-center">
-                                <div class="font-semibold">Số Thẻ</div>
-                                <div class="col-span-2">
-                                    <div class="form-item vertical mb-0 max-w-[700px]">
-                                        <label class="form-label"></label>
-                                        <div>
-                                            <span class="input-wrapper">
-                                                <div class="input-suffix-start">
-                                                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" class="text-xl" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                                   
-                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"></path>
 
-                                                    </svg>
-                                                </div>
-                                                <input class="input pl-8" type="number" name="card_number" autocomplete="off" placeholder="XXXX XXXX XXXX XXXX" oninput="this.value = this.value.slice(0, 16)" >
-                                                <input class="input pl-8" type="number" name="tong" autocomplete="off" placeholder="XXXX XXXX XXXX XXXX" value="<?php echo $tong_gia_don_hang?>" hidden>
-                                            </span>
-                                        </div>
-                                    </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="card_number" class="font-weight-bold">Số Thẻ</label>
+                                    <input type="number" class="form-control" id="card_number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" oninput="this.value = this.value.slice(0, 16)">
+                                    <input type="number" name="tong" autocomplete="off" value="<?php echo $tong_gia_don_hang?>" hidden>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 gap-4 py-8 border-b border-gray-200 dark:border-gray-600 items-center">
-                                <div>
-                                    <div class="font-semibold">Tháng Hết Hạn</div>
-                                    <div>
-                                        <div class="form-item vertical mb-0 max-w-[700px]">
-                                            <label class="form-label"></label>
-                                            <div>
-                                                <span class="input-wrapper">
-                                                   
-                                                    
-                                                    <input class="input pl-8" type="number" name="month" autocomplete="off" placeholder="MM" oninput="this.value = this.value.slice(0, 2)" >
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="month" class="font-weight-bold">Tháng Hết Hạn</label>
+                                    <input type="number" class="form-control" id="month" name="month" placeholder="MM" oninput="this.value = this.value.slice(0, 2)">
                                 </div>
-                                <div>
-                                    <div class="font-semibold">Năm hết Hạn</div>
-                                    <div>
-                                        <div class="form-item vertical mb-0 max-w-[700px]">
-                                            <label class="form-label"></label>
-                                            <div>
-                                                <span class="input-wrapper">
-                                                    <div class="input-suffix-start">
-                                       
-                                                    </div>
-                                                    <input class="input pl-8" type="number" name="year" autocomplete="off" placeholder="YY" oninput="this.value = this.value.slice(0, 2)" >
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="year" class="font-weight-bold">Năm hết Hạn</label>
+                                    <input type="number" class="form-control" id="year" name="year" placeholder="YY" oninput="this.value = this.value.slice(0, 2)">
                                 </div>
                             </div>
-                            </div>
-                            <div class="grid md:grid-cols-3 gap-4 py-8 border-b border-gray-200 dark:border-gray-600 items-center" >
-                                <div class="font-semibold">CVV</div>
-                                <div class="col-span-2">
-                                    <div class="form-item vertical mb-0 max-w-[700px]">
-                                        <label class="form-label"></label>
-                                        <div>
-                                            <span class="input-wrapper">
-                                                <div class="input-suffix-start">
-                                               
-                                                </div>
-                                                <input class="input pl-8" type="number" name="card_cvc" autocomplete="off" placeholder="XXX" maxlength="2" oninput="this.value = this.value.slice(0, 3)">
-                                            </span>
-                                        </div>
-                                    </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="card_cvc" class="font-weight-bold">CVV</label>
+                                    <input type="number" class="form-control" id="card_cvc" name="card_cvc" placeholder="XXX" maxlength="3" oninput="this.value = this.value.slice(0, 3)">
                                 </div>
                             </div>
 
                             <br>
                             <!-- Add other form fields similarly -->
-                            <button type="submit" name="submit" class="btn btn-two-tune mx-auto">Thanh toán</button>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#dialogBasic" class="btn btn-default">
-                                Hủy
-                            </button>
-                            <div class="modal fade" id="dialogBasic" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog dialog">
-                                <div class="dialog-content">
-                                    <span class="close-btn absolute z-10 ltr:right-6 rtl:left-6" role="button" data-bs-dismiss="modal">
-                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-                                    <br>
-                                    <h5 class="mb-4">Xác nhận hủy</h5>
-                                    <p>Nếu bạn hủy thanh toán thì đơn hàng của bạn sẽ về trạng thái chưa thanh toán và có thể dẫn tới bị hủy đơn</p>
-                                    <div class="text-right mt-6">
-                                        <button class="btn btn-plain ltr:mr-2 rtl:ml-2"  type="submit" name="cancel">Hủy thanh toán</button>
-                                        <button class="btn btn-solid" data-bs-dismiss="modal"  >Tiếp tục thanh toán</button>
+                            <button type="submit" name="submit" class="btn btn-primary mx-auto">Thanh toán</button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#dialogBasic">Hủy</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="dialogBasic" tabindex="-1" role="dialog" aria-labelledby="dialogBasicLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="dialogBasicLabel">Xác nhận hủy</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Nếu bạn hủy thanh toán thì đơn hàng của bạn sẽ về trạng thái chưa thanh toán và có thể dẫn tới bị hủy đơn</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-danger" name="cancel">Hủy thanh toán</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Tiếp tục thanh toán</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             <br>
-                            
                         </form>
                     </div>
                 </div>
-      
+            </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+</html>
 <script>
     let endTime = new Date();
 endTime.setMinutes(endTime.getMinutes() + 15);
@@ -329,6 +280,7 @@ let countdown = hours + ":" + minutes + ":" + seconds;
   }
 }, 1000);
 </script>
+
 	<!-- Core Vendors JS -->
     <script src="js/vendors.min.js"></script>
 

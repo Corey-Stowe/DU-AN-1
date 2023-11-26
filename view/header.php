@@ -14,7 +14,6 @@ $best_sell = top_selling();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trang chủ</title>
     <script src="view/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
     <link rel="icon" href="view/assets/images/others/favicon.ico">
     <link rel="stylesheet" href="view/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
@@ -83,8 +82,8 @@ $best_sell = top_selling();
               </div>
               <div class="d-flex mx-auto">
                 <a href="index-2.html" class="navbar-brand px-8 py-4 mx-auto">
-                  <img class="light-mode-img" src="image\logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
-                  <img class="dark-mode-img" src="image\logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+                  <img class="light-mode-img" src="image\logo.png" width="179" height="95" alt="Glowing - Bootstrap 5 HTML Templates">
+                  <img class="dark-mode-img" src="image\logo.png" width="179" height="95" alt="Glowing - Bootstrap 5 HTML Templates">
                 </a>
               </div>
               <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
@@ -376,9 +375,9 @@ $best_sell = top_selling();
                     <?php
                   } else {
 
-                  ?>icon
+                  ?>
                   <div class="px-5 d-none d-xl-inline-block">
-                    <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
+                    <a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login" data-bs-toggle="modal" data-bs-target="#signInModal">
                       <svg class="icon icon-user-light">
                         <use xlink:href="#icon-user-light"></use>
                       </svg>
@@ -389,11 +388,13 @@ $best_sell = top_selling();
                   ?>
                   </div>
                   <div class="px-5 d-none d-xl-inline-block">
-                    <a class="position-relative lh-1 color-inherit text-decoration-none" href="shop/wishlist.html">
+                    <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=wishlist">
                       <svg class="icon icon-star-light">
                         <use xlink:href="#icon-star-light"></use>
                       </svg>
-                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
+                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?php  if (isset($_SESSION['count_wish'])) {
+                        echo $_SESSION['count_wish'];
+                       }?></span>
                     </a>
                   </div>
                   <div class="px-5 d-none d-xl-inline-block">
@@ -926,7 +927,7 @@ $best_sell = top_selling();
         <nav class="navbar navbar-expand-xl px-0 py-6 py-xl-12 row align-items-start">
           <div class="col-xl-3 d-flex justify-content-center justify-content-xl-start">
             <a href="index-2.html" class="navbar-brand py-4 d-lg-inline-block">
-              <img src="view/assets/images/others/logo.png" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+              <img src="image/logo.png" height="100" alt="Glowing - Bootstrap 5 HTML Templates">
             </a>
           </div>
           <div class="col-xl-6 d-flex justify-content-center">

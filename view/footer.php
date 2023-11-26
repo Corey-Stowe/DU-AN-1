@@ -71,7 +71,7 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 </div>
 <div class="row align-items-center mt-0 mt-lg-20 pt-lg-4">
 <div class="col-sm-12 col-md-6 col-lg-4 d-flex align-items-center order-2 order-lg-1 fs-6 mt-8 mt-lg-0">
-<p class="mb-0">© Glowing 2023</p>
+<p class="mb-0">© Crow store 2023</p>
 <ul class="list-inline fs-18px ms-6 mb-0">
 <li class="list-inline-item me-8">
 <a href="#"><i class="fab fa-twitter"></i></a>

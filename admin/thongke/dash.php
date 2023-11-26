@@ -113,8 +113,16 @@ $ma_quyen = $_SESSION['quyen'];
                                                     </div>
                                                 </div>
                                             </div>
-                                           
+                                            
                                         </div>
+                                        <div class="card card-layout-frame">
+                                                    <div class="card-body">
+                                                        <div class="flex sm:flex-row flex-col md:items-center justify-between mb-6 gap-4">
+                                                            <h4>Bảng thống kê số lượng đơn hàng</h4>
+                                                        </div>
+                                                        <div id="basic-chart"></div>
+                                                    </div>
+                                        </div>                  
                                         <div class="flex flex-col xl:flex-row gap-4">
                                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                                                 <div class="card card-layout-frame lg:col-span-2">
@@ -452,6 +460,61 @@ const simpleDonutOption = {
 
 
 new ApexCharts(document.querySelector("#simple-donut"), simpleDonutOption).render();
+</script>
+<script>
+    const basicOptions = {
+        series: [
+            {
+                name: "Lượng đơn hàng mới",
+                data: [<?php
+                    foreach ($ord_list30 as $value) {
+                        extract($value);
+                        // Sử dụng hàm round để làm tròn giá trị
+                        echo round($so_luong_don_hang) . ',';
+                    }
+                ?>],
+                color: "#766feb"
+            }
+        ],
+        chart: {
+            ...ApexChartDefault,
+            height: 350,
+            type: "line",
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        stroke: ApexStrokeDefault,
+        title: {
+            text: "Thống kê trong vòng 30 ngày gần nhất",
+            align: "left"
+        },
+        grid: {
+            row: {
+                colors: ["#f3f3f3", "transparent"],
+                opacity: 0.5
+            }
+        },
+        xaxis: {
+            categories: [
+                <?php
+                    foreach ($ord_list30 as $value) {
+                        extract($value);
+
+                        // Convert the date format
+                        $dateTime = DateTime::createFromFormat('d/m/Y', $ngay_dat_hang);
+                        $formattedDate = $dateTime->format('d M Y');
+
+                        echo '"' . $formattedDate . '"' . ',';
+                    }
+                ?>
+            ]
+        }
+    };
+    new ApexCharts(document.querySelector("#basic-chart"), basicOptions).render();
 </script>
 
 <script>
