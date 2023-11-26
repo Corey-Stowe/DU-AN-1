@@ -89,11 +89,19 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
                 </svg>
         </button>
               </form>
-              <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Wishlist">
-                <svg class="icon icon-star-light">
-                  <use xlink:href="#icon-star-light"></use>
-                </svg>
-              </a>
+              <form action="index.php?act=wishlist" method="post">
+              <input type="hidden" name="ma_sp" value="<?=$ma_san_pham?>">
+                  <input type="hidden" name="ten_sp" value="<?=$ten_san_pham?>">
+                  <input type="hidden" name="gia_sp" value="<?=$don_gia?>">
+                  <input type="hidden" name="giam_gia_sp" value="<?=$giam_gia?>">
+                  <input type="hidden" name="img" value="<?=$anh?>">
+                  <input type="hidden" name="soluongkho" value="<?=$so_luong?>">
+                  <button type="submit" name="add_wishlist" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
+                    <svg class="icon icon-star-light">
+                      <use xlink:href="#icon-star-light"></use>
+                    </svg>
+                      </button>
+        </form>
             </div>
           </figure>
           <div class="card-body text-center p-0">

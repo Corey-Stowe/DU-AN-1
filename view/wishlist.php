@@ -40,12 +40,12 @@ if(isset($_SESSION['sp_yeu_thich'])&&(is_array($_SESSION['sp_yeu_thich']))){
 </th>
 <td class=" align-middle text-end pe-10">
 <?php 
-if($_SESSION['sp_yeu_thich'][$i][5]>1){
+if($_SESSION['sp_yeu_thich'][$i][5]>2){
     echo'<span class="me-6">kho('.$_SESSION['sp_yeu_thich'][$i][5].')</span><h8>Còn Hàng</h8>
     <button name="addcart" type="submit" class="btn fs-13px px-5 lh-sm btn-outline-dark">Thêm Giỏ Hàng</button>
     ';
 }else{
-    echo'<span class="me-6">Hết Hàng</span>';
+    echo'<span class="me-6" style="color:red; opacity: 0.5;">Hết Hàng</span>';
 }
 ?>
 <input type="hidden" name="masp" value="<?=$_SESSION['sp_yeu_thich'][$i][0]?>">

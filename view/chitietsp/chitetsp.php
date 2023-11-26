@@ -187,12 +187,28 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
           </div>
         </form>
         <div class="d-flex align-items-center flex-wrap">
-          <a href="#" class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
-            <svg class="icon fs-5">
-              <use xlink:href="#icon-star-light"></use>
-            </svg>
-            <span class="ms-4 ps-2">Thêm vào danh sách mong muốn</span>
-          </a>
+          <style>
+            .addwl{
+              border: 0px;
+              background-color: black;
+              color: white;
+              border-radius: 10px;
+            }
+            .addwl:hover{
+              background-color: #C33DB4;
+            }
+          </style>
+        <form action="index.php?act=wishlist" method="post">
+                  <input type="hidden" name="ma_sp" value="<?=$ma_san_pham?>">
+                  <input type="hidden" name="ten_sp" value="<?=$ten_san_pham?>">
+                  <input type="hidden" name="gia_sp" value="<?=$don_gia?>">
+                  <input type="hidden" name="giam_gia_sp" value="<?=$giam_gia?>">
+                  <input type="hidden" name="img" value="<?=$anh?>">
+                  <input type="hidden" name="soluongkho" value="<?=$so_luong?>">
+                  <button type="submit" name="add_wishlist" class="addwl">
+                    Thêm Vào Yêu Thích
+                      </button>
+                      </form>
           <a href="#" class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
             <svg class="icon fs-5">
               <use xlink:href="#icon-ShareNetwork"></use>
