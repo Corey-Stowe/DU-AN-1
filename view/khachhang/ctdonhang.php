@@ -80,6 +80,7 @@ foreach($data as $value){
               <i class="far fa-print"></i>
             </a>
           </div>
+
         </div>
       </header>
       <div class="card-body p-7">
@@ -219,8 +220,16 @@ foreach($data as $value){
                 </span>
                 <div class="ltr:ml-2 rtl:mr-2">
                     <h6>CC</h6>
-                    <span>Thẻ Tín Dụng</span>
+                    <span>Thẻ Tín Dụng <?php echo $brand?> &#x2022;&#x2022;&#x2022;&#x2022;<?php echo $last4?></span>
                 </div>
+                <?php
+                  if($trang_thai_don == 2 || $phuong_thuc_thanh_toan == 0){
+                    ?>
+                    <a href="index.php?act=retry_payment&ma_don_hang=<?php echo $ma_don_hang?>" class="btn btn-primary btn-sm">Thanh toán lại</a>
+                    <?php
+                  }
+                
+                ?>
             </div>
         </div>
     <?php

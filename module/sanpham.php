@@ -126,6 +126,10 @@ function list_sanpham_by_danhmuchot($ma_loai){
     return $data;
 
 }
+function drop_so_luong($ma_san_pham, $so_luong){
+    $sql = "UPDATE san_pham SET so_luong = so_luong - ? WHERE ma_san_pham = ?";
+    pdo_execute($sql, $so_luong, $ma_san_pham);
+}
 // function hanghoa_delete_byid($ma_hanghoa_list){
 //  // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_hanghoa_list = explode(',', $ma_hanghoa_list);

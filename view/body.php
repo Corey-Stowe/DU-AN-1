@@ -92,6 +92,7 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
                     </svg>
                   </button>
                 </form>
+  
                   <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
                     <svg class="icon icon-star-light">
                       <use xlink:href="#icon-star-light"></use>

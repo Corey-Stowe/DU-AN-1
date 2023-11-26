@@ -376,7 +376,7 @@ $best_sell = top_selling();
                     <?php
                   } else {
 
-                  ?>
+                  ?>icon
                   <div class="px-5 d-none d-xl-inline-block">
                     <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
                       <svg class="icon icon-user-light">
@@ -401,7 +401,9 @@ $best_sell = top_selling();
                       <svg class="icon icon-star-light">
                         <use xlink:href="#icon-shopping-bag-open-light"></use>
                       </svg>
-                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">3</span>
+                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?php  if (isset($_SESSION['cart'])) {
+                        echo $_SESSION['count_cart'];
+                       }?></span>
                     </a>
                   </div>
                   <div class="color-modes position-relative ps-5">

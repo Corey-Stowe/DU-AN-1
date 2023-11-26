@@ -2,8 +2,8 @@
     if(isset($_SESSION['ma_khach_hang'])){
         $ma_khach_hang = $_SESSION['ma_khach_hang'];
         $data = get_customer_by_id($ma_khach_hang);
-        extract($data);
-       
+        ShowArray($data);
+       extract($data);
     }
 ?> 
 <main id="content" class="wrapper layout-page">
