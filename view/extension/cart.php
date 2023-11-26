@@ -64,7 +64,9 @@
                 </td>
               </tr>
             <?php }
-              }
+              }else{
+                echo '<td class="align-middle text-center"><h6 style="color: red">Không có sản phẩm nào trong giỏ hàng!</h6></td>';
+            }
             }
               ?>
             </tbody>

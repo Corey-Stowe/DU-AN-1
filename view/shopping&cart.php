@@ -59,14 +59,9 @@ if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
 </td>
 </tr>
 <?php }
-    }
-  }else{
-    echo'<tr><td class="align-middle text-center">
-    <h5>
-    Không có sản phẩm nào trong giỏ hàng! 
-    </5>
-  </td>
-  </tr>';
+    }else{
+      echo '<tr><h6 style="color: red;">Không có sản phẩm nào trong giỏ hàng!</h6></tr>';
+  } 
   }
 ?>
 <tr>

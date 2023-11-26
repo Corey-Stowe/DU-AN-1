@@ -43,18 +43,17 @@
                     <?php
                     foreach($best_sell as $value){
                         extract($value);
-                        if(isset($_POST['addcart'])){
-                        }
                     ?>
                     <div data-animate="fadeInUp">
             <div class="card card-product grid-1 bg-transparent border-0">
-              <form action="index.php" method="post">
+              <form action="index.php?act=viewcart" method="post">
               <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
               <input type="hidden" name="soluong" value="1">
               <input type="hidden" name="tensp" value="<?=$ten_san_pham?>">
               <input type="hidden" name="gia" value="<?=$don_gia?>">
               <input type="hidden" name="giam_gia" value="<?=$giam_gia?>">
-              <input type="hidden" name="img" value="<?php echo $anh?>">
+              <input type="hidden" name="img" value="<?=$anh?>">
+              <input type="hidden" name="soluong" value="1">
               <figure class="card-img-top position-relative mb-7 overflow-hidden ">
                 <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" class="hover-zoom-in d-block" title="Shield Conditioner">
                   <img src="#" data-src="image/<?php echo $anh?>" class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="330" height="440">
@@ -62,8 +61,8 @@
                 <div class="position-absolute product-flash z-index-2 ">
                   <span class="badge badge-product-flash on-sale bg-primary"><?php
 $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
-echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
-?></span>
+echo $phan_tram_giam_gia;// Xuất giá trị đã làm tròn
+?>%</span>
                 </div>
                 <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
                   <button type="submit" name="addcart" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm Vào giỏ hàng">
@@ -71,14 +70,22 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
                       <use xlink:href="#icon-shopping-bag-open-light"></use>
                     </svg>
                   </button>
-                  <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
+                  </form>
+                  <form action="index.php?act=wishlist" method="post">
+                  <input type="hidden" name="ma_sp" value="<?=$ma_san_pham?>">
+                  <input type="hidden" name="ten_sp" value="<?=$ten_san_pham?>">
+                  <input type="hidden" name="gia_sp" value="<?=$don_gia?>">
+                  <input type="hidden" name="giam_gia_sp" value="<?=$giam_gia?>">
+                  <input type="hidden" name="img" value="<?=$anh?>">
+                  <input type="hidden" name="soluongkho" value="<?=$so_luong?>">
+                  <button type="submit" name="add_wishlist" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
                     <svg class="icon icon-star-light">
                       <use xlink:href="#icon-star-light"></use>
                     </svg>
-                  </a>
+                      </button>
+                      </form> 
                 </div>
               </figure>
-              </form>
               <div class="card-body text-center p-0">
                 <span class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">
                   <del class=" text-body fw-500 me-4 fs-13px"><?php echo number_format($don_gia, 0, ',', '.').'đ' ?></del>

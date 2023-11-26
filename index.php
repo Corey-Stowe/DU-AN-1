@@ -320,6 +320,42 @@ if(isset($_GET['act'])){
             break;
         
         }
+        case 'wishlist':{
+            //xóa sp trong yt
+                if(isset($_GET['del_yt_id'])&&($_GET['del_yt_id']>=0)){
+                    array_splice($_SESSION['sp_yeu_thich'],$_GET['del_yt_id'],1); 
+                    header("Location: index.php?act=wishlist");
+                }
+                //add yêu thích 
+                if(!isset($_SESSION['sp_yeu_thich'])) $_SESSION['sp_yeu_thich']=[];              
+                if(isset($_POST['add_wishlist'])){ 
+                    $id_yt=$_POST['ma_sp'];
+                    $ten_yt=$_POST['ten_sp'];
+                    $gia_yt=$_POST['gia_sp'];
+                    $giam_gia_yt=$_POST['giam_gia_sp'];
+                    $hinh_yt=$_POST['img'];
+                    $so_luong_yt=$_POST['soluongkho'];
+                    $soluong2=1;
+                    $fl=0;
+                        for ($i=0; $i < sizeof($_SESSION['sp_yeu_thich']); $i++) {
+                            if($_SESSION['sp_yeu_thich'][$i][0]==$id_yt){
+                                $fl=1;
+                                $soluong2++;
+                                $_SESSION['sp_yeu_thich'][$i][6]=$soluong2;
+                                break;
+
+                            }
+                        }
+                        if($fl==0){
+                        //them mới vào yt
+                        $sp_yt=[$id_yt,$ten_yt,$gia_yt,$giam_gia_yt,$hinh_yt,$so_luong_yt,$soluong2];
+                        $_SESSION['sp_yeu_thich'][]=$sp_yt;
+                    }    
+                }
+                
+            include "view/wishlist.php";
+            break;
+        }
         default:{
             include "view/body.php";
             break;

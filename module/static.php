@@ -105,6 +105,7 @@ function top_selling(){
     san_pham.anh,
     san_pham.giam_gia,
     san_pham.don_gia,
+    san_pham.so_luong,
     SUM(chi_tiet_don_hang.so_luong) AS so_luong_ban
 FROM
     chi_tiet_don_hang

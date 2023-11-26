@@ -389,11 +389,21 @@ $best_sell = top_selling();
                   ?>
                   </div>
                   <div class="px-5 d-none d-xl-inline-block">
-                    <a class="position-relative lh-1 color-inherit text-decoration-none" href="shop/wishlist.html">
+                    <a class="position-relative lh-1 color-inherit text-decoration-none" href="index.php?act=wishlist">
                       <svg class="icon icon-star-light">
                         <use xlink:href="#icon-star-light"></use>
                       </svg>
-                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px">1</span>
+                      <?php
+                      if(isset($_SESSION['sp_yeu_thich'])&&(is_array($_SESSION['sp_yeu_thich']))){
+                        if(sizeof($_SESSION['sp_yeu_thich'])>0){
+                        for ($i=0; $i < sizeof($_SESSION['sp_yeu_thich']); $i++) {
+                          ?>
+                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?=$i+1?></span>
+                          <?php 
+                                }
+                              }
+                            }
+                          ?>
                     </a>
                   </div>
                   <div class="px-5 d-none d-xl-inline-block">
