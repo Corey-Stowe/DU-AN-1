@@ -281,6 +281,7 @@ $list_banners = banner_list();
             </div>
         </div>
     </section>
+
     <section class="container container-xxl pt-15 pb-16 pb-lg-18 pt-lg-19">
         <div class="text-center" data-animate="fadeInUp">
             <p class="fs-15px mb-6 ls-1 text-body-emphasis fw-semibold">MUA SẮM THEO DANH MỤC</p>
