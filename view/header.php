@@ -198,24 +198,14 @@ $best_sell = top_selling();
                             <h6 class="fs-18px">Khác</h6>
                             <ul class="list-unstyled mb-0">
                               <li>
-                                <a href="shop/shopping-cart.html" class="border-hover text-decoration-none py-3 d-block">
+                                <a href="index.php?act=cart" class="border-hover text-decoration-none py-3 d-block">
                                   <span class="border-hover-target">Giỏ hàng</span>
                                 </a>
                               </li>
                               
                               <li>
-                                <a href="shop/wishlist.html" class="border-hover text-decoration-none py-3 d-block">
+                                <a href="index.php?act=wishlist" class="border-hover text-decoration-none py-3 d-block">
                                   <span class="border-hover-target">Yêu thích</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="user-registration.html" class="border-hover text-decoration-none py-3 d-block">
-                                  <span class="border-hover-target">Đăng ký</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="user-login.html" class="border-hover text-decoration-none py-3 d-block">
-                                  <span class="border-hover-target">Đăng Nhập</span>
                                 </a>
                               </li>
                             </ul>
@@ -227,7 +217,7 @@ $best_sell = top_selling();
                                 <p class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase"> Bộ sưu tập mới </p>
                                 <h3 class="fs-3"> Khuyến mãi <br> Đặc biệt </h3>
                                 <div class="mt-auto">
-                                  <a href="#" class="btn btn-white">Mua ngay</a>
+                                  <a href="index.php?act=listspdm&ma_loai=32" class="btn btn-white">Mua ngay</a>
                                 </div>
                               </div>
                             </div>

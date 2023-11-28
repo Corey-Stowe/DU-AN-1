@@ -274,7 +274,7 @@ foreach($data as $value){
       <div class="col-sm-6 text-sm-start text-center">
         <script>
           document.write(new Date().getFullYear());
-        </script> © Glowing - Beauty & Cosmetics Shop HTML Template .
+        </script> © Crow store .
       </div>
       <div class="col-sm-6 text-sm-end text-center"> All rights reserved </div>
     </div>
