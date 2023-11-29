@@ -9,26 +9,26 @@ $list_banners = banner_list();
 ?>
 
 <style>
-.size-img {
-    width: 400px;
+    .size-img {
+        width: 400px;
 
-    .dark-mode-bg {
-        background-color: #2c2c2c;
-        /* Màu nền chủ đề màu tối */
-    }
+        .dark-mode-bg {
+            background-color: #2c2c2c;
+            /* Màu nền chủ đề màu tối */
+        }
 
-    .dark-mode-text {
-        color: #ffffff;
-        /* Màu chữ chủ đề màu tối */
-    }
+        .dark-mode-text {
+            color: #ffffff;
+            /* Màu chữ chủ đề màu tối */
+        }
 
-    .btn-dark {
-        background-color: #333;
-        /* Màu nền cho nút trong chủ đề màu tối */
-        color: #fff;
-        /* Màu chữ cho nút trong chủ đề màu tối */
+        .btn-dark {
+            background-color: #333;
+            /* Màu nền cho nút trong chủ đề màu tối */
+            color: #fff;
+            /* Màu chữ cho nút trong chủ đề màu tối */
+        }
     }
-}
 </style>
 <main id="content" class="wrapper layout-page">
     <section>
@@ -36,33 +36,33 @@ $list_banners = banner_list();
             data-slick-options="{&#34;arrows&#34;:false,&#34;autoplay&#34;:true,&#34;autoplaySpeed&#34;:9000,&#34;cssEase&#34;:&#34;ease-in-out&#34;,&#34;dots&#34;:false,&#34;fade&#34;:true,&#34;infinite&#34;:true,&#34;slidesToShow&#34;:1,&#34;speed&#34;:600}">
 
             <?php
-      foreach ($list_banners as $value) {
-        extract($value);
-        ?>
-            <div class="vh-100 d-flex align-items-center">
-                <div class="z-index-2 container container-xxl py-21 pt-xl-10 pb-xl-11">
-                    <div class="hero-content text-start">
-                        <div data-animate="fadeInDown">
-                            <h1 class="mb-15 text-white hero-title-2 fw-500">
-                                <?php echo $ten_banner ?>
-                            </h1>
+            foreach ($list_banners as $value) {
+                extract($value);
+                ?>
+                <div class="vh-100 d-flex align-items-center">
+                    <div class="z-index-2 container container-xxl py-21 pt-xl-10 pb-xl-11">
+                        <div class="hero-content text-start">
+                            <div data-animate="fadeInDown">
+                                <h1 class="mb-15 text-white hero-title-2 fw-500">
+                                    <?php echo $ten_banner ?>
+                                </h1>
+                            </div>
+                            <a href="<?php echo $lien_ket ?>" data-animate="fadeInUp"
+                                class="pb-2 bg-transparent fw-semibold text-decoration-none hero-link btn btn-link p-0 text-white">
+                                Khám phá ngay <svg class="icon">
+                                    <use xlink:href="#icon-arrow-right"></use>
+                                </svg>
+                            </a>
                         </div>
-                        <a href="<?php echo $lien_ket ?>" data-animate="fadeInUp"
-                            class="pb-2 bg-transparent fw-semibold text-decoration-none hero-link btn btn-link p-0 text-white">
-                            Khám phá ngay <svg class="icon">
-                                <use xlink:href="#icon-arrow-right"></use>
-                            </svg>
-                        </a>
                     </div>
+                    <div class="lazy-bg bg-overlay position-absolute z-index-1 w-100 h-100  "
+                        data-bg-src="image/<?php echo $hinh_anh ?>"></div>
                 </div>
-                <div class="lazy-bg bg-overlay position-absolute z-index-1 w-100 h-100  "
-                    data-bg-src="image/<?php echo $hinh_anh ?>"></div>
-            </div>
-            <br>
-            <?php
-      }
+                <br>
+                <?php
+            }
 
-      ?>
+            ?>
         </div>
     </section>
 
@@ -134,148 +134,148 @@ $list_banners = banner_list();
                     <?php
 
 
-          foreach ($best_sell as $value) {
-            extract($value);
-            ?>
-                    <div data-animate="fadeInUp">
-                        <div class="card card-product grid-1 bg-transparent border-0">
-                            <figure class="card-img-top position-relative mb-7 overflow-hidden ">
-                                <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>"
-                                    class="hover-zoom-in d-block" title="Shield Conditioner">
-                                    <img src="#" data-src="image/<?php echo $anh ?>" class="img-fluid lazy-image w-100"
-                                        alt="Shield Conditioner" width="330" height="440">
-                                </a>
-                                <div class="position-absolute product-flash z-index-2 ">
-                                    <span class="badge badge-product-flash on-sale bg-primary">
-                                        <?php
-                      $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100);
-                      echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
-                      ?>%
-                                    </span>
-                                </div>
-                                <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-                                    <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
-                                        <!-- Hidden input to store product ID -->
-                                        <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
-                                        <!-- Hidden input to store product name -->
-                                        <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
-                                        <!-- Hidden input to store product price -->
-                                        <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
-                                        <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
-                                        <!-- Hidden input to store product quantity -->
-                                        <input type="hidden" name="so_luong" value="1">
-                                        <!-- Hidden input to store product image -->
-                                        <input type="hidden" name="anh" value="<?php echo $anh; ?>">
-
-
-                                        <button type="submit" name="addcart"
-                                            class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart"
-                                            href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                            data-bs-title="Thêm Vào giỏ hàng">
-                                            <svg class="icon icon-shopping-bag-open-light">
-                                                <use xlink:href="#icon-shopping-bag-open-light"></use>
-                                            </svg>
-                                        </button>
-                                    </form>
-
-                                    <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist"
-                                        href="#" data-bs-toggle="tooltip" data-bs-placement="top"
-                                        data-bs-title="Thêm vào danh sách yêu thích">
-                                        <svg class="icon icon-star-light">
-                                            <use xlink:href="#icon-star-light"></use>
-                                        </svg>
+                    foreach ($best_sell as $value) {
+                        extract($value);
+                        ?>
+                        <div data-animate="fadeInUp">
+                            <div class="card card-product grid-1 bg-transparent border-0">
+                                <figure class="card-img-top position-relative mb-7 overflow-hidden ">
+                                    <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>"
+                                        class="hover-zoom-in d-block" title="Shield Conditioner">
+                                        <img src="#" data-src="image/<?php echo $anh ?>" class="img-fluid lazy-image w-100"
+                                            alt="Shield Conditioner" width="330" height="440">
                                     </a>
-                                </div>
-                            </figure>
-                            <div class="card-body text-center p-0">
-                                <span
-                                    class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">
-                                    <del class=" text-body fw-500 me-4 fs-13px">
-                                        <?php echo number_format($don_gia, 0, ',', '.') . 'đ' ?>
-                                    </del>
-                                    <ins class="text-decoration-none">
-                                        <?php echo number_format($giam_gia, 0, ',', '.') . 'đ' ?>
-                                    </ins>
-                                </span>
-                                <h4
-                                    class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
-                                    <a class="text-decoration-none text-reset"
-                                        href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>">
-                                        <?php echo $ten_san_pham ?>
-                                    </a>
-                                </h4>
-                                <div class="d-flex align-items-center fs-12px justify-content-center">
-                                    <div class="rating">
-                                        <div class="empty-stars">
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star-o">
-                                                    <use xlink:href="#star-o"></use>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="filled-stars" style="width: 80%">
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                            <span class="star">
-                                                <svg class="icon star text-primary">
-                                                    <use xlink:href="#star"></use>
-                                                </svg>
-                                            </span>
-                                        </div>
+                                    <div class="position-absolute product-flash z-index-2 ">
+                                        <span class="badge badge-product-flash on-sale bg-primary">
+                                            <?php
+                                            $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100);
+                                            echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
+                                            ?>%
+                                        </span>
                                     </div>
-                                    <span class="reviews ms-4 pt-3 fs-14px">
-                                        <?php echo $so_luong_ban ?> Đã mua
+                                    <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
+                                        <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+                                            <!-- Hidden input to store product ID -->
+                                            <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                                            <!-- Hidden input to store product name -->
+                                            <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                                            <!-- Hidden input to store product price -->
+                                            <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                                            <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                                            <!-- Hidden input to store product quantity -->
+                                            <input type="hidden" name="so_luong" value="1">
+                                            <!-- Hidden input to store product image -->
+                                            <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                                            <button type="submit" name="addcart"
+                                                class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart"
+                                                href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                data-bs-title="Thêm Vào giỏ hàng">
+                                                <svg class="icon icon-shopping-bag-open-light">
+                                                    <use xlink:href="#icon-shopping-bag-open-light"></use>
+                                                </svg>
+                                            </button>
+                                        </form>
+
+                                        <a class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist"
+                                            href="#" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Thêm vào danh sách yêu thích">
+                                            <svg class="icon icon-star-light">
+                                                <use xlink:href="#icon-star-light"></use>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </figure>
+                                <div class="card-body text-center p-0">
+                                    <span
+                                        class="d-flex align-items-center price text-body-emphasis fw-bold justify-content-center mb-3 fs-6">
+                                        <del class=" text-body fw-500 me-4 fs-13px">
+                                            <?php echo number_format($don_gia, 0, ',', '.') . 'đ' ?>
+                                        </del>
+                                        <ins class="text-decoration-none">
+                                            <?php echo number_format($giam_gia, 0, ',', '.') . 'đ' ?>
+                                        </ins>
                                     </span>
+                                    <h4
+                                        class="product-title card-title text-primary-hover text-body-emphasis fs-15px fw-500 mb-3">
+                                        <a class="text-decoration-none text-reset"
+                                            href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>">
+                                            <?php echo $ten_san_pham ?>
+                                        </a>
+                                    </h4>
+                                    <div class="d-flex align-items-center fs-12px justify-content-center">
+                                        <div class="rating">
+                                            <div class="empty-stars">
+                                                <span class="star">
+                                                    <svg class="icon star-o">
+                                                        <use xlink:href="#star-o"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star-o">
+                                                        <use xlink:href="#star-o"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star-o">
+                                                        <use xlink:href="#star-o"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star-o">
+                                                        <use xlink:href="#star-o"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star-o">
+                                                        <use xlink:href="#star-o"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <div class="filled-stars" style="width: 80%">
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="star">
+                                                    <svg class="icon star text-primary">
+                                                        <use xlink:href="#star"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="reviews ms-4 pt-3 fs-14px">
+                                            <?php echo $so_luong_ban ?> Đã mua
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
-          }
-          ?>
+                        <?php
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -289,34 +289,34 @@ $list_banners = banner_list();
         </div>
         <div class="row mt-13">
             <?php
-      $so_luong = count_sanpham_by_loai_hang();
-      foreach ($so_luong as $value) {
-        extract($value);
-        ?>
-            <div class="col-lg-3 col-md-6 col-12" data-animate="fadeInUp">
-                <div class="card border-0">
-                    <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai ?>"
-                        class="hover-shine img-scale overflow-hidden">
-                        <img class="lazy-image card-img-top img-scale-change img-fluid light-mode-img" src="#"
-                            data-src="image/<?php echo $anh_loai ?>" width="545" height="611" alt="Bodycare">
-                        <img class="lazy-image dark-mode-img card-img-top img-scale-change img-fluid" src="#"
-                            data-src="image/<?php echo $anh_loai ?>" width="545" height="611" alt="Bodycare">
-                    </a>
-                    <div class="card-body text-center px-0 py-7">
-                        <h4 class="card-title fw-semibold mb-5">
-                            <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai ?>">
-                                <?php echo $ten_loai ?>
-                            </a>
-                        </h4>
-                        <p class="card-text">
-                            <?php echo $so_luong_hang ?> sản phẩm
-                        </p>
+            $so_luong = count_sanpham_by_loai_hang();
+            foreach ($so_luong as $value) {
+                extract($value);
+                ?>
+                <div class="col-lg-3 col-md-6 col-12" data-animate="fadeInUp">
+                    <div class="card border-0">
+                        <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai ?>"
+                            class="hover-shine img-scale overflow-hidden">
+                            <img class="lazy-image card-img-top img-scale-change img-fluid light-mode-img" src="#"
+                                data-src="image/<?php echo $anh_loai ?>" width="545" height="611" alt="Bodycare">
+                            <img class="lazy-image dark-mode-img card-img-top img-scale-change img-fluid" src="#"
+                                data-src="image/<?php echo $anh_loai ?>" width="545" height="611" alt="Bodycare">
+                        </a>
+                        <div class="card-body text-center px-0 py-7">
+                            <h4 class="card-title fw-semibold mb-5">
+                                <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai ?>">
+                                    <?php echo $ten_loai ?>
+                                </a>
+                            </h4>
+                            <p class="card-text">
+                                <?php echo $so_luong_hang ?> sản phẩm
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php
-      }
-      ?>
+                <?php
+            }
+            ?>
 
         </div>
         <div class="text-center mt-10">
@@ -327,9 +327,9 @@ $list_banners = banner_list();
     </section>
     <section class="bg-section-3">
         <?php
-    $data = sanpham_get_byid(6);
-    extract($data);
-    ?>
+        $data = sanpham_get_byid(6);
+        extract($data);
+        ?>
         <div class="container container-xxl">
             <div class="row align-items-center">
                 <div class="col-lg-7 position-relative" data-animate="fadeIn">
@@ -344,8 +344,8 @@ $list_banners = banner_list();
                         <p class="fs-15px mb-6 ls-1 text-body-emphasis fw-semibold">KHUYẾN MÃI ĐẶC BIỆT <span
                                 class="badge bg-primary fs-15px fw-500 ms-4">-
                                 <?php
-                $phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100;
-                echo $phan_tram_giam_gia ?>%
+                                $phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100;
+                                echo $phan_tram_giam_gia ?>%
                             </span>
                         </p>
                         <h2 class="mb-6">
