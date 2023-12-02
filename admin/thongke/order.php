@@ -19,7 +19,7 @@
                                                     <div class="flex justify-between items-center">
                                                         <div>
                                                             <h3 class="font-bold">
-                                                                <span><?php echo number_format($toal_oder_revenue['tong_don_hang_da'], 0, ',', '.').'đ' ?> </span>
+                                                                <span><?php echo number_format($toal_oder_revenue['ket_qua_tru'], 0, ',', '.').'đ' ?> </span>
                                                             </h3>
                                 
                                                         </div>
@@ -47,7 +47,7 @@
                                                     <div class="flex justify-between items-center">
                                                         <div>
                                                             <h3 class="font-bold">
-                                                                <span><?php echo number_format($purchases['tong_don_hang_da'], 0, ',', '.').'đ' ?></span>
+                                                                <span><?php echo number_format($purchases['ket_qua_tru'], 0, ',', '.').'đ' ?></span>
                                                             </h3>
                                                             <br>
                                                       
@@ -99,7 +99,7 @@
                                                                 <?php
                                                             foreach ($list_new_order as $key => $value) {
                                                                 extract($value);
-                                                                $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+                                                                $toal = donhang_toal_finnal($ma_don_hang);
                                                                 extract($toal);
                                                                 foreach ($toal as $key => $value) {
                                                                     extract($value);
@@ -187,7 +187,7 @@
                                                                 }
                                                                 ?>
                                                         <td>
-                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>  
+                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ' ?></span>  
                                                         </td>   
                                                         <td>
                                                                 <div class="flex justify-end text-lg">
@@ -386,7 +386,7 @@ new ApexCharts(document.querySelector("#simple-donut"), simpleDonutOption).rende
                 extract($value);
 
                 // Format the number as currency
-                $formattedAmount = number_format($tong_lgdh, 0, '.', '');
+                $formattedAmount = number_format($tong_lgdh_tru_tong_lo, 0, '.', '');
                 
                 echo $formattedAmount.',';
             }

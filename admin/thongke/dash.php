@@ -32,7 +32,7 @@ $ma_quyen = $_SESSION['quyen'];
                                                             <div>
                                                                 <span>Tổng doanh thu trong ngày</span>
                                                                 <h3>
-                                                                    <span><?php echo number_format($toal_customer['tong_don_hang_da'], 0, ',', '.').'đ' ?></span>
+                                                                    <span><?php echo number_format($toal_customer['ket_qua_tru'], 0, ',', '.').'đ' ?></span>
                                                                 </h3>
                                                             </div>
                                                         </div>
@@ -150,7 +150,7 @@ $ma_quyen = $_SESSION['quyen'];
                                                                 <?php
                                                             foreach ($list_new_order as $key => $value) {
                                                                 extract($value);
-                                                                $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+                                                                $toal = donhang_toal_finnal($ma_don_hang);
                                                                 extract($toal);
                                                                 foreach ($toal as $key => $value) {
                                                                     extract($value);
@@ -238,7 +238,7 @@ $ma_quyen = $_SESSION['quyen'];
                                                                 }
                                                                 ?>
                                                         <td>
-                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>  
+                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ' ?></span>  
                                                         </td>   
                                                         <td>
                                                                 <div class="flex justify-end text-lg">

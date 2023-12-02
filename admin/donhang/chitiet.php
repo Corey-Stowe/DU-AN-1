@@ -169,6 +169,10 @@ foreach($data as $value){
                                                                     <span class="font-semibold">
                                                                     <?php
                                                                             $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+                                                                            $toalf = donhang_toal_finnal($ma_don_hang);
+                                                                            foreach($toalf as $value){
+                                                                                extract($value);
+                                                                            }
                                                                             foreach($toal as $value){
                                                                                 extract($value);
                                                                             }
@@ -177,12 +181,18 @@ foreach($data as $value){
                                                                         <span><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
                                                                     </span>
                                                                 </li>
+                                                                <li class="flex items-center justify-between mb-3">
+                                                                    <span>Giảm giá</span>
+                                                                    <span class="font-semibold">  
+                                                                        <span>-<?php echo number_format($ma_giam_gia, 0, ',', '.').'đ' ?></span>
+                                                                    </span>
+                                                                </li>
                                                                 
                                                                 <hr class="mb-3">
                                                                 <li class="flex items-center justify-between">
                                                                     <span>Tổng</span>
                                                                     <span class="font-semibold">
-                                                                        <span><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
+                                                                        <span><?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ' ?></span>
                                                                     </span>
                                                                 </li>
                                                             </ul>

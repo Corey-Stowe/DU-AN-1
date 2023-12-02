@@ -170,7 +170,7 @@ ORDER BY
 function list7_day() {
    $sql = "SELECT 
    DATE_FORMAT(don_hang.ngay_dat_hang, '%d/%m/%Y') AS ngay_dat_hang,
-   IFNULL(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) AS tong_lgdh
+   IFNULL(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) - IFNULL(SUM(don_hang.ma_giam_gia), 0) AS tong_lgdh_tru_tong_lo
 FROM don_hang
 LEFT JOIN chi_tiet_don_hang ON don_hang.ma_don_hang = chi_tiet_don_hang.ma_don_hang
 WHERE don_hang.ngay_dat_hang BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE()
@@ -194,18 +194,18 @@ ORDER BY ngay_dat_hang DESC;
 function toal_today_revenue(){
     
     $sql = "SELECT 
-    COALESCE(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) AS tong_don_hang_da
+    COALESCE(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) - COALESCE(SUM(don_hang.ma_giam_gia), 0) AS ket_qua_tru
 FROM chi_tiet_don_hang
 JOIN don_hang ON don_hang.ma_don_hang = chi_tiet_don_hang.ma_don_hang
 WHERE don_hang.trang_thai_don <> 3
-    AND DATE(don_hang.ngay_dat_hang) = CURDATE();";
+    AND don_hang.ngay_dat_hang = CURDATE();";
     $result = pdo_execute_single ($sql);
     return $result;
 }
 function toal_week_revenue(){
     
     $sql = "SELECT 
-    COALESCE (SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) AS tong_don_hang_da
+    COALESCE(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) - COALESCE(SUM(don_hang.ma_giam_gia), 0) AS ket_qua_tru
 FROM chi_tiet_don_hang
 JOIN don_hang ON don_hang.ma_don_hang = chi_tiet_don_hang.ma_don_hang
 WHERE don_hang.trang_thai_don <> 3
@@ -217,7 +217,7 @@ WHERE don_hang.trang_thai_don <> 3
 function toal_month_revenue(){
     
     $sql = "SELECT 
-    COALESCE (SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) AS tong_don_hang_da
+    COALESCE(SUM(chi_tiet_don_hang.so_luong * chi_tiet_don_hang.don_gia), 0) - COALESCE(SUM(don_hang.ma_giam_gia), 0) AS ket_qua_tru
 FROM chi_tiet_don_hang
 JOIN don_hang ON don_hang.ma_don_hang = chi_tiet_don_hang.ma_don_hang
 WHERE don_hang.trang_thai_don <> 3
