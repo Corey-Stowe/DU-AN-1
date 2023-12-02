@@ -77,5 +77,7 @@ function pdo_query_value($sql){
         unset($stmt);
     }
 }
-
+function pdo_get_insert_id(){
+    return $GLOBALS['PDO']->lastInsertId();
+}
 ?>

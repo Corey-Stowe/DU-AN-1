@@ -1,3 +1,8 @@
+<head>
+<title>Đăng nhập | Crown store</title>
+</head>
+
+
 <main id="content" class="wrapper layout-page">
   <section class="pb-lg-20 pb-16">
     <div class="bg-body-secondary py-5">
@@ -63,7 +68,7 @@
                   placeholder="Password" 
                   name="password">
                 </div>
-                <a href="#" class="d-inline-block fs-15 lh-12 mb-7">Quên mật khẩu ?</a>
+                <a href="index.php?act=ifogor" class="d-inline-block fs-15 lh-12 mb-7">Quên mật khẩu ?</a>
                 <button type="submit" class="btn btn-primary w-100 mb-7" name="submit">Đăng Nhập</button>
                 <div class="form-check mb-7 d-flex">
                   <input type="checkbox" class="form-check-input rounded-0" id="customCheck1" name="remember">

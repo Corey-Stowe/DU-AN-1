@@ -9,6 +9,9 @@ function donhang_get_chi_tiet($ma_don_hang){
     don_hang.trang_thai_don,
     don_hang.ma_khach_hang,
     don_hang.ghi_chu,
+    don_hang.brand,
+    don_hang.last4,
+    don_hang.id_ch,
     don_hang.ghi_chu_kh,
     don_hang.phuong_thuc_thanh_toan,
     chi_tiet_don_hang.ma_san_pham,
@@ -74,5 +77,64 @@ function donhang_list_deleted(){
     $data = pdo_query($sql);
     return $data;
 }
+function donhang_list_paid(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '1'  ORDER BY don_hang.ma_don_hang DESC  ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_unpaid(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '2'  ORDER BY don_hang.ma_don_hang DESC  ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_verify(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE don_hang.trang_thai_don = '0'  ORDER BY don_hang.ma_don_hang DESC ";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_by_date(){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang ORDER BY don_hang.ngay_dat_hang DESC";
+    $data = pdo_query($sql);
+    return $data;
+}
+function donhang_list_by_month($month){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE MONTH(don_hang.ngay_dat_hang) = ?";
+    $data = pdo_query($sql, $month);
+    return $data;
+}
+function donhang_list_by_year($year){
+    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang WHERE YEAR(don_hang.ngay_dat_hang) = ?";
+    $data = pdo_query($sql, $year);
+    return $data;
+}   
 
+function donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan){
+    $sql = "INSERT INTO don_hang(ma_khach_hang, ghi_chu_kh, phuong_thuc_thanh_toan) VALUES (?, ?, ?)";
+    pdo_execute($sql, $ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);
+}
+function donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $don_gia){
+    $sql = "INSERT INTO chi_tiet_don_hang(ma_don_hang, ma_san_pham, so_luong, don_gia) VALUES (?, ?, ?, ?)";
+    pdo_execute($sql, $ma_don_hang, $ma_san_pham, $so_luong, $don_gia);
+}
+function donhang_update_trangthai($ma_don_hang, $trang_thai_don){
+    $sql = "UPDATE don_hang SET trang_thai_don = ? WHERE ma_don_hang = ?";
+    pdo_execute($sql, $trang_thai_don, $ma_don_hang);
+}
+function donhang_get_trangthai($ma_don_hang){
+    $sql = "SELECT trang_thai_don FROM don_hang WHERE ma_don_hang = ?";
+    $data = pdo_execute_single($sql, $ma_don_hang);
+    return $data;
+}
+function donhang_update_idch($ma_don_hang, $id_ch){
+    $sql = "UPDATE don_hang SET id_ch = ? WHERE ma_don_hang = ?";
+    pdo_execute($sql, $id_ch, $ma_don_hang);
+}
+function donhang_update_brand($ma_don_hang, $brand){
+    $sql = "UPDATE don_hang SET brand= ? WHERE ma_don_hang = ?";
+    pdo_execute($sql, $brand, $ma_don_hang);
+}
+function donhang_update_last4($ma_don_hang, $brand){
+    $sql = "UPDATE don_hang SET last4= ? WHERE ma_don_hang = ?";
+    pdo_execute($sql, $brand, $ma_don_hang);
+}
 ?>

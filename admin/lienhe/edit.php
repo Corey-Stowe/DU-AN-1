@@ -241,4 +241,23 @@ foreach ($data as $key => $value) {
     //         checkbox.checked = true;
     //     });
     // });
+    function previewImagesindex(event) {
+                var previewContainer = document.getElementById('image-preview-container');
+                previewContainer.innerHTML = ''; // Xóa các xem trước cũ
+
+                var files = event.target.files;
+
+                for (var i = 0; i < Math.min(files.length, 1); i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        var img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.classList.add('mx-auto', 'my-2', 'max-w-100', 'max-h-100');
+                        previewContainer.appendChild(img);
+                    };
+
+                    reader.readAsDataURL(files[i]);
+                }
+            }
 </script>

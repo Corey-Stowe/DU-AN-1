@@ -1,3 +1,7 @@
+<head>
+<title>Đăng ký | Crown store</title>
+</head>
+
 <main id="content" class="wrapper layout-page">
   <section class="pb-lg-20 pb-16">
     <div class="bg-body-secondary py-5">

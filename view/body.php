@@ -1,8 +1,24 @@
 <?php
+//  $ten_khach_hang = $_SESSION['ten_khach_hang'] ;
+//  $email = $_SESSION['email'];
+//  $ma_khach_hang = $_SESSION['ma_khach_hang'];    
+//  $avt = $_SESSION['$avt'];
  $list_banners = banner_list();
 
 
-?> <main id="content" class="wrapper layout-page">
+?>
+
+<style>
+  .size-img{
+      width: 400px;
+
+
+  }
+</style>
+<head>
+<title>Trang chủ | Crown store</title>
+</head>
+<main id="content" class="wrapper layout-page">
   <section>
     <div class="slick-slider hero hero-header-02 slick-slider-dots-inside" data-slick-options="{&#34;arrows&#34;:false,&#34;autoplay&#34;:true,&#34;autoplaySpeed&#34;:9000,&#34;cssEase&#34;:&#34;ease-in-out&#34;,&#34;dots&#34;:false,&#34;fade&#34;:true,&#34;infinite&#34;:true,&#34;slidesToShow&#34;:1,&#34;speed&#34;:600}">
       
@@ -41,19 +57,13 @@
             <div class="container-fluid mb-4">
                 <div class="slick-slider our-best-seller-4" data-slick-options="{&#34;arrows&#34;:true,&#34;centerMode&#34;:true,&#34;centerPadding&#34;:&#34;calc((100% - 1440px) / 2)&#34;,&#34;dots&#34;:true,&#34;infinite&#34;:true,&#34;responsive&#34;:[{&#34;breakpoint&#34;:1200,&#34;settings&#34;:{&#34;arrows&#34;:false,&#34;dots&#34;:false,&#34;slidesToShow&#34;:3}},{&#34;breakpoint&#34;:992,&#34;settings&#34;:{&#34;arrows&#34;:false,&#34;dots&#34;:false,&#34;slidesToShow&#34;:2}},{&#34;breakpoint&#34;:576,&#34;settings&#34;:{&#34;arrows&#34;:false,&#34;dots&#34;:false,&#34;slidesToShow&#34;:1}}],&#34;slidesToShow&#34;:4}">
                     <?php
+                  
+                   
                     foreach($best_sell as $value){
                         extract($value);
                     ?>
                     <div data-animate="fadeInUp">
             <div class="card card-product grid-1 bg-transparent border-0">
-              <form action="index.php?act=viewcart" method="post">
-              <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
-              <input type="hidden" name="soluong" value="1">
-              <input type="hidden" name="tensp" value="<?=$ten_san_pham?>">
-              <input type="hidden" name="gia" value="<?=$don_gia?>">
-              <input type="hidden" name="giam_gia" value="<?=$giam_gia?>">
-              <input type="hidden" name="img" value="<?=$anh?>">
-              <input type="hidden" name="soluong" value="1">
               <figure class="card-img-top position-relative mb-7 overflow-hidden ">
                 <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" class="hover-zoom-in d-block" title="Shield Conditioner">
                   <img src="#" data-src="image/<?php echo $anh?>" class="img-fluid lazy-image w-100" alt="Shield Conditioner" width="330" height="440">
@@ -61,29 +71,69 @@
                 <div class="position-absolute product-flash z-index-2 ">
                   <span class="badge badge-product-flash on-sale bg-primary"><?php
 $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
-echo $phan_tram_giam_gia;// Xuất giá trị đã làm tròn
+echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
 ?>%</span>
                 </div>
                 <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
-                  <button type="submit" name="addcart" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm Vào giỏ hàng">
+                <?php
+                if($so_luong == 0){
+                  ?>
+    
+
+
+                    <button class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Sản phẩm hết hàng">
+                    <svg class="icon icon-shopping-bag-open-light">
+                      <use xlink:href="#icon-shopping-bag-open-light"></use>
+                    </svg>
+                    </button>
+                    <?php
+                     }else {
+
+                    ?>
+                    <form class="add-to-cart-form" action="index.php?act=cart" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="1">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                    <button type="submit" name="addcart" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm Vào giỏ hàng">
                     <svg class="icon icon-shopping-bag-open-light">
                       <use xlink:href="#icon-shopping-bag-open-light"></use>
                     </svg>
                   </button>
-                  </form>
-                  <form action="index.php?act=wishlist" method="post">
-                  <input type="hidden" name="ma_sp" value="<?=$ma_san_pham?>">
-                  <input type="hidden" name="ten_sp" value="<?=$ten_san_pham?>">
-                  <input type="hidden" name="gia_sp" value="<?=$don_gia?>">
-                  <input type="hidden" name="giam_gia_sp" value="<?=$giam_gia?>">
-                  <input type="hidden" name="img" value="<?=$anh?>">
-                  <input type="hidden" name="soluongkho" value="<?=$so_luong?>">
-                  <button type="submit" name="add_wishlist" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm wishlist"  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm vào danh sách yêu thích">
+                </form>
+                <?php
+
+                }
+                ?>
+                <form class="add-to-cart-form" action="index.php?act=wishlist" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="<?php echo $so_luong ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+
+
+                    <button type="submit" name="wishlistadd" class="text-body-emphasis bg-body bg-dark-hover text-light-hover rounded-circle square product-action shadow-sm add_to_cart" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Thêm danh sách ưa thích">
                     <svg class="icon icon-star-light">
                       <use xlink:href="#icon-star-light"></use>
                     </svg>
-                      </button>
-                      </form> 
+                    </button>
+                </form>
                 </div>
               </figure>
               <div class="card-body text-center p-0">
@@ -174,13 +224,13 @@ echo $phan_tram_giam_gia;// Xuất giá trị đã làm tròn
 <div class="row align-items-end">
 <div class="col-lg-4 order-2 order-lg-1 px-xl-6 pb-16 pt-12 py-lg-18 py-xl-22" data-animate="fadeInUp">
 <div class="text-left">
-<p class="fs-15px mb-6 ls-1 text-body-emphasis fw-semibold">BỘ SƯU TẬP MỚI</p><h2 class="fs-20 w-md-50 w-lg-100 w-xl-80 mb-4 me-7 me-md-25">Bộ sưu tập mùa đông</h2>
-<p class="fs-18px mb-0 text-body-calculate">Bộ sưu tập mùa đông đa dạng, trẻ trung, Phù hợp với mọi lứa tuổi.</p></div>
-<a href="#" class="mt-10 btn btn-white shadow-sm">Khám phá ngay</a>
+<p class="fs-15px mb-6 ls-1 text-body-emphasis fw-semibold">BỘ SƯU TẬP MỚI</p><h2 class="fs-20 w-md-50 w-lg-100 w-xl-80 mb-4 me-7 me-md-25">Dầm & Chân Váy Nữ</h2>
+<p class="fs-18px mb-0 text-body-calculate">Khám Phá bộ sưu tập mới, trẻ trung, Phù hợp với mọi lứa tuổi.</p></div>
+<a href="index.php?act=listspdm&ma_loai=32" class="mt-10 btn btn-white shadow-sm">Khám phá ngay</a>
 </div>
 <div class="col-lg-8 order-1 order-lg-2" data-animate="fadeIn">
-<img class="lazy-image img-fluid light-mode-img" src="#" data-src="./assets/images/others/other-bg.png" width="923" height="640" alt="other-01">
-<img class="lazy-image dark-mode-img img-fluid" src="#" data-src="./assets/images/others/other-bg-white.png" width="923" height="640" alt="other-01">
+<img class="lazy-image img-fluid light-mode-img size-img" src="#" data-src="image/hmgoepprod (43).jpg" width="923" height="640" alt="other-01">
+<img class="lazy-image dark-mode-img img-fluid size-img" src="#" data-src="image/hmgoepprod (43).jpg" width="923" height="640" alt="other-01">
 </div>
 </div>
 </div>
@@ -199,8 +249,8 @@ echo $phan_tram_giam_gia;// Xuất giá trị đã làm tròn
       <div class="col-lg-3 col-md-6 col-12" data-animate="fadeInUp">
         <div class="card border-0">
           <a href="index.php?act=listspdm&ma_loai=<?php echo $ma_loai?>" class="hover-shine img-scale overflow-hidden">
-            <img class="lazy-image card-img-top img-scale-change img-fluid light-mode-img" src="#" data-src="./assets/images/shop/product-cate.jpg" width="545" height="611" alt="Bodycare">
-            <img class="lazy-image dark-mode-img card-img-top img-scale-change img-fluid" src="#" data-src="./assets/images/shop/product-cate-white.jpg" width="545" height="611" alt="Bodycare">
+            <img class="lazy-image card-img-top img-scale-change img-fluid light-mode-img" src="#" data-src="image/<?php echo $anh_loai?>" width="545" height="611" alt="Bodycare">
+            <img class="lazy-image dark-mode-img card-img-top img-scale-change img-fluid" src="#" data-src="image/<?php echo $anh_loai?>" width="545" height="611" alt="Bodycare">
           </a>
           <div class="card-body text-center px-0 py-7">
             <h4 class="card-title fw-semibold mb-5">

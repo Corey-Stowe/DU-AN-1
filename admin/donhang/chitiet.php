@@ -2,11 +2,13 @@
 foreach($data as $value){
     extract($value);
 }
+// ShowArray($data);
 ?>
 <main class="h-full">
 								<div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
                                     <div class="container mx-auto">
                                         <div class="mb-6">
+                                     
                                             <div class="flex items-center mb-2">
                                                 <h3>
                                                     <span>Mã Đơn hàng:</span>
@@ -127,7 +129,8 @@ foreach($data as $value){
                                                                                  <img class="avatar-img avatar-rounded" src="img/others/cc.png" loading="lazy">
                                                                              </span>
                                                                              <div class="ltr:ml-2 rtl:mr-2">
-                                                                                 <h6>CC</h6><span>Thẻ Tín Dụng</span>
+                                                                                 <h6>CC</h6><span>Thẻ Tín Dụng <?php echo $brand?> &#x2022;&#x2022;&#x2022;&#x2022;<?php echo $last4?></span>
+
                                                                              </div>
                                                                          </div>
                                                                      </div> 
@@ -250,7 +253,9 @@ foreach($data as $value){
                                                 </div>
                                             </div>
                                         </div>
-                                        <button data-bs-toggle="modal" data-bs-target="#drawerBasic" class="btn btn-two-tune">
+                                        <br>
+                                        <br>
+                                        <button data-bs-toggle="modal" data-bs-target="#drawerBasic" class=" btn btn-solid">
                                     Chỉnh Sửa trạng thái đơn hàng
                                 </button>
                                 <div class="modal fade" id="drawerBasic" tabindex="-1" aria-hidden="true">

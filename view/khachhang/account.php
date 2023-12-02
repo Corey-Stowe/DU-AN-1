@@ -14,6 +14,10 @@ extract($data);
     max-height: 200px;
 }
 </style>
+<head>
+<title>Quản Lí Tài khoản | Crown store</title>
+</head>
+
 <main class="h-full">
     <div class="page-container relative h-full flex flex-auto flex-col px-4 sm:px-6 md:px-8 py-4 sm:py-6">
 
@@ -33,6 +37,12 @@ extract($data);
         echo $_SESSION['sussec'];
         echo "</div>";
         unset($_SESSION['sussec']);
+    }
+    if(isset ($_SESSION['sussecc'])){
+        echo "<div class='alert alert-success' role='alert'>";
+        echo $_SESSION['sussecc'];
+        echo "</div>";
+        unset($_SESSION['sussecc']);
     }
     ?>
            
@@ -64,6 +74,24 @@ extract($data);
                                             <p>Thông tin cơ bản, để thiết lập đơn hàng nhanh hơn </p>
                                         </div>
                                 <div class="form-group row">
+                                    <?php
+                                    if($trang_thai == 0){
+                                        ?>
+                                
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong>Vui lòng</strong> xác thực tài khoản
+                                            <button type="button" class="btn btn-secondary">
+                                                <a href="index.php?act=veriacc&email=<?php echo $email?>">
+                                                Xác thực ngay  
+                                                </a> 
+                                            </button>
+                                        </div>
+                                        <?php
+                                    }  else{
+                                        echo "";
+                                    }
+                                    
+                                    ?>
                                     <label for="name" class="col-md-3 col-form-label font-weight-bold">Họ Và Tên</label>
                                     <div class="col-md-9">
                                         <div class="input-group">

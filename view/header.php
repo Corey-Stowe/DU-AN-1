@@ -14,7 +14,6 @@ $best_sell = top_selling();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Trang chủ</title>
     <script src="view/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
     <link rel="icon" href="view/assets/images/others/favicon.ico">
     <link rel="stylesheet" href="view/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
@@ -83,8 +82,8 @@ $best_sell = top_selling();
               </div>
               <div class="d-flex mx-auto">
                 <a href="index-2.html" class="navbar-brand px-8 py-4 mx-auto">
-                  <img class="light-mode-img" src="image\logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
-                  <img class="dark-mode-img" src="image\logo.png" width="179" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+                  <img class="light-mode-img" src="image\logo.png" width="179" height="95" alt="Glowing - Bootstrap 5 HTML Templates">
+                  <img class="dark-mode-img" src="image\logo.png" width="179" height="95" alt="Glowing - Bootstrap 5 HTML Templates">
                 </a>
               </div>
               <div class="icons-actions d-flex justify-content-end w-xl-50 fs-28px text-body-emphasis">
@@ -321,7 +320,7 @@ $best_sell = top_selling();
                     <a class="nav-link d-flex justify-content-between position-relative py-xl-0 px-xl-0 text-uppercase fw-semibold ls-1 fs-15px fs-xl-14px dropdown-toggle" href="#" data-bs-toggle="dropdown" id="menu-item-docs" aria-haspopup="true" aria-expanded="false">Thành Viên</a>
                     <div class="dropdown-menu mega-menu start-0 py-6 " aria-labelledby="menu-item-docs">
                       <div class="menumega-docs px-8" style="min-width: 250px">
-                        <a href="docs/usage/getting-started.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
+                        <a href="index.php?act=account" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Documentation">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#book"></use>
@@ -333,7 +332,7 @@ $best_sell = top_selling();
                           </div>
                         </a>
                         <hr class="dropdown-divider mx-n8" />
-                        <a href="docs/components/accordion.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
+                        <a href="index.php?act=logout" class="d-flex text-decoration-none mb-4 mb-lg-0" title="UI Kit">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#layer-group"></use>
@@ -344,7 +343,7 @@ $best_sell = top_selling();
                           </div>
                         </a>
                         <hr class="dropdown-divider mx-n8" />
-                        <a href="docs/usage/changelog.html" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
+                        <a href="index.php?act=account" class="d-flex text-decoration-none mb-4 mb-lg-0" title="Changelog">
                           <div class="flex-shrink-0 fs-5 lh-1 text-muted pt-2">
                             <svg class="icon">
                               <use xlink:href="#pen-to-square"></use>
@@ -378,7 +377,7 @@ $best_sell = top_selling();
 
                   ?>
                   <div class="px-5 d-none d-xl-inline-block">
-                    <a class="lh-1 color-inherit text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
+                    <a class="lh-1 color-inherit text-decoration-none" href="index.php?act=login" data-bs-toggle="modal" data-bs-target="#signInModal">
                       <svg class="icon icon-user-light">
                         <use xlink:href="#icon-user-light"></use>
                       </svg>
@@ -393,17 +392,9 @@ $best_sell = top_selling();
                       <svg class="icon icon-star-light">
                         <use xlink:href="#icon-star-light"></use>
                       </svg>
-                      <?php
-                      if(isset($_SESSION['sp_yeu_thich'])&&(is_array($_SESSION['sp_yeu_thich']))){
-                        if(sizeof($_SESSION['sp_yeu_thich'])>0){
-                        for ($i=0; $i < sizeof($_SESSION['sp_yeu_thich']); $i++) {
-                          ?>
-                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?=$i+1?></span>
-                          <?php 
-                                }
-                              }
-                            }
-                          ?>
+                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?php  if (isset($_SESSION['count_wish'])) {
+                        echo $_SESSION['count_wish'];
+                       }?></span>
                     </a>
                   </div>
                   <div class="px-5 d-none d-xl-inline-block">
@@ -411,18 +402,9 @@ $best_sell = top_selling();
                       <svg class="icon icon-star-light">
                         <use xlink:href="#icon-shopping-bag-open-light"></use>
                       </svg>
-                      <?php
-                      if(isset($_SESSION['giohang'])&&(is_array($_SESSION['giohang']))){
-                        if(sizeof($_SESSION['giohang'])>0){
-                        for ($i=0; $i < sizeof($_SESSION['giohang']); $i++) {
-                          ?>
-                          <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?=$i+1?></span>
-                        <?php
-                        }
-                      }
-                    }
-                      ?>
-                      
+                      <span class="badge bg-dark text-white position-absolute top-0 start-100 translate-middle mt-4 rounded-circle fs-13px p-0 square" style="--square-size: 18px"><?php  if (isset($_SESSION['cart'])) {
+                        echo $_SESSION['count_cart'];
+                       }?></span>
                     </a>
                   </div>
                   <div class="color-modes position-relative ps-5">
@@ -945,7 +927,7 @@ $best_sell = top_selling();
         <nav class="navbar navbar-expand-xl px-0 py-6 py-xl-12 row align-items-start">
           <div class="col-xl-3 d-flex justify-content-center justify-content-xl-start">
             <a href="index-2.html" class="navbar-brand py-4 d-lg-inline-block">
-              <img src="view/assets/images/others/logo.png" height="26" alt="Glowing - Bootstrap 5 HTML Templates">
+              <img src="image/logo.png" height="100" alt="Glowing - Bootstrap 5 HTML Templates">
             </a>
           </div>
           <div class="col-xl-6 d-flex justify-content-center">
@@ -1020,7 +1002,6 @@ $best_sell = top_selling();
       </div>
     </div>
     <?php
-     include "extension/cart.php";
      include "extension/login_register.php"
     ?>
     <!-- <div class="modal fade" id="quickViewModal" aria-labelledby="quickViewModal" aria-hidden="true">

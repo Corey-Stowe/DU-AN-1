@@ -111,6 +111,18 @@ function account_get_password($ma_khach_hang){
     $sql = "SELECT mat_khau FROM khach_hang WHERE ma_khach_hang = '$ma_khach_hang'";
     return pdo_execute_single($sql);
 }
+function account_update_diachi_sdt($dia_chi,$sdt,$ma_khach_hang){
+    $sql = "UPDATE khach_hang SET dia_chi = '$dia_chi', sdt = '$sdt' WHERE ma_khach_hang = '$ma_khach_hang'";
+    return pdo_execute($sql);
+}
+function account_email_info($email){
+    $sql = "SELECT * FROM khach_hang WHERE email = '$email'";
+    return pdo_execute_single($sql);
+}
+function  account_set_verified($email){
+    $sql = "UPDATE khach_hang SET trang_thai = '1' WHERE email = '$email'";
+    return pdo_execute($sql);
+}
 // function account_admin_delete_byid($ma_khach_hang_list){
 //     // Lấy danh sách mã loại từ tham số truyền vào qua URL
 //     $ma_khach_hang_list = explode(",", $_GET["ma_khach_hang"]);

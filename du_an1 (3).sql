@@ -241,7 +241,7 @@ INSERT INTO `loai_hang` (`ma_loai`, `ten_loai`, `trang_thai`) VALUES
 --
 
 CREATE TABLE `ma_giam_gia` (
-  `id_giam_gia` int(11) NOT NULL,
+  `id_giam_gia` int(11) NOT NULL PRIMARY KEY,
   `ma_giam_gia` varchar(25) DEFAULT NULL,
   `noi_dung` varchar(100) DEFAULT NULL,
   `so_tien_giam` double NOT NULL,

@@ -21,7 +21,11 @@ foreach($data as $value){
     extract($value);
 }
 
-?> <main id="content" class="wrapper layout-page">
+?> 
+<head>
+<title><?php echo $ten_san_pham?> | Crown store</title>
+</head>
+<main id="content" class="wrapper layout-page">
   <section class="z-index-2 position-relative pb-2 mb-12">
     <div class="bg-body-secondary mb-3">
       <div class="container">
@@ -163,19 +167,32 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $data2?> khách hàng bình Luận </a>
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $luot_xem?> khách hàng đã xem </a>
         </div>
-        <form class="pb-8" action="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" method="post">
+       <?php
+       if($so_luong == 0){
+          ?>
+            <div class="col-sm-8 pt-9 mt-2 mt-sm-0 pt-sm-0">
+              <button  class="btn-hover-bg-primary btn-hover-border-primary btn btn-lg btn-dark w-100" disabled >Hết Hàng </button>
+            </div>
+        <?php
+       } else {
+        ?>
+         <form class="pb-8" action="index.php?act=cart" method="post">
           <div class="row align-items-end">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
             <div class="form-group col-sm-4">
               <div class="input-group position-relative w-100 input-group-lg">
                 <a href="#" class="shop-down position-absolute translate-middle-y top-50 start-0 ps-7 product-info-2-minus">
                   <i class="far fa-minus"></i>
                 </a>
-                <input name="soluong" type="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" equired>
-                <input type="hidden" name="masp" value="<?php echo $ma_san_pham?>">
-                <input type="hidden" name="tensp" value="<?php echo $ten_san_pham?>">
-                <input type="hidden" name="gia" value="<?php echo $don_gia?>">
-                <input type="hidden" name="giam_gia" value="<?php echo $giam_gia?>">
-                <input type="hidden" name="img" value="<?php echo $anh?>">
+                <input name="so_luong" type="number" id="number" class="product-info-2-quantity form-control w-100 px-6 text-center" value="1" required>
                 <a href="#" class="shop-up position-absolute translate-middle-y top-50 end-0 pe-7 product-info-2-plus">
                   <i class="far fa-plus"></i>
                 </a>
@@ -186,29 +203,31 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
             </div>
           </div>
         </form>
+        <?php
+       }
+       
+       
+       ?>
         <div class="d-flex align-items-center flex-wrap">
-          <style>
-            .addwl{
-              border: 0px;
-              background-color: black;
-              color: white;
-              border-radius: 10px;
-            }
-            .addwl:hover{
-              background-color: #C33DB4;
-            }
-          </style>
-        <form action="index.php?act=wishlist" method="post">
-                  <input type="hidden" name="ma_sp" value="<?=$ma_san_pham?>">
-                  <input type="hidden" name="ten_sp" value="<?=$ten_san_pham?>">
-                  <input type="hidden" name="gia_sp" value="<?=$don_gia?>">
-                  <input type="hidden" name="giam_gia_sp" value="<?=$giam_gia?>">
-                  <input type="hidden" name="img" value="<?=$anh?>">
-                  <input type="hidden" name="soluongkho" value="<?=$so_luong?>">
-                  <button type="submit" name="add_wishlist" class="addwl">
-                    Thêm Vào Yêu Thích
-                      </button>
-                      </form>
+        <form class="add-to-cart-form" action="index.php?act=wishlist" method="POST">
+                    <!-- Hidden input to store product ID -->
+                    <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
+                    <!-- Hidden input to store product name -->
+                    <input type="hidden" name="ten_san_pham" value="<?php echo $ten_san_pham; ?>">
+                    <!-- Hidden input to store product price -->
+                    <input type="hidden" name="giam_gia" value="<?php echo $giam_gia; ?>">
+                    <input type="hidden" name="don_gia" value="<?php echo $don_gia; ?>">
+                    <!-- Hidden input to store product quantity -->
+                    <input type="hidden" name="so_luong" value="<?php echo $so_luong ?>">
+                    <!-- Hidden input to store product image -->
+                    <input type="hidden" name="anh" value="<?php echo $anh; ?>">
+                    <button  type="submit" name="wishlistadd"  class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
+                    <svg class="icon fs-5">
+                      <use xlink:href="#icon-star-light"></use>
+                    </svg>
+                    <span class="ms-4 ps-2">Thêm vào danh sách mong muốn</span>
+                  </button>
+                  </form> 
           <a href="#" class="text-decoration-none fw-semibold fs-6 me-9 pe-2 d-flex align-items-center">
             <svg class="icon fs-5">
               <use xlink:href="#icon-ShareNetwork"></use>
@@ -263,7 +282,7 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
             </a>
             <div class="position-absolute product-flash z-index-2 ">
               <span class="badge badge-product-flash on-sale bg-primary"><?php
-$phan_tram_giam_gia = ($don_gia - $giam_gia) / $don_gia * 100; 
+$phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
 echo $phan_tram_giam_gia ?>% </span>
             </div>
             <div class="position-absolute d-flex z-index-2 product-actions  vertical">
@@ -513,7 +532,7 @@ echo $phan_tram_giam_gia ?>% </span>
               </div>
             </div>  
             <p class="mb-10 fs-6"><?php echo $noi_dung?></p><br>
-            <h6>Ảnh từ khách hàng</h6>;
+            <h6>Ảnh từ khách hàng</h6>
             <img src="image/<?=$anhbl?> " data-src="" width="60" height="60"> 
             
           </div>
