@@ -176,12 +176,20 @@ foreach($data as $value){
                             foreach($toal as $value){
                            extract($value);
                              }
+                             $finnal = donhang_toal_finnal($ma_don_hang);
+                              foreach($finnal as $value){
+                            extract($value);
+                              }
                              ?>
                             <span class="d-inline-block w-50 text-end fw-normal"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
                           </div>
+                          <div class="d-flex w-100">
+                            <span class="d-inline-block w-50">Khuyến mãi:</span>                             
+                            <span class="d-inline-block w-50 text-end fw-normal">-<?php  echo number_format($ma_giam_gia, 0, ',', '.').'đ'  ?></span>
+                          </div>
                           <div class="d-flex w-100 mb-5">
                             <span class="d-inline-block w-50">Tổng tiền phải thanh toán:</span>
-                            <span class="d-inline-block w-50 text-end fs-5 fw-semibold"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
+                            <span class="d-inline-block w-50 text-end fs-5 fw-semibold"><?php echo number_format($tong_gia_don_hang_giam , 0, ',', '.').'đ' ?></span>
                           </div>
                           <div class="d-flex w-100">
                           </div>

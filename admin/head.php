@@ -177,6 +177,11 @@ $ma_quyen = $_SESSION['quyen'];
 														<span>Danh sách khuyến mãi</span>
 													</a>
 												</li>
+												<li data-menu-item="modern-project-list" class="menu-item">
+													<a class="h-full w-full flex items-center" href="admin.php?act=addcuppon">
+														<span>Thêm khuyến mãi mới</span>
+													</a>
+												</li> 
 												 <li data-menu-item="modern-project-list" class="menu-item">
 													<a class="h-full w-full flex items-center" href="admin.php?act=cupponexpried">
 														<span>Khuyến mãi đã hết hạn</span>

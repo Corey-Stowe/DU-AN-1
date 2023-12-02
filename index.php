@@ -11,6 +11,7 @@ include "module/comment.php";
 include "module/order.php";
 include "module/banner.php";
 include "module/static.php";
+include "module/cupon.php";
 include "view/header.php";
 require 'module/PHPMailer/src/Exception.php';
 require 'module/PHPMailer/src/PHPMailer.php';
@@ -137,6 +138,65 @@ if(isset($_GET['act'])){
             }
         
             include "view/cart.php";
+            break;
+        }
+        case 'coupon': {
+            if (isset($_POST['code'])) {
+                //validate
+                $error = [];
+                if (empty($_POST['magiam'])) {
+                    $error['ten_ma_gg'] = "Bạn chưa nhập tên mã giảm giá";
+                }
+                if(empty($error)){
+                    //check vaild
+                    $ma_giam_gia = $_POST['magiam'];
+                    $data = check_vaild_date($ma_giam_gia);
+                    if(!empty($data)){
+                        extract($data);
+                    
+                        if($con_han == 1){
+                            $res = get_ma_giam_gia($ma_giam_gia);
+                            // ShowArray( $res);
+                            extract( $res); 
+                            // Áp dụng giảm giá cho giỏ hàng
+                            if (isset($_SESSION['cart'])) {
+                                $ma_giam_gia = $_POST['magiam'];
+                                //kiểm tra mã bị nhập 2 lần
+                                if($ma_giam_gia == $_SESSION['ma_giam_gia']){
+                                    $error['magiam'] = "Mã giảm giá đã được sử dụng";
+                                } else {
+                                $_SESSION['ma_giam_gia'] = $ma_giam_gia;    
+                                    // Tổng giảm giá từ mã giảm giá
+                                $total_discount = $so_tien_giam;
+                                $_SESSION['total_discount'] = $total_discount;
+
+                                // Tính tổng giá của giỏ hàng
+                                $total_cart = calculateTotal();
+
+                                // Áp dụng giảm giá cho tổng giỏ hàng
+                                $total_after_discount = $total_cart - $total_discount;
+                                $_SESSION['total_after_discount'] = $total_after_discount;  
+                                header("location:index.php?act=checkout");                     
+                                }
+                               
+    
+                            }
+                            
+                        } else {
+                            $error['magiam'] = "Mã giảm giá đã hết hạn hoặc không tồn tại";
+                        }
+                        
+
+
+                } else {
+                    $error['magiam'] = "Mã giảm giá đã hết hạn hoặc không tồn tại";
+                }
+
+               
+            }
+           
+                }
+           
             break;
         }
         case'wishlist':{
@@ -329,6 +389,9 @@ if(isset($_GET['act'])){
             if (isset($_POST['clearallcart'])) {
                 // Xóa toàn bộ giỏ hàng trong $_SESSION
                 unset($_SESSION['cart']);
+                unset($_SESSION['total_discount']);
+                unset($_SESSION['ma_giam_gia']);
+                unset($_SESSION['total_after_discount']);   
                 header("location:index.php?act=cart");
             }
             
@@ -723,13 +786,18 @@ if(isset($_GET['act'])){
                     $sdt = $_POST['sdt'];
                     $dia_chi = $_POST['diachi'];
                     $email = $_SESSION['email'];
+                    if(isset( $_SESSION['total_discount'])){
+                        $ma_giam_gia =$_SESSION['total_discount'];
+                    } else {
+                        $ma_giam_gia = 0;
+                    }
                     $ma_khach_hang = $_SESSION['ma_khach_hang'];
                     $phuong_thuc_thanh_toan = $_POST['phuong_thuc'];
                     $ghi_chu_kh = $_POST['ghichu_kh'];
                     account_update_diachi_sdt($dia_chi,$sdt,$ma_khach_hang);
 
                     if($phuong_thuc_thanh_toan == 0){
-                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);
+                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma_giam_gia);
                         $ma_don_hang = pdo_get_insert_id();
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
                         foreach($_SESSION['cart'] as $value){
@@ -738,7 +806,7 @@ if(isset($_GET['act'])){
                             drop_so_luong($ma_san_pham, $so_luong);
                         }
                             $don_hang_ct = donhang_get_chi_tiet($_SESSION['ma_don_hang']);
-                            $toal = donhang_get_toal_chi_tiet($_SESSION['ma_don_hang']);
+                            $toal = donhang_toal_finnal($_SESSION['ma_don_hang']);
                             foreach($toal as $value){
                                 extract($value);
                             }
@@ -861,6 +929,10 @@ if(isset($_GET['act'])){
                         }
 
                         unset($_SESSION['cart']);
+                        unset($_SESSION['total_discount']);
+                        unset($_SESSION['ma_giam_gia']);
+                        unset($_SESSION['total_after_discount']);
+
                         extract($don_hang_ct);  
                     //    ShowArray($don_hang_ct);   
                     //    ShowArray($toal);   
@@ -871,7 +943,7 @@ if(isset($_GET['act'])){
                         
                     } 
                     if($phuong_thuc_thanh_toan == 1){
-                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);
+                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma_giam_gia);
                         $ma_don_hang = pdo_get_insert_id();
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
                         foreach($_SESSION['cart'] as $value){
@@ -881,7 +953,7 @@ if(isset($_GET['act'])){
                         }
                         donhang_update_trangthai($ma_don_hang, 2);  
                         $don_hang_ct = donhang_get_chi_tiet($_SESSION['ma_don_hang']);
-                        $toal = donhang_get_toal_chi_tiet($_SESSION['ma_don_hang']);
+                        $toal = donhang_toal_finnal($_SESSION['ma_don_hang']);
                         foreach($toal as $value){
                             extract($value);
                         }
@@ -1003,13 +1075,16 @@ if(isset($_GET['act'])){
                         echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
                     }
                         unset($_SESSION['cart']);
+                        unset($_SESSION['total_discount']);
+                        unset($_SESSION['ma_giam_gia']);
+                        unset($_SESSION['total_after_discount']);
                        header("location:PCI/ccpayment.php?ma_don_hang=$ma_don_hang");
                     } 
                     if($phuong_thuc_thanh_toan == 2){
                         $vnp_Amount = $_POST['amount']*100;
                         $vnp_Locale = $_POST['language'];
                         $vnp_BankCode = $_POST['bankCode'];
-                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan);
+                        donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma_giam_gia);
                         $ma_don_hang = pdo_get_insert_id();
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
                         foreach($_SESSION['cart'] as $value){
@@ -1136,6 +1211,9 @@ if(isset($_GET['act'])){
                         }
 
                         unset($_SESSION['cart']);
+                        unset($_SESSION['total_discount']);
+                        unset($_SESSION['ma_giam_gia']);
+                        unset($_SESSION['total_after_discount']);
                         header("Location:module/vnpay_php/vnpay_create_payment.php?vnp_Amount=$vnp_Amount&vnp_Locale=$vnp_Locale&vnp_BankCode=$vnp_BankCode&ma_don_hang=$ma_don_hang");
                         exit();
                     } 
@@ -1221,6 +1299,10 @@ if(isset($_GET['act'])){
             include "view/payment/order_complete.php";
             break;
         }   
+        case 'gioithieu':{
+            include "view/intro.php";
+            break;
+        }
         case 'logout':{
             unset($_SESSION['ten_khach_hang']);
             unset($_SESSION['email']);  

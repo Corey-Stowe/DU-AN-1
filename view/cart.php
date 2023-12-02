@@ -105,14 +105,7 @@
         </table>
       </form>
       <div class="row pt-8 pt-lg-11 pb-16 pb-lg-18">
-        <div class="col-lg-4 pt-2">
-          <h4 class="fs-24 mb-6">Mã giảm giá</h4>
-          <p class="mb-7">Nhập mã giảm giá nhếu như bạn có nó.</p>
-          <form action="index.php?act=coupon" method="POST">
-            <input type="text" class="form-control mb-7" placeholder="Enter coupon code here">
-            <button type="submit" name="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary"> Áp dụng mã </button>
-          </form>
-        </div>
+       
         <div class="col-lg-4 pt-lg-0 pt-11">
           <div class="card border-0" style="box-shadow: 0 0 10px 0 rgba(0,0,0,0.1)">
             <div class="card-body px-9 pt-6">
@@ -127,18 +120,28 @@
               </div>
               <div class="d-flex align-items-center justify-content-between">
                 <span>Giảm giá:</span>
-                <span class="d-block ml-auto text-body-emphasis fw-bold">$0</span>
+                <span class="d-block ml-auto text-body-emphasis fw-bold"><?php
+                  if(isset( $_SESSION['total_after_discount'])){
+                    echo number_format(  $_SESSION['total_discount'], 0, ',', '.') . 'đ';
+                  } else {
+                    echo '0đ';
+                  
+                  }
+                
+                ?></span>
               </div>
             </div>
             <div class="card-footer bg-transparent px-0 pt-5 pb-7 mx-9">
               <div class="d-flex align-items-center justify-content-between fw-bold mb-7">
                 <span class="text-secondary text-body-emphasis">Tổng tiền:</span>
-                <span class="d-block ml-auto text-body-emphasis fs-4 fw-bold"><?php if(isset($total)){
-            echo number_format($total, 0, ',', '.') . 'đ';
-          } else {
-            echo '0đ';
+                <span class="d-block ml-auto text-body-emphasis fs-4 fw-bold"><?php if(isset( $_SESSION['total_after_discount'])){
+            echo number_format( $_SESSION['total_after_discount'], 0, ',', '.') . 'đ';
+          } elseif(isset($total)) {
+            echo number_format( $total, 0, ',', '.') . 'đ';
           
-          }  ?></span>
+          } else{
+            echo '0đ';
+          } ?></span>
               </div>
               <a href="index.php?act=checkout" class="btn w-100 btn-dark btn-hover-bg-primary btn-hover-border-primary" title="Check Out">Thanh toán</a>
             </div>

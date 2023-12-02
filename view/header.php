@@ -283,23 +283,23 @@ $best_sell = top_selling();
                         </ul>
                       </li> -->
                       <li class="dropdown-divider"></li>
-                      <li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-                        <a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover" href="#" data-bs-toggle="dropdown" id="menu-item-about-us">
-                          <span class="border-hover-target"> Về chúng tôi </span>
+                      <li>
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
+                          <span class="border-hover-target"> Giới thiệu </span>
                         </a>
                       </li>
-                      <li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-                        <a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover" href="#" data-bs-toggle="dropdown" id="menu-item-contact-us">
+                      <li>
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Liên Hệ </span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item pe-6 border-hover" href="faqs.html">
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Câu hỏi thường gặp </span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item pe-6 border-hover" href="find-a-store.html">
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Cửa hàng </span>
                         </a>
                       </li>

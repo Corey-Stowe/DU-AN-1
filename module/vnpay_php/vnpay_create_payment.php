@@ -14,8 +14,7 @@ $vnp_Amount = $_GET['vnp_Amount']; // Số tiền thanh toán
 $vnp_Locale = $_GET['vnp_Locale']; //Ngôn ngữ chuyển hướng thanh toán
 $vnp_BankCode = $_GET['vnp_BankCode']; //Mã phương thức thanh toán
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
-$o_id = $_GET['ma_don_hang'];
-$o_id = $_SESSION['ma_don_hang'];
+
 
 $inputData = array(
     "vnp_Version" => "2.1.0",

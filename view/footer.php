@@ -20,39 +20,16 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 </p>
 </div>
 <div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
-<h3 class="fs-5 mb-6 ">Trang</h3>
-<ul class="list-unstyled mb-0 fw-medium ">
-<li class="pt-3 mb-4">
-<a href="#" title="New Products" class="text-body">New Products</a>
-</li>
-<li class="pt-3 mb-4">
-<a href="#" title="Best Sellers" class="text-body">Best Sellers</a>
-</li>
-<li class="pt-3 mb-4">
-<a href="#" title="Bundle &amp; Save" class="text-body">Bundle &amp; Save</a>
-</li>
-<li class="pt-3 mb-4">
-<a href="#" title="Online Gift Card" class="text-body">Online Gift Card</a>
-</li>
-</ul>
-</div>
-<div class="col-lg col-md-4 col-12 mb-11 mb-lg-0">
 <h3 class="fs-5 mb-6 ">Thông Tin</h3>
 <ul class="list-unstyled mb-0 fw-medium ">
 <li class="pt-3 mb-4">
-<a href="#" title="Start a Return" class="text-body">Start a Return</a>
+<a href="index.php?act=gioithieu" title="Contact Us" class="text-body">Liên Hệ</a>
 </li>
 <li class="pt-3 mb-4">
-<a href="#" title="Contact Us" class="text-body">Contact Us</a>
+<a href="index.php?act=gioithieu" title="Terms &amp; Conditions" class="text-body">Terms &amp; Conditions</a>
 </li>
 <li class="pt-3 mb-4">
-<a href="#" title="Shipping FAQ" class="text-body">Shipping FAQ</a>
-</li>
-<li class="pt-3 mb-4">
-<a href="#" title="Terms &amp; Conditions" class="text-body">Terms &amp; Conditions</a>
-</li>
-<li class="pt-3 mb-4">
-<a href="#" title="Privacy Policy" class="text-body">Privacy Policy</a>
+<a href="index.php?act=gioithieu" title="Privacy Policy" class="text-body">Privacy Policy</a>
 </li>
 </ul>
 </div>
