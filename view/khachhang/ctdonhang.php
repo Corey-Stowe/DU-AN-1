@@ -80,7 +80,7 @@ foreach($data as $value){
                             </span>
           </div>
           <div class="col-md-6 ml-auto d-flex justify-content-md-end flex-wrap">
-            <a class="btn btn-dark print ms-5 my-3" href="#">
+            <a class="btn btn-dark print ms-5 my-3" href="view/print.php?ma_don_hang=<?php echo $ma_don_hang ?>">
               <i class="far fa-print"></i>
             </a>
           </div>
@@ -154,6 +154,7 @@ foreach($data as $value){
                         </a>
                         <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>"class="ms-6">
                           <p class="fw-semibold text-body-emphasis mb-0"><?php echo $ten_san_pham ?></p>
+                          <p class="text-muted fs-13px mb-0">Kích cỡ: <?php echo $size ?></p>
                         </a>
                       </div>
                     </td>

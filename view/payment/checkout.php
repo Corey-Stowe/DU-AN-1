@@ -77,6 +77,7 @@
                   </div>
                   <div class="ms-auto">
                     <p class="fs-14px text-body-emphasis mb-0 fw-bold"><?php echo number_format($giam_gia, 0, ',', '.').'đ' ?></p>
+                    <p class="fs-14px text-body-emphasis mb-0 fw-bold">Size: <?php echo $size?></p>
                   </div>
                 </div>
               </div>

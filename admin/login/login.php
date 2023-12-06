@@ -60,15 +60,10 @@ if(isset($_POST['submit'])){
                             <div class="grid lg:grid-cols-3 h-full">
                                 <div class="bg-no-repeat bg-cover py-6 px-16 flex-col justify-between hidden lg:flex" style="background-image: url('../img/others/auth-side-bg.jpg');">
                                     <div class="logo">
-                                        <img src="../img/logo/logo-dark-full.png" alt="Elstar logo">
+                                        <img src="../../image/alogo.png" alt="Elstar logo" width="200" height="100">
                                     </div>
-                                    <div>
-                                        <div class="mb-6 flex items-center gap-4">
-                                            <span class="avatar avatar-circle avatar-md border-2 border-white">
-                                                <img class="avatar-img avatar-circle" src="../img/avatars/thumb-10.jpg" loading="lazy">
-                                            </span>
-                                        </div>
-                                    </div>
+                                    
+                              
                                 </div>
                                 <div class="col-span-2 flex flex-col justify-center items-center bg-white dark:bg-gray-800">
                                     <div class="xl:min-w-[450px] px-8">

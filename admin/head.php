@@ -14,7 +14,7 @@ $ma_quyen = $_SESSION['quyen'];
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="../image/logo.png">
 		<title>Quản trị Admin</title>
 
 		<!-- Core CSS -->
@@ -30,7 +30,7 @@ $ma_quyen = $_SESSION['quyen'];
 					<div class="side-nav side-nav-transparent side-nav-expand">
 						<div class="side-nav-header">
 							<div class="logo px-6">
-								<img src="img/logo/logo-light-full.png" alt="Elstar logo">
+								<img src="../image/logo.png" alt="Elstar logo" width="200">
 							</div>
 						</div>
 						<div class="side-nav-content relative side-nav-scroll">

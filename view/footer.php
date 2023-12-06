@@ -31,6 +31,9 @@ Tên công ty: <a class href="#"><u class="fw-medium"><?=$ten_doanh_nghiep?></u>
 <li class="pt-3 mb-4">
 <a href="index.php?act=gioithieu" title="Privacy Policy" class="text-body">Privacy Policy</a>
 </li>
+<li class="pt-3 mb-4">
+<a href="admin/admin.php" title="Privacy Policy" class="text-body">Quản Trị</a>
+</li>
 </ul>
 </div>
 <div class="col-lg-5 col-12 mb-11 mb-lg-0">

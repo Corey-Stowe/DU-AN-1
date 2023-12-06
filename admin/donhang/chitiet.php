@@ -80,6 +80,7 @@ foreach($data as $value){
                                                                                 <div class="ltr:ml-2 rtl:mr-2">
                                                                                     <h6 class="mb-2"><?php echo $ten_san_pham?></h6>
                                                                                     <div class="mb-1"><span class="capitalize">thương hiệu: <?php echo $thuong_hieu?> </span>
+                                                                                    <div class="mb-1"><span class="capitalize">kích cỡ: <?php echo $size?> </span>
                                                                                     
                                                                                     </div>
                                                                     

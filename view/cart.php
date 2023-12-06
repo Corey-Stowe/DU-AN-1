@@ -49,6 +49,10 @@
                       <span class="fs-13px fw-500 text-decoration-line-through pe-3"><?php echo number_format($don_gia, 0, ',', '.').'đ' ?></span>
                       <span class="fs-15px fw-bold text-body-emphasis"><?php echo number_format($giam_gia, 0, ',', '.').'đ' ?></span>
                     </p>
+                    <p class="card-text">
+                      <span class="fs-13px fw-500 text-body-emphasis pe-3">Size: <?php echo $size?></span>
+                    </p>
+
                   </div>
                 </div>
               </th>

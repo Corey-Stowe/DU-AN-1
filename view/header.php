@@ -15,7 +15,7 @@ $best_sell = top_selling();
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="view/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
-    <link rel="icon" href="view/assets/images/others/favicon.ico">
+    <link rel="shortcut icon" href="../image/logo.png">
     <link rel="stylesheet" href="view/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
     <link rel="stylesheet" href="view/assets/vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/assets/vendors/animate/animate.min.css">

@@ -88,6 +88,7 @@ if(isset($_GET['act'])){
                     $anhbl=" ";
                  }
                           comment_insert($ma_san_pham,$ma_khach_hang,$noi_dung,$ngay_binh_luan,$anhbl);
+                            header("location:index.php?act=ctsp&ma_san_pham=$ma_san_pham");
             }
             include "view/chitietsp/chitetsp.php";
             break;
@@ -97,6 +98,11 @@ if(isset($_GET['act'])){
                 $ma_san_pham = $_POST['ma_san_pham'];
                 $so_luong = $_POST['so_luong'];
                 $ten_san_pham = $_POST['ten_san_pham'];
+                if(isset($_POST['size'])){
+                    $size = $_POST['size'];
+                } else {
+                    $size = "M";
+                }
                 $don_gia = $_POST['don_gia'];
                 $giam_gia = $_POST['giam_gia'];
                 $anh = $_POST['anh'];
@@ -122,6 +128,7 @@ if(isset($_GET['act'])){
                         'ma_san_pham' => $ma_san_pham,
                         'so_luong' => $so_luong,
                         'ten_san_pham' => $ten_san_pham,
+                        'size' => $size,
                         'don_gia' => $don_gia,
                         'giam_gia' => $giam_gia,
                         'anh' => $anh
@@ -787,7 +794,7 @@ if(isset($_GET['act'])){
                     $dia_chi = $_POST['diachi'];
                     $email = $_SESSION['email'];
                     if(isset( $_SESSION['total_discount'])){
-                        $ma_giam_gia =$_SESSION['total_discount'];
+                        $ma_giam_gia = $_SESSION['total_discount'];
                     } else {
                         $ma_giam_gia = 0;
                     }
@@ -802,7 +809,7 @@ if(isset($_GET['act'])){
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
                         foreach($_SESSION['cart'] as $value){
                             extract($value);
-                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia);
+                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia, $size);
                             drop_so_luong($ma_san_pham, $so_luong);
                         }
                             $don_hang_ct = donhang_get_chi_tiet($_SESSION['ma_don_hang']);
@@ -896,6 +903,7 @@ if(isset($_GET['act'])){
                                                     <table>
                                                         <tr>
                                                             <th>Tên Sản Phẩm</th>
+                                                            <th>Size</th>
                                                             <th>Số Lượng</th>
                                                             <th>Giá</th>
                                                         </tr>';
@@ -904,13 +912,14 @@ if(isset($_GET['act'])){
                                                             $mail->Body .= '
                                                                 <tr>
                                                                     <td>'.$item['ten_san_pham'].'</td>
+                                                                    td>'.$item['size'].'</td>
                                                                     <td>'.$item['so_luong'].'</td>
                                                                     <td>'.number_format($item['don_gia'], 0, ',', '.').'đ</td>
                                                                 </tr>';
                                                         }
                                                         
                                         $mail->Body .= '
-                                        <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang, 0, ',', '.').'đ</p>
+                                        <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ</p>
                                         <p><strong>Phương thức thanh toán:</strong>Giao tiền khi nhận hàng (COD)</p>
                                     </div>
                             
@@ -948,7 +957,7 @@ if(isset($_GET['act'])){
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
                         foreach($_SESSION['cart'] as $value){
                             extract($value);
-                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia);
+                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia, $size);
                             drop_so_luong($ma_san_pham, $so_luong);
                         }
                         donhang_update_trangthai($ma_don_hang, 2);  
@@ -1040,24 +1049,27 @@ if(isset($_GET['act'])){
                                             <p>Cảm ơn bạn đã đặt hàng. Dưới đây là chi tiết đơn hàng của bạn:</p>
 
                                             <div class="product">
-                                                <table>
+                                            <table>
+                                            <tr>
+                                                <th>Tên Sản Phẩm</th>
+                                                <th>Size</th>
+                                                <th>Số Lượng</th>
+                                                <th>Giá</th>
+                                            </tr>';
+                
+                                            foreach ($don_hang_ct as $item) {
+                                                $mail->Body .= '
                                                     <tr>
-                                                        <th>Tên Sản Phẩm</th>
-                                                        <th>Số Lượng</th>
-                                                        <th>Giá</th>
+                                                        <td>'.$item['ten_san_pham'].'</td>
+                                                        td>'.$item['size'].'</td>
+                                                        <td>'.$item['so_luong'].'</td>
+                                                        <td>'.number_format($item['don_gia'], 0, ',', '.').'đ</td>
                                                     </tr>';
-                        
-                                                    foreach ($don_hang_ct as $item) {
-                                                        $mail->Body .= '
-                                                            <tr>
-                                                                <td>'.$item['ten_san_pham'].'</td>
-                                                                <td>'.$item['so_luong'].'</td>
-                                                                <td>'.number_format($item['don_gia'], 0, ',', '.').'đ</td>
-                                                            </tr>';
-                                                    }
+                                            }
+                                            
                                                     
                                     $mail->Body .= '
-                                    <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang, 0, ',', '.').'đ</p>
+                                    <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ</p>
                                     <p><strong>Phương thức thanh toán:</strong> Thẻ tín dụng</p>
                                 </div>
                         
@@ -1086,10 +1098,13 @@ if(isset($_GET['act'])){
                         $vnp_BankCode = $_POST['bankCode'];
                         donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma_giam_gia);
                         $ma_don_hang = pdo_get_insert_id();
+                        
                         $_SESSION['ma_don_hang'] = $ma_don_hang;
+                        $don_hang_ct = donhang_get_chi_tiet($_SESSION['ma_don_hang']);
+                        $toal = donhang_toal_finnal($_SESSION['ma_don_hang']);
                         foreach($_SESSION['cart'] as $value){
                             extract($value);
-                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia);
+                            donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $giam_gia, $size);
                             drop_so_luong($ma_san_pham, $so_luong);
                         }
                         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
@@ -1175,24 +1190,27 @@ if(isset($_GET['act'])){
                                                 <p>Cảm ơn bạn đã đặt hàng. Dưới đây là chi tiết đơn hàng của bạn:</p>
 
                                                 <div class="product">
-                                                    <table>
+                                                <table>
+                                                <tr>
+                                                    <th>Tên Sản Phẩm</th>
+                                                    <th>Size</th>
+                                                    <th>Số Lượng</th>
+                                                    <th>Giá</th>
+                                                </tr>';
+                    
+                                                foreach ($don_hang_ct as $item) {
+                                                    $mail->Body .= '
                                                         <tr>
-                                                            <th>Tên Sản Phẩm</th>
-                                                            <th>Số Lượng</th>
-                                                            <th>Giá</th>
+                                                            <td>'.$item['ten_san_pham'].'</td>
+                                                            td>'.$item['size'].'</td>
+                                                            <td>'.$item['so_luong'].'</td>
+                                                            <td>'.number_format($item['don_gia'], 0, ',', '.').'đ</td>
                                                         </tr>';
-                            
-                                                        foreach ($don_hang_ct as $item) {
-                                                            $mail->Body .= '
-                                                                <tr>
-                                                                    <td>'.$item['ten_san_pham'].'</td>
-                                                                    <td>'.$item['so_luong'].'</td>
-                                                                    <td>'.number_format($item['don_gia'], 0, ',', '.').'đ</td>
-                                                                </tr>';
-                                                        }
+                                                }
+                                                
                                                         
                                         $mail->Body .= '
-                                        <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang, 0, ',', '.').'đ</p>
+                                        <p><strong>Tổng cộng:</strong> '.number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ</p>
                                         <p><strong>Phương thức thanh toán:</strong>Ví điện tử VNPAY</p>
                                     </div>
                             
