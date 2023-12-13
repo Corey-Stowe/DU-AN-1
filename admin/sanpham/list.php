@@ -10,26 +10,6 @@ if(is_array($data)){
                                             <div class="card-body">
                                                 <div class="lg:flex items-center justify-between mb-4">
                                                     <h3 class="mb-4 lg:mb-0">Danh sách sản Phẩm</h3>
-                                                    <!-- <form action="admin.php?act=listsp" method="POST" class="flex items-left">
-                                                <label for="filter" class="form-label mr-2">Lọc theo trạng thái</label>
-                                                <div class="relative">
-                                                    <select name="filter" id="filter" class="input">
-                                                        <option value="0">Tất cả</option>
-                                                        <option value="1">Giá từ cao đến thấp</option>
-                                                        <option value="2">Giá từ thấp đến cao</option>
-                                                        <option value="3">Lượt xem</option>
-                                                        <option value="4">Theo id </option>
-                                                        <option value="5">Theo ngày mới nhất</option>          
-                                                    </select>
-                                                    <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                                        <svg class="h-4 w-4 fill-current text-gray-500" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                                                            <path fill-rule="evenodd" d="M0 10a1 1 0 011-1h18a1 1 0 010 2H1a1 1 0 01-1-1z"/>
-                                                        </svg>
-                                                    </div>
-                                                </div>
-                                                <button type="submit" name="loc_sp" class="btn btn-default">Lọc</button>
-                                            </form> -->
                                                 </div>
                                                 <div class="overflow-x-auto">
                                                     <table id="product-list-data-table" class="table-default table-hover data-table">

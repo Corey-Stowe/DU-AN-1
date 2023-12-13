@@ -187,21 +187,6 @@ function drop_so_luong($ma_san_pham, $so_luong){
 //     header('location:index.php?act=listhh');   
    
 // }
-function sanpham_loc_gia_cao(){
-    $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai ORDER BY san_pham.giam_gia ASC";
-    $data = pdo_query($sql);
-    return $data;
-}
-function sanpham_loc_luot_xem(){
-    $sql="SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai ORDER BY san_pham.luot_xem DESC ";
-    $data = pdo_query($sql);
-    return $data;
-    }
 
-    function sanpham_loc_gia_thap(){
-        $sql = "SELECT * FROM san_pham JOIN loai_hang ON san_pham.ma_loai = loai_hang.ma_loai ORDER BY san_pham.giam_gia DESC";
-        $data = pdo_query($sql);
-        return $data;
-    }
 
 ?>

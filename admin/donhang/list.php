@@ -53,7 +53,7 @@ if(is_array($data)){
                                                 <?php
                                                             foreach ($data as $key => $value) {
                                                                 extract($value);
-                                                                $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+                                                                $toal = donhang_toal_finnal($ma_don_hang);
                                                                 extract($toal);
                                                                 foreach ($toal as $key => $value) {
                                                                     extract($value);
@@ -145,7 +145,7 @@ if(is_array($data)){
                                                                 }
                                                                 ?>
                                                         <td>
-                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>  
+                                                            <span class="font-semibold"><?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ' ?></span>  
                                                         </td>   
                                                         <td>
                                                                 <div class="flex justify-end text-lg">

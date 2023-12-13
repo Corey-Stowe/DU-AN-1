@@ -178,32 +178,9 @@ $ma_quyen = $_SESSION['quyen'];
         }
             case 'listsp':{
              
-                if(isset($_POST['loc_sp'])){
-                    $fliter = $_POST['filter'];
-                    if($fliter == 0){
-                        $data = sanpham_list();
-                        echo '0';
-                    } elseif($fliter == 1){
-                        $data = sanpham_loc_gia_cao();
-                        // Showarray($data);
-                        
-                    }elseif($fliter == 2){
-                        //$data = sanpham_loc_luot_xem();
-                        
-                    }elseif($fliter == 3){
-                        //$data = sanpham_loc_luot_xem();
-                        
-                    }elseif($fliter == 4){
-                        //$data = sanpham_loc_luot_xem();
-                        
-                    } elseif($fliter == 5){
-                        //$data = sanpham_loc_luot_xem();
-                        
-                    }   
-    
-                } else {
+               
                     $data=sanpham_list();
-                }
+               
                 include "sanpham/list.php";
                 break;
             }   
@@ -794,24 +771,41 @@ $ma_quyen = $_SESSION['quyen'];
             if(isset($_POST['dell_ma_gg'])){
                 $id_gg = $_POST['id_ma_gg'];
                 del_ma_giam_gia($id_gg);
+                header("Location: admin.php?act=cupponexpried");
             }
             include "cuppon/list.php";
             break;
         }
         case "addcuppon":{
             if(isset($_POST['submit'])){
+                $error = [];
+                ///do validate
+                if(empty($_POST['name_giam_gia'])){
+                    $error['name_giam_gia'] = "Tên mã giảm giá không được để trống";
+                }
+                if(empty($_POST['noi_dung_cuppon'])){
+                    $error['noi_dung_cuppon'] = "Nội dung mã giảm giá không được để trống";
+                }
+                if(empty($_POST['so_tien_giam'])){
+                    $error['so_tien_giam'] = "Số tiền giảm giá không được để trống";
+                }
+                if(empty($_POST['ngay_het_han'])){
+                    $error['ngay_het_han'] = "Ngày hết hạn không được để trống";
+                }
+                if(empty($error)){
                 $ten_ma_gg = $_POST['name_giam_gia'];
                 $noi_dung_ma_gg = $_POST['noi_dung_cuppon'];
                 $tien_gg = $_POST['so_tien_giam'];
                 $ngay_het_han = $_POST['ngay_het_han'];
                 //echo ($ten_ma_gg);
                 insert_ma_giam_gia($ten_ma_gg,$noi_dung_ma_gg,$tien_gg,$ngay_het_han);
-                $thong_bao = "Thêm thành công mã giảm giá";
+                header("Location: admin.php?act=cuppon");
+            }
             }
             include "cuppon/add.php";
             break;
         }
-        case "cupponexpried  ":{
+        case "cupponexpried":{
             $data = cuppon_list_het_han(); 
             include "cuppon/list_delete.php";
             break;

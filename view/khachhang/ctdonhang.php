@@ -80,7 +80,7 @@ foreach($data as $value){
                             </span>
           </div>
           <div class="col-md-6 ml-auto d-flex justify-content-md-end flex-wrap">
-            <a class="btn btn-dark print ms-5 my-3" href="#">
+            <a class="btn btn-dark print ms-5 my-3" href="view/print.php?ma_don_hang=<?php echo $ma_don_hang ?>">
               <i class="far fa-print"></i>
             </a>
           </div>
@@ -154,6 +154,7 @@ foreach($data as $value){
                         </a>
                         <a href="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham ?>"class="ms-6">
                           <p class="fw-semibold text-body-emphasis mb-0"><?php echo $ten_san_pham ?></p>
+                          <p class="text-muted fs-13px mb-0">Kích cỡ: <?php echo $size ?></p>
                         </a>
                       </div>
                     </td>
@@ -176,12 +177,20 @@ foreach($data as $value){
                             foreach($toal as $value){
                            extract($value);
                              }
+                             $finnal = donhang_toal_finnal($ma_don_hang);
+                              foreach($finnal as $value){
+                            extract($value);
+                              }
                              ?>
                             <span class="d-inline-block w-50 text-end fw-normal"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
                           </div>
+                          <div class="d-flex w-100">
+                            <span class="d-inline-block w-50">Khuyến mãi:</span>                             
+                            <span class="d-inline-block w-50 text-end fw-normal">-<?php  echo number_format($ma_giam_gia, 0, ',', '.').'đ'  ?></span>
+                          </div>
                           <div class="d-flex w-100 mb-5">
                             <span class="d-inline-block w-50">Tổng tiền phải thanh toán:</span>
-                            <span class="d-inline-block w-50 text-end fs-5 fw-semibold"><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
+                            <span class="d-inline-block w-50 text-end fs-5 fw-semibold"><?php echo number_format($tong_gia_don_hang_giam , 0, ',', '.').'đ' ?></span>
                           </div>
                           <div class="d-flex w-100">
                           </div>
@@ -274,7 +283,7 @@ foreach($data as $value){
       <div class="col-sm-6 text-sm-start text-center">
         <script>
           document.write(new Date().getFullYear());
-        </script> © Glowing - Beauty & Cosmetics Shop HTML Template .
+        </script> © Crow store .
       </div>
       <div class="col-sm-6 text-sm-end text-center"> All rights reserved </div>
     </div>

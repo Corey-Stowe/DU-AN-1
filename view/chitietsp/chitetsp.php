@@ -15,7 +15,8 @@ if(isset( $_SESSION['ma_khach_hang'] )){
 if(isset( $_SESSION['dia_chi'] )){
   $dia_chi = $_SESSION['dia_chi'] ;
 }
-
+$ma_san_pham = $_GET['ma_san_pham'];
+// echo $ma_san_pham;
 // ShowArray($data);
 foreach($data as $value){
     extract($value);
@@ -167,6 +168,7 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $data2?> khách hàng bình Luận </a>
           <a href="#" class="border-start ps-6 text-body">Có <?php echo $luot_xem?> khách hàng đã xem </a>
         </div>
+       
        <?php
        if($so_luong == 0){
           ?>
@@ -177,6 +179,31 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
        } else {
         ?>
          <form class="pb-8" action="index.php?act=cart" method="post">
+         <div class="form-group shop-swatch mb-7 d-flex align-items-center">
+          <span class="fw-semibold text-body-emphasis me-7">Kích cỡ: </span>
+          <ul class="list-inline d-flex justify-content-start mb-0">
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio1" name="size" class="product-info-size d-none" value="S" >
+          <label for="radio1" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="S">S <55 </label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio2" name="size" class="product-info-size d-none" value="M" checked >
+          <label for="radio2" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="M">M 56 - 65</label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio3" name="size" class="product-info-size d-none" value="L">
+          <label for="radio3" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="L">L 66-75</label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio4" name="size" class="product-info-size d-none" value="XL">
+          <label for="radio4" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="XL">XL 76 - 85</label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio5" name="size" class="product-info-size d-none" value="XXL">
+          <label for="radio5" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="XXL">XXL 86 - 90 </label>
+          </li>
+          </ul>
+        </div>
           <div class="row align-items-end">
                     <!-- Hidden input to store product ID -->
                     <input type="hidden" name="ma_san_pham" value="<?php echo $ma_san_pham; ?>">
@@ -235,6 +262,7 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
             <span class="ms-4 ps-2">Chia Sẻ</span>
           </a>
         </div>
+       
         <ul class="single-product-meta list-unstyled border-top pt-7 mt-7">
           <li class="d-flex mb-4 pb-2 align-items-center">
             <span class="text-body-emphasis fw-semibold fs-14px">Sô lượng trong kho:</span>
@@ -398,6 +426,11 @@ echo $phan_tram_giam_gia ?>% </span>
       </div>
       <div class="ps-lg-12 ps-auto col-xl-9 col-md-7">
         <div class="collapse mb-14" id="customer-review">
+          <?php
+          $ma_san_pham = $_GET['ma_san_pham'];
+          echo $ma_san_pham;
+          
+          ?>
           <form class="product-review-form" action="index.php?act=ctsp&ma_san_pham=<?php echo $ma_san_pham?>" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-4">
@@ -435,7 +468,7 @@ echo $phan_tram_giam_gia ?>% </span>
             <div class="d-flex">
               <div class="me-4">
                 <div class="input-group align-items-center">
-                <input type="hidden" name="masp" value="<?=$ma_san_pham?>">
+                <input type="hidden" name="masp" value="<?php echo $ma_san_pham?>">
                 <input type="submit" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary ms-0" value="Bình Luận" name="binhluan"><br>
                 </div>
               </div>

@@ -15,7 +15,7 @@ $best_sell = top_selling();
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="view/cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
-    <link rel="icon" href="view/assets/images/others/favicon.ico">
+    <link rel="shortcut icon" href="../image/logo.png">
     <link rel="stylesheet" href="view/assets/vendors/lightgallery/css/lightgallery-bundle.min.css">
     <link rel="stylesheet" href="view/assets/vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="view/assets/vendors/animate/animate.min.css">
@@ -198,24 +198,14 @@ $best_sell = top_selling();
                             <h6 class="fs-18px">Khác</h6>
                             <ul class="list-unstyled mb-0">
                               <li>
-                                <a href="shop/shopping-cart.html" class="border-hover text-decoration-none py-3 d-block">
+                                <a href="index.php?act=cart" class="border-hover text-decoration-none py-3 d-block">
                                   <span class="border-hover-target">Giỏ hàng</span>
                                 </a>
                               </li>
                               
                               <li>
-                                <a href="shop/wishlist.html" class="border-hover text-decoration-none py-3 d-block">
+                                <a href="index.php?act=wishlist" class="border-hover text-decoration-none py-3 d-block">
                                   <span class="border-hover-target">Yêu thích</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="user-registration.html" class="border-hover text-decoration-none py-3 d-block">
-                                  <span class="border-hover-target">Đăng ký</span>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="user-login.html" class="border-hover text-decoration-none py-3 d-block">
-                                  <span class="border-hover-target">Đăng Nhập</span>
                                 </a>
                               </li>
                             </ul>
@@ -227,7 +217,7 @@ $best_sell = top_selling();
                                 <p class="text-body-emphasis ls-1 fw-semibold mb-4 mt-6 text-uppercase"> Bộ sưu tập mới </p>
                                 <h3 class="fs-3"> Khuyến mãi <br> Đặc biệt </h3>
                                 <div class="mt-auto">
-                                  <a href="#" class="btn btn-white">Mua ngay</a>
+                                  <a href="index.php?act=listspdm&ma_loai=32" class="btn btn-white">Mua ngay</a>
                                 </div>
                               </div>
                             </div>
@@ -293,23 +283,23 @@ $best_sell = top_selling();
                         </ul>
                       </li> -->
                       <li class="dropdown-divider"></li>
-                      <li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-                        <a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover" href="#" data-bs-toggle="dropdown" id="menu-item-about-us">
-                          <span class="border-hover-target"> Về chúng tôi </span>
+                      <li>
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
+                          <span class="border-hover-target"> Giới thiệu </span>
                         </a>
                       </li>
-                      <li class="dropend dropdown-hover" aria-haspopup="true" aria-expanded="false">
-                        <a class="dropdown-item pe-6 dropdown-toggle d-flex justify-content-between border-hover" href="#" data-bs-toggle="dropdown" id="menu-item-contact-us">
+                      <li>
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Liên Hệ </span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item pe-6 border-hover" href="faqs.html">
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Câu hỏi thường gặp </span>
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item pe-6 border-hover" href="find-a-store.html">
+                        <a class="dropdown-item pe-6 border-hover" href="index.php?act=gioithieu">
                           <span class="border-hover-target"> Cửa hàng </span>
                         </a>
                       </li>

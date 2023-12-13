@@ -20,7 +20,7 @@ if(!isset($_SESSION['ten_khach_hang'])){
 
 if(isset($_GET['ma_don_hang'])){
     $ma_don_hang = $_GET['ma_don_hang'];
-    $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+    $toal = donhang_toal_finnal($ma_don_hang);
     $trang_thai_don = donhang_get_trangthai($ma_don_hang);
     foreach($toal as $t){
        extract($t);
@@ -180,7 +180,7 @@ if(isset($_POST['cancel'])){
 
                         <h5>Đơn hàng sẽ tự động hủy sau: </h5> <h5 id="countdown" class="cut"></h5>
                         <p>Mã đơn hàng: <?php echo $ma_don_hang; ?></p>
-                        <p>Giá trị đơn hàng phải thanh toán: <?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ'?> </p>
+                        <p>Giá trị đơn hàng phải thanh toán: <?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ'?> </p>
                         <form action="#" method="post" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -193,7 +193,7 @@ if(isset($_POST['cancel'])){
                                 <div class="form-group col-md-6">
                                     <label for="card_number" class="font-weight-bold">Số Thẻ</label>
                                     <input type="number" class="form-control" id="card_number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" oninput="this.value = this.value.slice(0, 16)">
-                                    <input type="number" name="tong" autocomplete="off" value="<?php echo $tong_gia_don_hang?>" hidden>
+                                    <input type="number" name="tong" autocomplete="off" value="<?php echo $tong_gia_don_hang_giam?>" hidden>
                                 </div>
                             </div>
 

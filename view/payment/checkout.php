@@ -33,6 +33,27 @@
     <div class="text-center">
       <h2 class="mb-6">Thanh Toán</h2>
     </div>
+    <div class="collapse" id="collapsecoupon">
+              <div class="card mw-60 border-0">
+                <div class="card-body py-10 px-8 my-10 border">
+                  <p class="card-text text-body-emphasis mb-8"> Nếu bạn có mã giảm giá hãy nhập nó.</p>
+                  <div class="input-group position-relative">
+                    <form action="index.php?act=coupon" method="POST">
+                    <input type="code" name="magiam" class="form-control bg-body rounded-end" placeholder="Mã giảm giá">
+                    <button type="submit" name="code" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary"> Áp dụng mã giảm giá </button>
+                    <?php
+                    if(isset($error)){
+                      foreach($error as $value){
+                        echo $value;
+                      }
+                    }
+                    
+                    ?>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
     <form class="pt-12" action="index.php?act=checkout" method="POST">
       <div class="row">
         <div class="col-lg-4 pb-lg-0 pb-14 order-lg-last">
@@ -56,6 +77,7 @@
                   </div>
                   <div class="ms-auto">
                     <p class="fs-14px text-body-emphasis mb-0 fw-bold"><?php echo number_format($giam_gia, 0, ',', '.').'đ' ?></p>
+                    <p class="fs-14px text-body-emphasis mb-0 fw-bold">Size: <?php echo $size?></p>
                   </div>
                 </div>
               </div>
@@ -79,20 +101,33 @@
             </div>
             </div>
               <div class="d-flex align-items-center">
-                <span>Mã giảm giá:</span>
-                <span class="d-block ms-auto text-body-emphasis fw-bold">0 đ</span>
+                <span>Mã giảm giá <?php
+                  if(isset( $_SESSION['total_after_discount'])){
+                    echo '('.$_SESSION['ma_giam_gia'].')';
+                  } else {
+                    echo '';
+                  
+                  }?>:</span>
+                <span class="d-block ms-auto text-body-emphasis fw-bold"><?php
+                  if(isset( $_SESSION['total_after_discount'])){
+                    echo number_format(  $_SESSION['total_discount'], 0, ',', '.') . 'đ';
+                  } else {
+                    echo '0đ';
+                  
+                  }?></span>
               </div>
             </div>
             <div class="card-footer bg-transparent py-5 px-0 mx-10">
               <div class="d-flex align-items-center fw-bold mb-6">
                 <span class="text-body-emphasis p-0">Tổng:</span>
-                <span class="d-block ms-auto text-body-emphasis fs-4 fw-bold"><?php
-          if(isset($total)){
-            echo number_format($total, 0, ',', '.') . 'đ';
-          } else {
-            echo '0đ';
+                <span class="d-block ms-auto text-body-emphasis fs-4 fw-bold"><?php if(isset( $_SESSION['total_after_discount'])){
+            echo number_format( $_SESSION['total_after_discount'], 0, ',', '.') . 'đ';
+          } elseif(isset($total)) {
+            echo number_format( $total, 0, ',', '.') . 'đ';
           
-          } ?></span>
+          } else{
+            echo '0đ';
+          }?></span>
               </div>
             </div>
           </div>
@@ -101,17 +136,7 @@
           <div class="checkout">
             <p>Bạn có mã giảm giá? <a data-bs-toggle="collapse" href="#collapsecoupon" role="button" aria-expanded="false" aria-controls="collapsecoupon">Bấm vào đây để áp dụng</a>
             </p>
-            <div class="collapse" id="collapsecoupon">
-              <div class="card mw-60 border-0">
-                <div class="card-body py-10 px-8 my-10 border">
-                  <p class="card-text text-body-emphasis mb-8"> Nếu bạn có mã giảm giá hãy nhập nó.</p>
-                  <div class="input-group position-relative">
-                    <input type="code" class="form-control bg-body rounded-end" placeholder="Mã giảm giá">
-                    <button type="submit" name="code" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary"> Áp dụng mã giảm giá </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <h4 class="fs-4 pt-4 mb-7">Thông tin nhân hàng</h4>
            <?php
            if(empty($data)){
@@ -236,16 +261,25 @@
                 <span class="ms-3 text-body-emphasis fw-semibold fs-6">Thẻ Tín dụng</span>
             </a>
             </option>
-            <!-- <option value="2"> 
+            <option value="2"> 
             <a class="btn btn-payment px-12 mx-2 py-6 me-7 my-3 nav-link" data-bs-toggle="tab" data-bs-target="#vnpay-tab">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" class="w-6 h-6" height="2em">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 013.75 9.375v-4.5zM3.75 14.625c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5a1.125 1.125 0 01-1.125-1.125v-4.5zM13.5 4.875c0-.621.504-1.125 1.125-1.125h4.5c.621 0 1.125.504 1.125 1.125v4.5c0 .621-.504 1.125-1.125 1.125h-4.5A1.125 1.125 0 0113.5 9.375v-4.5z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 6.75h.75v.75h-.75v-.75zM6.75 16.5h.75v.75h-.75v-.75zM16.5 6.75h.75v.75h-.75v-.75zM13.5 13.5h.75v.75h-.75v-.75zM13.5 19.5h.75v.75h-.75v-.75zM19.5 13.5h.75v.75h-.75v-.75zM19.5 19.5h.75v.75h-.75v-.75zM16.5 16.5h.75v.75h-.75v-.75z"></path>
                 </svg>
                 <span class="ms-3 text-body-emphasis fw-semibold fs-6">VNPay QR</span>
+    
             </a>
-            </option> -->
+            </option>
             </select>
+                <input type="hidden"  name="bankCode" value="">
+                <input type="hidden" id="language" name="language" value="vn">
+                <input type="hidden" name="amount" value="<?php if(isset( $_SESSION['total_after_discount'])){
+            echo $_SESSION['total_after_discount'];
+                } else{
+                    echo $total;
+                }?>">
+
         </div>
             </div>
           </div>

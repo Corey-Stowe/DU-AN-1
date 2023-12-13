@@ -8,11 +8,13 @@ $data1=donhang_list_by_customer($ma_khach_hang);
 extract($data);
 
 ?>
+
 <style>
     .avatar-img {
     max-width: 200px; /* Điều chỉnh kích thước tối đa theo ý muốn */
     max-height: 200px;
 }
+  
 </style>
 <head>
 <title>Quản Lí Tài khoản | Crown store</title>
@@ -44,29 +46,24 @@ extract($data);
         echo "</div>";
         unset($_SESSION['sussecc']);
     }
-    ?>
-           
+    ?>           
                     <div class="tabs">
                         <div role="tablist" class="tab-list tab-list-underline">
-                            <button  class="btn btn-primary" data-bs-toggle="tab"
-                                data-bs-target="#tab-profile" role="tab" aria-selected="true" tabindex="0" >
-                                Thông tin cơ bản
+                            <button class="btn btn-primary" >
+                            <a  class="active" data-toggle="tab" href="#tab-profile">Thông tin cơ bản</a>
                             </button>
-                            <button class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#tab-password"
-                                role="tab" aria-selected="false" tabindex="1">
-                                Mật Khẩu
+                       <button class="btn btn-primary" >
+                            <a data-toggle="tab" href="#tab-password">Mật khẩu</a>
                             </button>
-                            <button class="btn btn-primary" data-bs-toggle="tab" data-bs-target="#tab-order"
-                                role="tab" aria-selected="false" tabindex="2">
-                                Đơn hàng
+                            <button class="btn btn-primary">
+                                <a data-toggle="tab" href="#tab-order">Đơn hàng</a>
                             </button>
                         </div>
              <br>
                 <div class="card adaptable-card">
                 <div class="card-body">
                         <div class="tab-content px-4 py-6">
-                            <div class="tab-pane fade show active" id="tab-profile" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="0">
+                            <div class="tab-pane fade show active" id="tab-profile">
                                 <form action="index.php?act=account" method="POST" enctype="multipart/form-data">
                                     <div class="form-container vertical">
                                         <div>
@@ -174,8 +171,7 @@ extract($data);
                         </div>
                     <hr>
                         <div class="tab-content px-4 py-6">
-                            <div class="tab-pane fade show active" id="tab-password" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="1">
+                            <div class="tab-pane fade show active" id="tab-password">
                                 <form action="index.php?act=account" method="POST" >
                                     <div class="form-container vertical">
                                         <div>
@@ -234,8 +230,7 @@ extract($data);
                         </div>
                         <hr>
                         <div class="tab-content px-4 py-6">
-                            <div class="tab-pane fade show active" id="tab-order" role="tabpanel"
-                                aria-labelledby="home-tab" tabindex="2">
+                            <div class="tab-pane fade show active" id="tab-order">
                             </div>
                           
     <div class="row mb-9 align-items-center justify-content-between">
@@ -259,32 +254,6 @@ extract($data);
               </tr>
             </thead>
             <tbody>
-              <!-- <tr>
-                <td>
-                  <a href="#">#901</a>
-                </td>
-                <td>marvin@example.com</td>
-                <td>$9.00</td>
-                <td>
-                  <span class="badge rounded-lg rounded-pill alert py-3 px-4 mb-0 alert-warning border-0 text-capitalize fs-12">Pending</span>
-                </td>
-                <td>03.12.2020</td>
-                <td class="text-center">
-                  <div class="d-flex flex-nowrap justify-content-center">
-                    <a href="order-detail.html" class="btn btn-primary py-4 fs-13px btn-xs me-4">Detail</a>
-                    <div class="dropdown no-caret">
-                      <a href="#" data-bs-toggle="dropdown" class="dropdown-toggle btn btn-outline-primary btn-xs hover-white btn-hover-bg-primary py-4 px-5">
-                        <i class="far fa-ellipsis-h"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-end m-0">
-                        <a class="dropdown-item" href="order-detail.html">View detail</a>
-                        <a class="dropdown-item" href="#">Edit info</a>
-                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr> -->
               <?php
                     foreach($data1 as $value){
                         extract($value);
@@ -325,7 +294,7 @@ extract($data);
                                                                                             }
                                                                                             ?>
                                                                                         <?php
-                                                                                                      $toal = donhang_get_toal_chi_tiet($ma_don_hang);
+                                                                                                      $toal = donhang_toal_finnal($ma_don_hang);
                                                                                                       extract($toal);
                                                                                                       foreach($toal as $key => $value){
                                                                                                           extract($value);
@@ -334,7 +303,7 @@ extract($data);
                                                                                              ?>
                  <td>
                                                                                             <div class="flex items-center">
-                                                                                                <span><?php echo number_format($tong_gia_don_hang, 0, ',', '.').'đ' ?></span>
+                                                                                                <span><?php echo number_format($tong_gia_don_hang_giam, 0, ',', '.').'đ' ?></span>
                                                                                             </div>
                                                                                             </td>
                 
@@ -395,6 +364,32 @@ if ($trang_thai_don == 0) {
 </main>
 <script>
     
+    $(document).ready(function () {
+        // Khi nút "Thông tin cơ bản" được click
+        $("#tab-profile-btn").click(function () {
+            // Hiển thị nội dung của tab "Thông tin cơ bản"
+            $("#tab-profile").addClass("show active");
+            // Ẩn nội dung của các tab khác
+            $("#tab-password, #tab-order").removeClass("show active");
+        });
+
+        // Khi nút "Mật khẩu" được click
+        $("#tab-password-btn").click(function () {
+            // Hiển thị nội dung của tab "Mật khẩu"
+            $("#tab-password").addClass("show active");
+            // Ẩn nội dung của các tab khác
+            $("#tab-profile, #tab-order").removeClass("show active");
+        });
+
+        // Khi nút "Đơn hàng" được click
+        $("#tab-order-btn").click(function () {
+            // Hiển thị nội dung của tab "Đơn hàng"
+            $("#tab-order").addClass("show active");
+            // Ẩn nội dung của các tab khác
+            $("#tab-profile, #tab-password").removeClass("show active");
+        });
+    });
+
     function previewImagesindex(event) {
     var previewContainer = document.getElementById('image-preview-container');
     previewContainer.innerHTML = ''; // Xóa các xem trước cũ
