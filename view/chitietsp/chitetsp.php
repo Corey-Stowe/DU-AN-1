@@ -180,6 +180,29 @@ echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
         ?>
          <form class="pb-8" action="index.php?act=cart" method="post">
          <div class="form-group shop-swatch mb-7 d-flex align-items-center">
+          <span class="fw-semibold text-body-emphasis me-7">Mầu sắc: </span>
+          <ul class="list-inline d-flex justify-content-start mb-0">
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio6" name="mau" class="product-info-size d-none" value="Đen" checked >
+          <label for="radio6" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="Đen" >Đen </label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio7" name="mau" class="product-info-size d-none" value="Đỏ">
+          <label for="radio7" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="đỏ">Đỏ</label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio8" name="mau" class="product-info-size d-none" value="Vàng">
+          <label for="radio8" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="Vàng">Vàng</label>
+          </li>
+          <li class="list-inline-item me-4 fw-semibold">
+          <input type="radio" id="radio9" name="mau" class="product-info-size d-none" value="Xanh">
+          <label for="radio9" class="fs-14px p-4 d-block rounded text-decoration-none border" data-var="Xanh">Xanh</label>
+          </li>
+          
+          </ul>
+        </div>
+          
+         <div class="form-group shop-swatch mb-7 d-flex align-items-center">
           <span class="fw-semibold text-body-emphasis me-7">Kích cỡ: </span>
           <ul class="list-inline d-flex justify-content-start mb-0">
           <li class="list-inline-item me-4 fw-semibold">

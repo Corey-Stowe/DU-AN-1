@@ -81,6 +81,7 @@ foreach($data as $value){
                                                                                     <h6 class="mb-2"><?php echo $ten_san_pham?></h6>
                                                                                     <div class="mb-1"><span class="capitalize">thương hiệu: <?php echo $thuong_hieu?> </span>
                                                                                     <div class="mb-1"><span class="capitalize">kích cỡ: <?php echo $size?> </span>
+                                                                                    <div class="mb-1"><span class="capitalize">màu: <?php echo $mau?> </span>
                                                                                     
                                                                                     </div>
                                                                     

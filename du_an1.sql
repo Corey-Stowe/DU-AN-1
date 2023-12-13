@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 06:39 PM
+-- Generation Time: Dec 13, 2023 at 04:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -80,7 +80,8 @@ INSERT INTO `binh_luan` (`ma_binh_luan`, `ma_khach_hang`, `ma_san_pham`, `noi_du
 (12, 10, 26, 'hay', ' ', '2023-12-06', 0),
 (13, 10, 16, 'sadasdasd', ' ', '2023-12-06', 0),
 (14, 10, 16, 'Hya', ' ', '2023-12-06', 0),
-(15, 11, 18, 'Đẹp Quá', ' ', '2023-12-06', 0);
+(15, 11, 18, 'Đẹp Quá', ' ', '2023-12-06', 0),
+(16, 11, 20, 'Sản phảm rất đẹp', ' ', '2023-12-10', 0);
 
 -- --------------------------------------------------------
 
@@ -94,34 +95,39 @@ CREATE TABLE `chi_tiet_don_hang` (
   `ma_san_pham` int(11) DEFAULT NULL,
   `so_luong` int(11) DEFAULT NULL,
   `don_gia` double DEFAULT NULL,
-  `size` varchar(200) NOT NULL
+  `size` varchar(200) NOT NULL,
+  `mau` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `chi_tiet_don_hang`
 --
 
-INSERT INTO `chi_tiet_don_hang` (`ma_chi_tiet_don_hang`, `ma_don_hang`, `ma_san_pham`, `so_luong`, `don_gia`, `size`) VALUES
-(5, 1000, 17, 1, 330000, ''),
-(6, 1000, 18, 1, 590000, ''),
-(7, 1000, 19, 1, 750000, ''),
-(8, 1000, 20, 1, 999000, ''),
-(9, 1001, 15, 1, 120000, ''),
-(10, 1001, 16, 3, 299000, ''),
-(11, 1002, 15, 2, 120000, ''),
-(12, 1003, 18, 1, 590000, ''),
-(13, 1004, 19, 4, 750000, ''),
-(14, 1004, 20, 1, 999000, ''),
-(15, 1004, 15, 1, 120000, ''),
-(16, 1005, 20, 1, 999000, ''),
-(17, 1006, 18, 1, 590000, ''),
-(18, 1007, 18, 1, 590000, ''),
-(19, 1008, 18, 1, 590000, ''),
-(20, 1009, 15, 1, 120000, ''),
-(21, 1010, 19, 2, 750000, ''),
-(22, 1011, 20, 1, 999000, ''),
-(23, 1012, 16, 1, 299000, 'M'),
-(24, 1013, 18, 1, 590000, 'L');
+INSERT INTO `chi_tiet_don_hang` (`ma_chi_tiet_don_hang`, `ma_don_hang`, `ma_san_pham`, `so_luong`, `don_gia`, `size`, `mau`) VALUES
+(5, 1000, 17, 1, 330000, '', ''),
+(6, 1000, 18, 1, 590000, '', ''),
+(7, 1000, 19, 1, 750000, '', ''),
+(8, 1000, 20, 1, 999000, '', ''),
+(9, 1001, 15, 1, 120000, '', ''),
+(10, 1001, 16, 3, 299000, '', ''),
+(11, 1002, 15, 2, 120000, '', ''),
+(12, 1003, 18, 1, 590000, '', ''),
+(13, 1004, 19, 4, 750000, '', ''),
+(14, 1004, 20, 1, 999000, '', ''),
+(15, 1004, 15, 1, 120000, '', ''),
+(16, 1005, 20, 1, 999000, '', ''),
+(17, 1006, 18, 1, 590000, '', ''),
+(18, 1007, 18, 1, 590000, '', ''),
+(19, 1008, 18, 1, 590000, '', ''),
+(20, 1009, 15, 1, 120000, '', ''),
+(21, 1010, 19, 2, 750000, '', ''),
+(22, 1011, 20, 1, 999000, '', ''),
+(23, 1012, 16, 1, 299000, 'M', ''),
+(24, 1013, 18, 1, 590000, 'L', ''),
+(25, 1014, 20, 1, 999000, 'M', ''),
+(26, 1015, 16, 1, 299000, 'M', ''),
+(27, 1016, 19, 1, 750000, 'M', ''),
+(28, 1017, 20, 1, 999000, 'M', 'Vàng');
 
 -- --------------------------------------------------------
 
@@ -162,7 +168,11 @@ INSERT INTO `don_hang` (`ma_don_hang`, `ngay_dat_hang`, `ma_khach_hang`, `trang_
 (1010, '2023-12-05', 10, 1, NULL, 1, 50000, 'ch_3OJw9gKXLBUZPNQw04hlmZL9', 4242, 'visa', '', ''),
 (1011, '2023-12-05', 3, 1, NULL, 2, 50000, NULL, NULL, 'ATM', '', ''),
 (1012, '2023-12-07', 10, 0, NULL, 0, 50000, NULL, NULL, NULL, '', 'hihihihihihih'),
-(1013, '2023-12-07', 11, 0, NULL, 0, 50000, NULL, NULL, NULL, '', '');
+(1013, '2023-12-07', 11, 0, NULL, 0, 50000, NULL, NULL, NULL, '', ''),
+(1014, '2023-12-13', 10, 2, NULL, 2, 0, 'VNPAY', NULL, 'QRCODE', '', ''),
+(1015, '2023-12-13', 10, 0, NULL, 0, 0, NULL, NULL, NULL, '', ''),
+(1016, '2023-12-13', 10, 1, NULL, 1, 20000, 'ch_3OMtiHKXLBUZPNQw1hrZktCL', 4242, 'visa', '', ''),
+(1017, '2023-12-13', 10, 0, NULL, 0, 0, NULL, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -296,8 +306,9 @@ CREATE TABLE `ma_giam_gia` (
 --
 
 INSERT INTO `ma_giam_gia` (`id_giam_gia`, `ma_giam_gia`, `noi_dung`, `so_tien_giam`, `ngay_het_han`, `trang_thai`) VALUES
-(1, 'NEWMEM20', 'Giảm 20.000 VND Cho khách hàng mới', 20000, '2023-11-01', 0),
-(2, 'HOTSALE50', 'Giảm 50k cho đơn hàng', 50000, '2023-12-09', 0);
+(1, 'NEWMEM20', 'Giảm 20.000 VND Cho khách hàng mới', 20000, '2023-11-01', 1),
+(2, 'HOTSALE50', 'Giảm 50k cho đơn hàng', 50000, '2023-12-09', 1),
+(3, 'WINTER20', 'Giảm 20.000 VND cho bất kì đơn hàng', 20000, '2023-12-24', 0);
 
 -- --------------------------------------------------------
 
@@ -357,16 +368,16 @@ INSERT INTO `san_pham` (`ma_san_pham`, `ten_san_pham`, `ma_loai`, `mo_ta`, `ngay
 (8, 'Áo thun Relaxed Fit', 21, '<p>&Aacute;o thun d&aacute;ng thoải m&aacute;i bằng cotton jersey nặng c&oacute; cổ tr&ograve;n.</p>\r\n<div>M&atilde; số sản phẩm:0608945094</div>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay &aacute;o ngắn</div>\r\n<div>Độ vừa vặn:&nbsp;Thoải m&aacute;i</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ tr&ograve;n</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u be nhạt, M&agrave;u trơn</div>\r\n<div>Nh&oacute;m kh&aacute;ch h&agrave;ng:&nbsp;BASICS</div>', '2023-11-21', 300000, 250000, 20, 'Glowing', 10, 0, 0, 'hmgoepprod (2).jpg', 'hmgoepprod.jpg', 'hmgoepprod (1).jpg', 'hmgoepprod (3).jpg', 'hmgoepprod (4).jpg'),
 (9, 'Áo hoodie kéo khoá Oversized Fit', 22, '<p>&Aacute;o hoodie k&eacute;o kho&aacute; d&aacute;ng thụng bằng vải nỉ l&agrave;m từ cotton pha với mặt tr&aacute;i chải x&ugrave; mềm. Mũ c&oacute; d&acirc;y r&uacute;t, kho&aacute; k&eacute;o dọc th&acirc;n trước, t&uacute;i kangaroo, cổ tay v&agrave; gấu bo g&acirc;n nổi.</p>\r\n<div>M&atilde; số sản phẩm:1122929009</div>\r\n<div>Chiều cao:&nbsp;Đ&ugrave;i</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Qu&aacute; cỡ</div>\r\n<div>Phong c&aacute;ch:&nbsp;&Aacute;o kho&aacute;c c&oacute; mũ</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u x&aacute;m nhạt đốm</div>\r\n<div>Nh&oacute;m kh&aacute;ch h&agrave;ng:&nbsp;BASICS</div>', '2023-11-21', 800000, 100000, 30, 'Glowing', 40, 0, 0, 'hmgoepprod (7).jpg', 'hmgoepprod (6).jpg', 'hmgoepprod (7).jpg', 'hmgoepprod (8).jpg', 'hmgoepprod (9).jpg'),
 (10, ' Áo khoác phao', 29, '<p>&Aacute;o kho&aacute;c phao ngắn dệt thoi chần b&ocirc;ng c&oacute; cổ đứng, kho&aacute; k&eacute;o dọc th&acirc;n trước v&agrave; t&uacute;i trước mổ viền. D&aacute;ng rộng với vai r&aacute;p trễ, cổ tay viền chun mảnh v&agrave; d&acirc;y r&uacute;t co gi&atilde;n c&oacute; n&uacute;t chặn ở gấu. C&oacute; lớp l&oacute;t.</p>\r\n<div>M&atilde; số sản phẩm:1161620001</div>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 52.5 cm (K&iacute;ch cỡ M/T), Vai: Rộng: 62.2 cm (K&iacute;ch cỡ M/T), Tay &aacute;o: Chiều d&agrave;i: 54.9 cm (K&iacute;ch cỡ M/T), Ngực: V&ograve;ng đầu: 128.5 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Đ&ugrave;i</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ rộng</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ đứng</div>\r\n<div>Phong c&aacute;ch:&nbsp;&Aacute;o phao</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u đen, M&agrave;u trơn</div>\r\n<div>Nh&oacute;m kh&aacute;ch h&agrave;ng:&nbsp;DIVIDED</div>', '2023-11-21', 900000, 450000, 30, 'Glowing', 50, 0, 0, 'hmgoepprod (13).jpg', 'hmgoepprod (10).jpg', 'hmgoepprod (11).jpg', 'hmgoepprod (12).jpg', 'hmgoepprod (14).jpg'),
-(11, 'Straight Regular Jeans', 23, '<p>Quần jean 5 t&uacute;i bằng cotton denim hơi co gi&atilde;n mang lại cảm gi&aacute;c thoải m&aacute;i. Ống su&ocirc;ng v&agrave; d&aacute;ng vừa từ cạp quần tới gấu mang lại cảm gi&aacute;c rộng r&atilde;i v&agrave; thoải m&aacute;i cho cả hai ống quần. Cạp thường v&agrave; nẹp kho&aacute; k&eacute;o. Đ&acirc;y l&agrave; loại vải denim c&oacute; độ bền cao.</p>\r\n<div>&nbsp;</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u xanh denim đậm, M&agrave;u trơn</div>\r\n<div>Nh&oacute;m kh&aacute;ch h&agrave;ng:&nbsp;DENIM</div>\r\n<div class=\"ddict_btn\" style=\"top: 100.4px; left: 221.925px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '2023-11-21', 800000, 400000, 50, 'Glowing', 0, 0, 0, 'hmgoepprod (20).jpg', 'hmgoepprod (21).jpg', 'hmgoepprod (22).jpg', 'hmgoepprod (23).jpg', 'hmgoepprod (24).jpg'),
+(11, 'Straight Regular Jeans', 23, '<p>Quần jean 5 t&uacute;i bằng cotton denim hơi co gi&atilde;n mang lại cảm gi&aacute;c thoải m&aacute;i. Ống su&ocirc;ng v&agrave; d&aacute;ng vừa từ cạp quần tới gấu mang lại cảm gi&aacute;c rộng r&atilde;i v&agrave; thoải m&aacute;i cho cả hai ống quần. Cạp thường v&agrave; nẹp kho&aacute; k&eacute;o. Đ&acirc;y l&agrave; loại vải denim c&oacute; độ bền cao.</p>\r\n<div>&nbsp;</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u xanh denim đậm, M&agrave;u trơn</div>\r\n<div>Nh&oacute;m kh&aacute;ch h&agrave;ng:&nbsp;DENIM</div>\r\n<div class=\"ddict_btn\" style=\"top: 100.4px; left: 221.925px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '2023-11-21', 800000, 400000, 50, 'Glowing', 2, 0, 0, 'hmgoepprod (20).jpg', 'hmgoepprod (21).jpg', 'hmgoepprod (22).jpg', 'hmgoepprod (23).jpg', 'hmgoepprod (24).jpg'),
 (12, 'Quần nhung tăm Slim Fit', 23, '<p>Quần d&agrave;i ống ly đứng bằng vải nhung tăm với cạp quần c&oacute; kho&aacute; m&oacute;c c&agrave;i ẩn v&agrave; nẹp kho&aacute; k&eacute;o. T&uacute;i ch&eacute;o hai b&ecirc;n v&agrave; t&uacute;i sau mổ viền c&oacute; khuy. Slim Fit (D&aacute;ng &ocirc;m gọn) - kiểu d&aacute;ng &ocirc;m s&aacute;t ở đ&ugrave;i v&agrave; đầu gối tạo d&aacute;ng quần vừa vặn.</p>\r\n<div>&nbsp;</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m nhẹ</div>\r\n<div>Phong c&aacute;ch:&nbsp;Quần ống điếu thuốc</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u đen, M&agrave;u trơn</div>', '2023-11-23', 999000, 820000, 100, 'Glowing', 46, 0, 0, 'hmgoepprod (1).jpg', 'hmgoepprod.jpg', 'hmgoepprod (3).jpg', 'hmgoepprod (4).jpg', 'hmgoepprod (2).jpg'),
-(13, 'Quần dài Slim Fit', 23, '<p>Quần d&agrave;i d&aacute;ng &ocirc;m gọn dệt ch&eacute;o c&oacute; c&agrave;i kho&aacute; m&oacute;c c&agrave;i ẩn ở bản cạp v&agrave; nẹp kho&aacute; k&eacute;o. T&uacute;i hai b&ecirc;n v&agrave; t&uacute;i sau mổ viền c&agrave;i khuy.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Ch&acirc;n trong: Chiều d&agrave;i: 78.0 cm (K&iacute;ch cỡ 33L)</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m nhẹ</div>\r\n<div>Phong c&aacute;ch:&nbsp;Quần ống điếu thuốc</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u x&aacute;m, Kẻ &ocirc;</div>\r\n<div>&nbsp;</div>', '2023-11-23', 900000, 100000, 140, 'Glowing', 80, 0, 0, 'hmgoepprod (5).jpg', 'hmgoepprod (6).jpg', 'hmgoepprod (7).jpg', 'hmgoepprod (8).jpg', 'hmgoepprod (9).jpg'),
+(13, 'Quần dài Slim Fit', 23, '<p>Quần d&agrave;i d&aacute;ng &ocirc;m gọn dệt ch&eacute;o c&oacute; c&agrave;i kho&aacute; m&oacute;c c&agrave;i ẩn ở bản cạp v&agrave; nẹp kho&aacute; k&eacute;o. T&uacute;i hai b&ecirc;n v&agrave; t&uacute;i sau mổ viền c&agrave;i khuy.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Ch&acirc;n trong: Chiều d&agrave;i: 78.0 cm (K&iacute;ch cỡ 33L)</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m nhẹ</div>\r\n<div>Phong c&aacute;ch:&nbsp;Quần ống điếu thuốc</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u x&aacute;m, Kẻ &ocirc;</div>\r\n<div>&nbsp;</div>', '2023-11-23', 900000, 100000, 140, 'Glowing', 82, 0, 0, 'hmgoepprod (5).jpg', 'hmgoepprod (6).jpg', 'hmgoepprod (7).jpg', 'hmgoepprod (8).jpg', 'hmgoepprod (9).jpg'),
 (14, 'Quần tây Skinny Fit', 23, '<p>Quần t&acirc;y dệt thoi co gi&atilde;n c&oacute; kho&aacute; m&oacute;c c&agrave;i ẩn v&agrave; nẹp kho&aacute; k&eacute;o. D&aacute;ng b&oacute; với t&uacute;i hai b&ecirc;n rộng, &ocirc;m, t&uacute;i sau mổ một viền v&agrave; ống quần c&oacute; ly đứng.</p>\r\n<div>&nbsp;</div>\r\n<div>Chiều cao:&nbsp;D&agrave;i</div>\r\n<div>Chiều cao h&ocirc;ng:&nbsp;Cạp thường</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ b&oacute;</div>\r\n<div>Phong c&aacute;ch:&nbsp;Quần t&acirc;y</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u trơn</div>\r\n<div>&nbsp;</div>', '2023-11-23', 900000, 100000, 100, 'Glowing', 50, 0, 0, 'hmgoepprod (10).jpg', 'hmgoepprod (12).jpg', 'hmgoepprod (13).jpg', 'hmgoepprod (15).jpg', 'hmgoepprod (14).jpg'),
-(15, 'Áo sơ mi Oxford Regular Fit', 24, '<p>&Aacute;o sơ mi d&aacute;ng vừa vải cotton Oxford c&oacute; cổ &aacute;o c&agrave;i khuy, nẹp khuy kiểu truyền thống, cầu vai ph&iacute;a sau v&agrave; một t&uacute;i ngực mở. Tay d&agrave;i với măng s&eacute;t c&agrave;i khuy v&agrave; nẹp tay &aacute;o c&oacute; khuy nối. Vạt hơi tr&ograve;n.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Tay &aacute;o: Chiều d&agrave;i: 66.5 cm (K&iacute;ch cỡ L/L), Mặt sau: Chiều d&agrave;i: 79.0 cm (K&iacute;ch cỡ L/L)</div>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ &aacute;o c&agrave;i khuy</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u xanh l&aacute; đậm, M&agrave;u trơn</div>', '2023-11-23', 400000, 120000, 15, 'Glowing', 38, 0, 0, 'hmgoepprod (16).jpg', 'hmgoepprod (19).jpg', 'hmgoepprod (18).jpg', 'hmgoepprod (20).jpg', 'hmgoepprod (17).jpg'),
-(16, 'Áo sơ mi dễ là Regular Fit', 24, '<p>&Aacute;o sơ mi bằng vải dệt thoi với bề mặt dễ l&agrave;. Cổ bẻ, nẹp khuy kiểu truyền thống, cầu vai ph&iacute;a sau v&agrave; vạt tr&ograve;n. Tay d&agrave;i với măng s&eacute;t c&agrave;i khuy điều chỉnh v&agrave; nẹp tay &aacute;o với khuy nối.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 81.0 cm (K&iacute;ch cỡ L/L), Tay &aacute;o: Chiều d&agrave;i: 67.25 cm (K&iacute;ch cỡ L/L)</div>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ bẻ</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u trắng, M&agrave;u trơn</div>', '2023-11-23', 499000, 299000, 78, 'Glowing', 149, 0, 0, 'hmgoepprod (21).jpg', 'hmgoepprod (22).jpg', 'hmgoepprod (23).jpg', 'hmgoepprod (24).jpg', 'hmgoepprod (25).jpg'),
-(17, 'Váy chữ A', 32, '<p>V&aacute;y chữ A ngắn l&agrave;m từ viscose pha dệt thoi mỏng nhẹ. D&aacute;ng rộng với cổ chữ V v&agrave; tay b&oacute;ng bay d&agrave;i, phồng, cắt rắp lăng với cổ tay bo chun mảnh. Đường may nh&uacute;n vải dưới ngực tạo độ xếp rủ nhẹ. Kh&ocirc;ng c&oacute; lớp l&oacute;t.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 84.5 cm (K&iacute;ch cỡ M/T), Tay &aacute;o: Chiều d&agrave;i: 74.0 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Đ&ugrave;i</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ rộng</div>\r\n<div>Phong c&aacute;ch:&nbsp;Ch&acirc;n v&aacute;y chữ A</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ chữ V</div>\r\n<div>Kiểu tay &aacute;o:&nbsp;Ống tay bồng, Ống tay r&aacute;p vai</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u trắng/Xanh dương/Xanh dương nhạt, Hoa</div>', '2023-11-23', 500000, 330000, 118, 'Glowing', 92, 0, 0, 'hmgoepprod (26).jpg', 'hmgoepprod (28).jpg', 'hmgoepprod (29).jpg', 'hmgoepprod (30).jpg', 'hmgoepprod (31).jpg'),
+(15, 'Áo sơ mi Oxford Regular Fit', 24, '<p>&Aacute;o sơ mi d&aacute;ng vừa vải cotton Oxford c&oacute; cổ &aacute;o c&agrave;i khuy, nẹp khuy kiểu truyền thống, cầu vai ph&iacute;a sau v&agrave; một t&uacute;i ngực mở. Tay d&agrave;i với măng s&eacute;t c&agrave;i khuy v&agrave; nẹp tay &aacute;o c&oacute; khuy nối. Vạt hơi tr&ograve;n.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Tay &aacute;o: Chiều d&agrave;i: 66.5 cm (K&iacute;ch cỡ L/L), Mặt sau: Chiều d&agrave;i: 79.0 cm (K&iacute;ch cỡ L/L)</div>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ &aacute;o c&agrave;i khuy</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u xanh l&aacute; đậm, M&agrave;u trơn</div>', '2023-11-23', 400000, 120000, 15, 'Glowing', 42, 0, 0, 'hmgoepprod (16).jpg', 'hmgoepprod (19).jpg', 'hmgoepprod (18).jpg', 'hmgoepprod (20).jpg', 'hmgoepprod (17).jpg'),
+(16, 'Áo sơ mi dễ là Regular Fit', 24, '<p>&Aacute;o sơ mi bằng vải dệt thoi với bề mặt dễ l&agrave;. Cổ bẻ, nẹp khuy kiểu truyền thống, cầu vai ph&iacute;a sau v&agrave; vạt tr&ograve;n. Tay d&agrave;i với măng s&eacute;t c&agrave;i khuy điều chỉnh v&agrave; nẹp tay &aacute;o với khuy nối.</p>\r\n<div>&nbsp;</div>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 81.0 cm (K&iacute;ch cỡ L/L), Tay &aacute;o: Chiều d&agrave;i: 67.25 cm (K&iacute;ch cỡ L/L)</div>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ bẻ</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u trắng, M&agrave;u trơn</div>', '2023-11-23', 499000, 299000, 77, 'Glowing', 160, 0, 0, 'hmgoepprod (21).jpg', 'hmgoepprod (22).jpg', 'hmgoepprod (23).jpg', 'hmgoepprod (24).jpg', 'hmgoepprod (25).jpg'),
+(17, 'Váy chữ A', 32, '<p>V&aacute;y chữ A ngắn l&agrave;m từ viscose pha dệt thoi mỏng nhẹ. D&aacute;ng rộng với cổ chữ V v&agrave; tay b&oacute;ng bay d&agrave;i, phồng, cắt rắp lăng với cổ tay bo chun mảnh. Đường may nh&uacute;n vải dưới ngực tạo độ xếp rủ nhẹ. Kh&ocirc;ng c&oacute; lớp l&oacute;t.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 84.5 cm (K&iacute;ch cỡ M/T), Tay &aacute;o: Chiều d&agrave;i: 74.0 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Đ&ugrave;i</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ rộng</div>\r\n<div>Phong c&aacute;ch:&nbsp;Ch&acirc;n v&aacute;y chữ A</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ chữ V</div>\r\n<div>Kiểu tay &aacute;o:&nbsp;Ống tay bồng, Ống tay r&aacute;p vai</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u trắng/Xanh dương/Xanh dương nhạt, Hoa</div>', '2023-11-23', 500000, 330000, 118, 'Glowing', 94, 0, 0, 'hmgoepprod (26).jpg', 'hmgoepprod (28).jpg', 'hmgoepprod (29).jpg', 'hmgoepprod (30).jpg', 'hmgoepprod (31).jpg'),
 (18, 'Váy có nút thắt', 32, '<p>V&aacute;y d&agrave;i ngang bắp ch&acirc;n bằng vải dệt thoi l&agrave;m từ viscose pha. Cổ chữ V v&agrave; d&acirc;y vai to bản với n&uacute;t thắt trang tr&iacute; ở ph&iacute;a trước. Đường may r&aacute;p co gi&atilde;n ở eo v&agrave; ch&acirc;n v&aacute;y hơi xo&egrave;. Kh&ocirc;ng c&oacute; lớp l&oacute;t.</p>\r\n<div>Size của người mẫu:&nbsp;Người mẫu cao 175cm/5\'9\" mặc size S</div>\r\n<div>Chiều cao:&nbsp;Midi</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;S&aacute;t n&aacute;ch</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ chữ V</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u xanh dương nhạt, M&agrave;u trơn</div>', '2023-11-23', 999000, 590000, 143, 'Glowing', 127, 0, 0, 'hmgoepprod (32).jpg', 'hmgoepprod (34).jpg', 'hmgoepprod (35).jpg', 'hmgoepprod (34).jpg', 'hmgoepprod (33).jpg'),
-(19, 'Váy jersey rủ', 32, '<p>V&aacute;y &ocirc;m, d&agrave;i ngang bắp ch&acirc;n bằng jersey b&oacute;ng c&oacute; cổ r&ugrave;a v&agrave; tay d&agrave;i. Đường may nh&uacute;n vải hai b&ecirc;n tạo độ xếp rủ.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 125.0 cm (K&iacute;ch cỡ M/T), Tay &aacute;o: Chiều d&agrave;i: 61.6 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Midi</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ vừa</div>\r\n<div>Phong c&aacute;ch:&nbsp;Gấp nếp</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ lọ</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u be đậm, M&agrave;u trơn</div>', '2023-11-23', 999000, 750000, 192, 'Glowing', 12, 0, 0, 'hmgoepprod (37).jpg', 'hmgoepprod (38).jpg', 'hmgoepprod (39).jpg', 'hmgoepprod (39).jpg', 'hmgoepprod (40).jpg'),
-(20, 'Váy sơ mi có thắt lưng buộc', 32, '<p>V&aacute;y d&agrave;i ngang bắp ch&acirc;n bằng vải dệt thoi c&oacute; cổ trụ, khuy ẩn dọc th&acirc;n trước v&agrave; tay c&aacute;nh dơi d&agrave;i với măng s&eacute;t c&agrave;i khuy. Thắt lưng buộc c&oacute; thể th&aacute;o rời ở eo. Kh&ocirc;ng c&oacute; lớp l&oacute;t.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 125.0 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Midi</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ trụ&nbsp;</div>\r\n<div>Phong c&aacute;ch:&nbsp;Đầm sơ mi</div>\r\n<div>Kiểu tay &aacute;o:&nbsp;Ống tay c&aacute;nh dơi rộng</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u đen/Trắng, Kẻ sọc</div>', '2023-11-23', 1300000, 999000, 190, 'Glowing', 1032, 0, 0, 'hmgoepprod (42).jpg', 'hmgoepprod (42).jpg', 'hmgoepprod (43).jpg', 'hmgoepprod (44).jpg', 'hmgoepprod (46).jpg'),
+(19, 'Váy jersey rủ', 32, '<p>V&aacute;y &ocirc;m, d&agrave;i ngang bắp ch&acirc;n bằng jersey b&oacute;ng c&oacute; cổ r&ugrave;a v&agrave; tay d&agrave;i. Đường may nh&uacute;n vải hai b&ecirc;n tạo độ xếp rủ.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 125.0 cm (K&iacute;ch cỡ M/T), Tay &aacute;o: Chiều d&agrave;i: 61.6 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Midi</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ vừa</div>\r\n<div>Phong c&aacute;ch:&nbsp;Gấp nếp</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ lọ</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u be đậm, M&agrave;u trơn</div>', '2023-11-23', 999000, 750000, 191, 'Glowing', 16, 0, 0, 'hmgoepprod (37).jpg', 'hmgoepprod (38).jpg', 'hmgoepprod (39).jpg', 'hmgoepprod (39).jpg', 'hmgoepprod (40).jpg'),
+(20, 'Váy sơ mi có thắt lưng buộc', 32, '<p>V&aacute;y d&agrave;i ngang bắp ch&acirc;n bằng vải dệt thoi c&oacute; cổ trụ, khuy ẩn dọc th&acirc;n trước v&agrave; tay c&aacute;nh dơi d&agrave;i với măng s&eacute;t c&agrave;i khuy. Thắt lưng buộc c&oacute; thể th&aacute;o rời ở eo. Kh&ocirc;ng c&oacute; lớp l&oacute;t.</p>\r\n<div>K&iacute;ch cỡ:Mặt sau: Chiều d&agrave;i: 125.0 cm (K&iacute;ch cỡ M/T)</div>\r\n<div>Chiều cao:&nbsp;Midi</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;&Ocirc;m vừa</div>\r\n<div>Cổ &aacute;o:&nbsp;Cổ trụ&nbsp;</div>\r\n<div>Phong c&aacute;ch:&nbsp;Đầm sơ mi</div>\r\n<div>Kiểu tay &aacute;o:&nbsp;Ống tay c&aacute;nh dơi rộng</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u đen/Trắng, Kẻ sọc</div>', '2023-11-23', 1300000, 999000, 188, 'Glowing', 1067, 0, 0, 'hmgoepprod (42).jpg', 'hmgoepprod (42).jpg', 'hmgoepprod (43).jpg', 'hmgoepprod (44).jpg', 'hmgoepprod (46).jpg'),
 (21, 'Bộ 2 áo thun lửng ', 31, '<p>&Aacute;o thun &ocirc;m, lửng bằng cotton jersey mềm.</p>\r\n<div>C&aacute;i/Cặp:&nbsp;2</div>\r\n<div>Chiều cao:&nbsp;Lửng</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay &aacute;o ngắn</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ vừa</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u đen/Trắng, M&agrave;u trơn</div>', '2023-11-23', 400000, 300000, 120, 'Glowing', 100, 0, 0, 'hmgoepprod (47).jpg', 'hmgoepprod (48).jpg', 'hmgoepprod (49).jpg', 'hmgoepprod (50).jpg', 'hmgoepprod (51).jpg'),
 (22, 'Áo jersey gân nổi', 29, '<p>&Aacute;o &ocirc;m bằng cotton jersey g&acirc;n nổi với cổ tr&ograve;n c&oacute; viền nhỏ. Tay d&agrave;i v&agrave; vạt ngang.</p>\r\n<div>Chiều cao:&nbsp;Chiều d&agrave;i b&igrave;nh thường</div>\r\n<div>Chiều d&agrave;i tay &aacute;o:&nbsp;Tay d&agrave;i</div>\r\n<div>Độ vừa vặn:&nbsp;Cỡ vừa</div>\r\n<div>Đường viền cổ &aacute;o:&nbsp;Cổ tr&ograve;n</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u be nhạt/Đen, Kẻ sọc</div>', '2023-11-23', 600000, 100000, 200, 'Glowing', 0, 0, 0, 'hmgoepprod (52).jpg', 'hmgoepprod (53).jpg', 'hmgoepprod (1).webp', 'hmgoepprod (2).webp', 'hmgoepprod (3).webp'),
 (23, 'Khăn quàng cổ dệt thoi', 34, '<p>Khăn qu&agrave;ng cổ bằng vải dệt thoi c&oacute; tua rua dọc c&aacute;c cạnh ngắn.</p>\r\n<div>Trọng lượng:&nbsp;190 g</div>\r\n<div>M&ocirc; tả:&nbsp;M&agrave;u x&aacute;m nhạt, M&agrave;u trơn</div>', '2023-11-23', 299000, 150000, 200, 'Glowing', 0, 0, 0, 'hmgoepprod (55).jpg', 'hmgoepprod (56).jpg', 'hmgoepprod (57).jpg', 'hmgoepprod (59).jpg', 'hmgoepprod (55).jpg'),
@@ -450,19 +461,19 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT for table `binh_luan`
 --
 ALTER TABLE `binh_luan`
-  MODIFY `ma_binh_luan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ma_binh_luan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `ma_chi_tiet_don_hang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ma_chi_tiet_don_hang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `ma_don_hang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1014;
+  MODIFY `ma_don_hang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1018;
 
 --
 -- AUTO_INCREMENT for table `khach_hang`
@@ -480,7 +491,7 @@ ALTER TABLE `lien_he`
 -- AUTO_INCREMENT for table `ma_giam_gia`
 --
 ALTER TABLE `ma_giam_gia`
-  MODIFY `id_giam_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_giam_gia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `quyen`

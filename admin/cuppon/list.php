@@ -15,6 +15,7 @@
                                                     <th>Nội dung </th>
                                                     <th>Số tiền giảm</th>
                                                     <th>Ngày hết hạn</th>
+                                                    <th>Trạng thái</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -45,7 +46,22 @@
                                                         </td>
                                                         <td>
                                                             <span class="font-semibold"><?=$ngay_het_han?></span>  
-                                                        </td>   
+                                                        </td> 
+                                                        <td>
+                                                            <span class="font-semibold"><?php
+                                                                $current_date = date('Y-m-d');
+                                                                $expire_date = $ngay_het_han;
+                                                                if ($current_date > $expire_date) {
+                                                                    echo '<span class="text-red-500">Hết hạn</span>';
+                                                                    del_ma_giam_gia($id_giam_gia);
+                                                                    header('location:admin.php?act=cuppon');
+                                                                } else {
+                                                                    echo '<span class="text-green-500">Còn hạn</span>';
+                                                                }
+                                                            
+                                                            
+                                                            
+                                                            ?></span>  
                                                         <td>
                                                                 <div class="flex justify-end text-lg">
                                                                     <span class="cursor-pointer p-2 hover:text-indigo-600" data-bs-toggle="tooltip" data-bs-title="Sửa">

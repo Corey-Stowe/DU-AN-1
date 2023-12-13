@@ -33,6 +33,16 @@
     <div class="text-center">
       <h2 class="mb-6">Thanh Toán</h2>
     </div>
+    <?php
+
+                    if(isset($_SESSION['magiamloi'])){
+                      
+                        echo '<div class="alert alert-danger" role="alert">
+                        '.$_SESSION['magiamloi'].''.'</div>';
+                        unset($_SESSION['magiamloi']);
+                    }
+                    
+                    ?>
     <div class="collapse" id="collapsecoupon">
               <div class="card mw-60 border-0">
                 <div class="card-body py-10 px-8 my-10 border">
@@ -41,14 +51,6 @@
                     <form action="index.php?act=coupon" method="POST">
                     <input type="code" name="magiam" class="form-control bg-body rounded-end" placeholder="Mã giảm giá">
                     <button type="submit" name="code" class="btn btn-dark btn-hover-bg-primary btn-hover-border-primary"> Áp dụng mã giảm giá </button>
-                    <?php
-                    if(isset($error)){
-                      foreach($error as $value){
-                        echo $value;
-                      }
-                    }
-                    
-                    ?>
                     </form>
                   </div>
                 </div>
@@ -135,6 +137,7 @@
         <div class="col-lg-8 order-lg-first pe-xl-20 pe-lg-6">
           <div class="checkout">
             <p>Bạn có mã giảm giá? <a data-bs-toggle="collapse" href="#collapsecoupon" role="button" aria-expanded="false" aria-controls="collapsecoupon">Bấm vào đây để áp dụng</a>
+        
             </p>
             
             <h4 class="fs-4 pt-4 mb-7">Thông tin nhân hàng</h4>

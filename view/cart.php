@@ -1,3 +1,4 @@
+
 <main id="content" class="wrapper layout-page">
   <section class="z-index-2 position-relative pb-2 mb-12">
     <div class="bg-body-secondary mb-3">
@@ -51,6 +52,8 @@
                     </p>
                     <p class="card-text">
                       <span class="fs-13px fw-500 text-body-emphasis pe-3">Size: <?php echo $size?></span>
+                      <br>
+                      <span class="fs-13px fw-500 text-body-emphasis pe-3">Màu: <?php echo $mau?></span>
                     </p>
 
                   </div>

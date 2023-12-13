@@ -18,6 +18,7 @@ function donhang_get_chi_tiet($ma_don_hang){
     chi_tiet_don_hang.ma_san_pham,
     chi_tiet_don_hang.so_luong,
     chi_tiet_don_hang.size,
+    chi_tiet_don_hang.mau,
     chi_tiet_don_hang.don_gia,
     khach_hang.ten_khach_hang,
     khach_hang.dia_chi,
@@ -124,9 +125,9 @@ function donhang_create($ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma
     $sql = "INSERT INTO don_hang(ma_khach_hang, ghi_chu_kh, phuong_thuc_thanh_toan,ma_giam_gia) VALUES (?, ?, ?, ?)";
     pdo_execute($sql, $ma_khach_hang, $ghi_chu_kh, $phuong_thuc_thanh_toan,$ma_giam_gia);
 }
-function donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $don_gia,$size){
-    $sql = "INSERT INTO chi_tiet_don_hang(ma_don_hang, ma_san_pham, so_luong, don_gia,size ) VALUES (?, ?, ?, ?,?)";
-    pdo_execute($sql, $ma_don_hang, $ma_san_pham, $so_luong, $don_gia,$size);
+function donhang_insert_ctdonhang($ma_don_hang, $ma_san_pham, $so_luong, $don_gia,$size,$mau){
+    $sql = "INSERT INTO chi_tiet_don_hang(ma_don_hang, ma_san_pham, so_luong, don_gia,size,mau ) VALUES (?, ?, ?, ?,?,?)";
+    pdo_execute($sql, $ma_don_hang, $ma_san_pham, $so_luong, $don_gia,$size,$mau);
 }
 function donhang_update_trangthai($ma_don_hang, $trang_thai_don){
     $sql = "UPDATE don_hang SET trang_thai_don = ? WHERE ma_don_hang = ?";
