@@ -106,7 +106,10 @@ function donhang_list_verify(){
     return $data;
 }
 function donhang_list_by_date(){
-    $sql = "SELECT * FROM don_hang JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang ORDER BY don_hang.ngay_dat_hang DESC";
+    $sql = "SELECT * 
+    FROM don_hang 
+    JOIN khach_hang ON don_hang.ma_khach_hang = khach_hang.ma_khach_hang 
+    ORDER BY don_hang.ngay_dat_hang DESC, don_hang.ma_don_hang DESC";
     $data = pdo_query($sql);
     return $data;
 }

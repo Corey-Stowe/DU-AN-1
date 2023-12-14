@@ -70,9 +70,9 @@
                 </a>
                 <div class="position-absolute product-flash z-index-2 ">
                   <span class="badge badge-product-flash on-sale bg-primary"><?php
-$phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
-echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
-?>%</span>
+                    $phan_tram_giam_gia = round(($don_gia - $giam_gia) / $don_gia * 100); 
+                    echo $phan_tram_giam_gia; // Xuất giá trị đã làm tròn
+                    ?>%</span>
                 </div>
                 <div class="position-absolute d-flex z-index-2 product-actions  horizontal">
                 <?php

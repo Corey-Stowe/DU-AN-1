@@ -64,8 +64,8 @@ if(isset($_POST['submit'])){
     $card_cvc = htmlspecialchars($_POST['card_cvc']);
     $ma_don_hang = $_GET['ma_don_hang'];
     $tong = $_POST['tong'];
-    $pk = 'pk_test_51OG5GjKXLBUZPNQwacFN3wDunhk8kCCnwMrS7EtL9DJFu4eRQEbKPNTTJnUozvSOfwdfIY2hnQX9MQv2Rp083Hws00fyvuzISu';
-    $sk = 'sk_test_51OG5GjKXLBUZPNQwT9v3zl7V6NTdhYr0z3QMaJZMPZqBKUNa1LcY4BplNCPQNRicCAGMKJ62Z1HUmwICvZoSJwUK00wM6nyZM1';
+    $pk = '';
+    $sk = '';
     
     // Create token
     $ch = curl_init();
